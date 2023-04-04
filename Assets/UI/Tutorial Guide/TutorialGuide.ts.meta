@@ -1,0 +1,47 @@
+fileFormatVersion: 2
+guid: 28d3a6ee8a49a48a9915123469b429e6
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst TMPro_1 = require(\"TMPro\");\r\nconst UnityEngine_UI_1
+    = require(\"UnityEngine.UI\");\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    EventTracker_1 = require(\"../../3D/Tracking/EventTracker\");\r\nconst i18nManager_1
+    = require(\"../../i18n/i18nManager\");\r\nclass TutorialGuide extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    constructor() {\r\n        super(...arguments);\r\n        this.selectedIndex
+    = 0;\r\n    }\r\n    static get Instance() {\r\n        return TutorialGuide.instance;\r\n   
+    }\r\n    Awake() {\r\n        TutorialGuide.instance = this;\r\n        this.buttonLabels
+    = this.buttons.map((button) => button.GetComponentInChildren($typeof(TMPro_1.TMP_Text)));\r\n       
+    for (let index = 0; index < this.buttons.length; ++index)\r\n            this.buttons[index].onClick.AddListener(()
+    => {\r\n                this.SetButton(index);\r\n            });\r\n    }\r\n   
+    Start() {\r\n        i18nManager_1.default.Instance.Event.OnChange((lang) =>
+    {\r\n            this.lang = lang;\r\n            this.UpdateButtonLabel();\r\n       
+    });\r\n    }\r\n    OnEnable() {\r\n        this.SetButton(0);\r\n        if
+    (EventTracker_1.default.Instance)\r\n            EventTracker_1.default.Instance.CountOpenTutorial();\r\n   
+    }\r\n    SetButton(selectedIndex) {\r\n        for (let index = 0; index < this.buttons.length;
+    ++index) {\r\n            this.buttons[index].interactable = index !== selectedIndex;\r\n           
+    this.buttonLabels[index].color =\r\n                index === selectedIndex\r\n                   
+    ? this.buttonLabelColor_Selected\r\n                    : this.buttonLabelColor_Unselected;\r\n       
+    }\r\n        this.selectedIndex = selectedIndex;\r\n        this.image.sprite
+    = this.images[selectedIndex];\r\n        this.UpdateButtonLabel();\r\n    }\r\n   
+    UpdateButtonLabel() {\r\n        if (this.lang)\r\n            this.text.text
+    = this.lang.get_Item(this.texts[this.selectedIndex]);\r\n    }\r\n}\r\nexports.default
+    = TutorialGuide;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVHV0b3JpYWxHdWlkZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlR1dG9yaWFsR3VpZGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpQ0FBaUM7QUFFakMsbURBQStDO0FBQy9DLGlEQUFzRDtBQUV0RCxpRUFBMEQ7QUFDMUQsd0RBQWlEO0FBR2pELE1BQXFCLGFBQWMsU0FBUSxxQ0FBcUI7SUFBaEU7O1FBMEJVLGtCQUFhLEdBQUcsQ0FBQyxDQUFDO0lBMkM1QixDQUFDO0lBbEVRLE1BQU0sS0FBSyxRQUFRO1FBQ3hCLE9BQU8sYUFBYSxDQUFDLFFBQVEsQ0FBQztJQUNoQyxDQUFDO0lBdUJNLEtBQUs7UUFDVixhQUFhLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQztRQUM5QixJQUFJLENBQUMsWUFBWSxHQUFHLElBQUksQ0FBQyxPQUFPLENBQUMsR0FBRyxDQUFDLENBQUMsTUFBTSxFQUFFLEVBQUUsQ0FDOUMsTUFBTSxDQUFDLHNCQUFzQixTQUFDLGdCQUFRLEVBQUcsQ0FDMUMsQ0FBQztRQUVGLEtBQUssSUFBSSxLQUFLLEdBQUcsQ0FBQyxFQUFFLEtBQUssR0FBRyxJQUFJLENBQUMsT0FBTyxDQUFDLE1BQU0sRUFBRSxFQUFFLEtBQUs7WUFDdEQsSUFBSSxDQUFDLE9BQU8sQ0FBQyxLQUFLLENBQUMsQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtnQkFDM0MsSUFBSSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQztZQUN4QixDQUFDLENBQUMsQ0FBQztJQUNQLENBQUM7SUFFTSxLQUFLO1FBQ1YscUJBQVcsQ0FBQyxRQUFRLENBQUMsS0FBSyxDQUFDLFFBQVEsQ0FBQyxDQUFDLElBQUksRUFBRSxFQUFFO1lBQzNDLElBQUksQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDO1lBQ2pCLElBQUksQ0FBQyxpQkFBaUIsRUFBRSxDQUFDO1FBQzNCLENBQUMsQ0FBQyxDQUFDO0lBQ0wsQ0FBQztJQUVNLFFBQVE7UUFDYixJQUFJLENBQUMsU0FBUyxDQUFDLENBQUMsQ0FBQyxDQUFDO1FBQ2xCLElBQUksc0JBQVksQ0FBQyxRQUFRO1lBQUUsc0JBQVksQ0FBQyxRQUFRLENBQUMsaUJBQWlCLEVBQUUsQ0FBQztJQUN2RSxDQUFDO0lBRU0sU0FBUyxDQUFDLGFBQXFCO1FBQ3BDLEtBQUssSUFBSSxLQUFLLEdBQUcsQ0FBQyxFQUFFLEtBQUssR0FBRyxJQUFJLENBQUMsT0FBTyxDQUFDLE1BQU0sRUFBRSxFQUFFLEtBQUssRUFBRTtZQUN4RCxJQUFJLENBQUMsT0FBTyxDQUFDLEtBQUssQ0FBQyxDQUFDLFlBQVksR0FBRyxLQUFLLEtBQUssYUFBYSxDQUFDO1lBQzNELElBQUksQ0FBQyxZQUFZLENBQUMsS0FBSyxDQUFDLENBQUMsS0FBSztnQkFDNUIsS0FBSyxLQUFLLGFBQWE7b0JBQ3JCLENBQUMsQ0FBQyxJQUFJLENBQUMseUJBQXlCO29CQUNoQyxDQUFDLENBQUMsSUFBSSxDQUFDLDJCQUEyQixDQUFDO1NBQ3hDO1FBRUQsSUFBSSxDQUFDLGFBQWEsR0FBRyxhQUFhLENBQUM7UUFDbkMsSUFBSSxDQUFDLEtBQUssQ0FBQyxNQUFNLEdBQUcsSUFBSSxDQUFDLE1BQU0sQ0FBQyxhQUFhLENBQUMsQ0FBQztRQUMvQyxJQUFJLENBQUMsaUJBQWlCLEVBQUUsQ0FBQztJQUMzQixDQUFDO0lBRU8saUJBQWlCO1FBQ3ZCLElBQUksSUFBSSxDQUFDLElBQUk7WUFBRSxJQUFJLENBQUMsSUFBSSxDQUFDLElBQUksR0FBRyxJQUFJLENBQUMsSUFBSSxVQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsSUFBSSxDQUFDLGFBQWEsQ0FBQyxDQUFDLENBQUM7SUFDNUUsQ0FBQztDQUNGO0FBckVELGdDQXFFQyJ9","assetPath":"Assets/UI/Tutorial
+    Guide/TutorialGuide.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"buttons","type":"UnityEngine.UI.Button[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''UI''"]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"image","type":"UnityEngine.UI.Image","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"Unity.TextMeshPro","name":"text","type":"TMPro.TMP_Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"buttonLabelColor_Selected","type":"UnityEngine.Color","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''Color''"]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"buttonLabelColor_Unselected","type":"UnityEngine.Color","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"images","type":"UnityEngine.Sprite[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''Contents''"]},{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"texts","type":"System.String[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"TutorialGuide","description":""},"isCompiled":true}'
+  typescriptHash: 0c0a8b0600cfd3a4c8d4740bd4755ed7
+  onlyWriteTrigger: 0

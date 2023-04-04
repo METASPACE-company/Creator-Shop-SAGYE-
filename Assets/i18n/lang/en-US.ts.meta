@@ -1,0 +1,104 @@
+fileFormatVersion: 2
+guid: 40e0e5e84701142baac8c71d11da77de
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.enUS = void 0;\r\n// prettier-ignore\r\nexports.enUS
+    = {\r\n    get_Item(key) {\r\n        return this[key];\r\n    },\r\n    ZM_Hub_Title_text1:
+    ''Visit the Creatorshop Shopping Mall and METASPACE World Booths at the Hub of
+    Zepeto Mall! '',\r\n    ZM_Hub_Title_text2: ''Visit creators\\'' shops to buy
+    various items and take pictures in cool photozones!'',\r\n    ZM_Hub_Title_text3:
+    ''Camera that you can control freely!\\nTake awesome shots using the Magic Camera
+    function!'',\r\n    ZM_Hub_Title_text4: ''Which Creatorshop Style suits me the
+    best?\\nLet\\''s find out by Style Matching Test!'',\r\n    ZM_StyleMatching_Start:
+    ''What\\''s your style?'',\r\n    ZM_StyleMatching_Question1: ''You entered a
+    world with groups of people in it.\\nHow will you approach them?'',\r\n    ZM_StyleMatching_Answer1:
+    ''First approach a user with the style that you like.'',\r\n    ZM_StyleMatching_Answer2:
+    ''Keep observing until someone comes talk to you.'',\r\n    ZM_StyleMatching_Question2:
+    ''You want to move into another world with a friend.\\nHow will you suggest that
+    to your friend?'',\r\n    ZM_StyleMatching_Answer3: ''\"Shall we go roleplay
+    elsewhere?\"'',\r\n    ZM_StyleMatching_Answer4: ''\"Shall we go meet another
+    friend?\" '',\r\n    ZM_StyleMatching_Question3: ''You arrived at a shopping
+    mall complex with many users.\\nWhat is your shopping style?'',\r\n    ZM_StyleMatching_Answer5:
+    ''Plan out the whole course while looking at a map.'',\r\n    ZM_StyleMatching_Answer6:
+    ''Quickly buy what\\''s only needed for me.'',\r\n    ZM_StyleMatching_Answer7:
+    ''Help a contemplating friend with shopping.'',\r\n    ZM_StyleMatching_Answer8:
+    ''Go on an eyeshopping for inspirations.'',\r\n    ZM_StyleMatching_Answer9:
+    ''Discover new brands for a change of style.'',\r\n    ZM_StyleMatching_Answer10:
+    ''Find outfits within the familiar and reliable brands.'',\r\n    ZM_StyleMatching_Answer11:
+    ''Shop for basic items with wide range of usage.'',\r\n    ZM_StyleMatching_Answer12:
+    ''Keep looking around until the perfect outfits are found.'',\r\n    ZM_StyleMatching_Question4:
+    ''What is the most important thing to consider when you are shopping for outfits?'',\r\n   
+    ZM_StyleMatching_Answer13: ''Too much uniqueness is burdensome! I like it simple!'',\r\n   
+    ZM_StyleMatching_Answer14: ''Fashion is my identity! I like unique styles that
+    show my true self.'',\r\n    ZM_StyleMatching_Question5: ''You went outside to
+    look around the popup store.\\nWhich store would your eyes draw into?'',\r\n   
+    ZM_StyleMatching_Answer15: ''I want to become an idol loved by everyone!\\nIdol
+    Simulator Idol School!'',\r\n    ZM_StyleMatching_Answer16: ''Disco Party where
+    I can dance with thrill!'',\r\n    ZM_StyleMatching_ResultShare: ''Upload to
+    Feed'',\r\n    ZM_StyleMatching_ResultTeleport: ''Teleport'',\r\n    ZM_StyleMatching_Title_recommend:
+    ''Your style is'',\r\n    ZM_StyleMatching_Casual_Title: ''CASUAL'',\r\n    ZM_StyleMatching_Street_Title:
+    ''STREET'',\r\n    ZM_StyleMatching_Romantic_Title: ''ROMANTIC'',\r\n    ZM_StyleMatching_Cosplay_Title:
+    ''COSPLAY'',\r\n    ZM_StyleMatching_Formal_Title: ''FORMAL'',\r\n    ZM_StyleMatching_Luxury_Title:
+    ''LUXURY'',\r\n    ZM_StyleMatching_Vintage_Title: ''VINTAGE'',\r\n    ZM_StyleMatching_Goth_Title:
+    ''GOTH'',\r\n    ZM_StyleMatching_Casual_Text: ''Back to the basics! How about
+    light and casual styles?\\nSimplicity is the best.'',\r\n    ZM_StyleMatching_Street_Text:
+    ''Extra plus ordinary!\\nStyle that refuses to be limited in any environment.'',\r\n   
+    ZM_StyleMatching_Romantic_Text: ''Lovely style that is sure to make your eyes
+    go <3!\\nTickle the inner pink in you!'',\r\n    ZM_StyleMatching_Cosplay_Text:
+    ''Cosplay as your favorite anime or fantasy characters!\\nTransform yourself
+    with various costumes.'',\r\n    ZM_StyleMatching_Formal_Text: ''Dandy and professional
+    image\\nfor all smart ladies and gentlemen.'',\r\n    ZM_StyleMatching_Luxury_Text:
+    ''Raise your champagne because it\\''s time to attend the party.\\nGlitters and
+    sparkly gems add the delight.'',\r\n    ZM_StyleMatching_Vintage_Text: ''Find
+    the subtle charm in aged vintages.\\nScrapbook aesthetics that make you feel
+    cozy and warm.'',\r\n    ZM_StyleMatching_Goth_Text: ''Mysterious and dark vibes!\\nHalloween
+    is your favorite time of the year.'',\r\n    ZM_StyleMatching_ResultPopup: ''Uploaded
+    to feed successfully!'',\r\n    ZM_MagicCamera_Tutorial1: ''Flash ON/OFF'',\r\n   
+    ZM_MagicCamera_Tutorial2: ''Camera Tutorial'',\r\n    ZM_MagicCamera_Tutorial3:
+    ''Camera Height Control'',\r\n    ZM_MagicCamera_Tutorial4: ''Camera Zoom Control'',\r\n   
+    ZM_MagicCamera_Tutorial5: ''Exit Camera'',\r\n    ZM_MagicCamera_Tutorial6: ''Take
+    a picture'',\r\n    ZM_MagicCamera_Tutorial7: ''Fix Camera position\\nand return
+    to Player\\''s POV'',\r\n    ZM_StyleMatching_Hashtag: ''What\\''s my StyleMatching
+    result? Find out in ZepetoMall now!\\n\\n#ZepetoMall #StyleMatching #creatorshop2
+    #ZGM #METASPACE'',\r\n    ZM_MagicCamera_Hashtag: ''Trying out the new Magic
+    Camera from ZepetoMall!\\n\\n#ZepetoMall #MagicCamera #creatorshop2 #ZGM #METASPACE'',\r\n   
+    ZW_POSE_001: ''Hi'',\r\n    ZW_POSE_002: ''Thumbs up'',\r\n    ZW_POSE_003: ''Good
+    night'',\r\n    ZW_POSE_004: ''Heart1'',\r\n    ZW_POSE_005: ''Heart2'',\r\n   
+    ZW_POSE_006: ''Lie down'',\r\n    ZW_POSE_007: ''Model1'',\r\n    ZW_POSE_010:
+    ''Chin rest1'',\r\n    ZW_POSE_011: ''Chin rest2'',\r\n    ZW_POSE_012: ''Sit2'',\r\n   
+    ZW_POSE_013: ''Chin rest3'',\r\n    ZW_POSE_014: ''Comic2'',\r\n    ZW_POSE_015:
+    ''Shy'',\r\n    ZW_POSE_017: ''Comic3'',\r\n    ZW_POSE_018: ''Rock \\''n\\''
+    roll'',\r\n    ZW_POSE_019: ''Model2'',\r\n    ZW_POSE_020: ''Model3'',\r\n   
+    ZW_POSE_022: ''Kiss'',\r\n    ZW_POSE_023: ''V-!'',\r\n    ZW_POSE_024: ''Dance2'',\r\n   
+    ZW_POSE_025: ''Confident'',\r\n    ZW_POSE_027: ''Dance1'',\r\n    ZW_POSE_028:
+    ''Magic1'',\r\n    ZW_POSE_029: ''Magic2'',\r\n    ZW_POSE_030: ''Martial arts'',\r\n   
+    ZW_POSE_031: ''Salute'',\r\n    ZW_POSE_034: ''Introduction1'',\r\n    ZW_POSE_035:
+    ''Half heart1'',\r\n    ZW_POSE_036: ''Half heart2'',\r\n    ZW_POSE_037: ''Balancing'',\r\n   
+    ZW_POSE_038: ''Introduction2'',\r\n    ZW_POSE_039: ''Heart3'',\r\n    ZW_POSE_040:
+    ''Lay1'',\r\n    ZW_POSE_041_2: ''Lay2'',\r\n    ZW_POSE_042: ''Pose6'',\r\n   
+    ZW_POSE_043: ''Sit3'',\r\n    ZW_POSE_044: ''Sit4'',\r\n    ZW_POSE_045: ''Sit5'',\r\n   
+    ZW_POSE_047: ''Ok2'',\r\n    ZW_POSE_048: ''Model4'',\r\n    ZW_POSE_049: ''Model5'',\r\n   
+    ZW_POSE_050: ''Model6'',\r\n    ZW_POSE_051: ''Model7'',\r\n    ZW_POSE_052:
+    ''Gazing'',\r\n    ZW_POSE_053: ''Getting up'',\r\n    ZW_POSE_054: ''Stretching2'',\r\n   
+    ZW_POSE_055: ''Stretching3'',\r\n    ZW_POSE_056: ''Let\\''s stretch'',\r\n   
+    ZW_POSE_057: ''Goal'',\r\n    ZW_POSE_GX_IDLE: ''Magic3'',\r\n    ZW_POSE_ZH_008:
+    ''Boom boom pow'',\r\n    ZW_POSE_ZH_036: ''Thinking man'',\r\n};\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZW4tVVMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJlbi1VUy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFFQSxrQkFBa0I7QUFDTCxRQUFBLElBQUksR0FBZTtJQUM5QixRQUFRLENBQUMsR0FBVztRQUNsQixPQUFPLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQztJQUNuQixDQUFDO0lBQ0Qsa0JBQWtCLEVBQUUsNEZBQTRGO0lBQ2hILGtCQUFrQixFQUFFLG1GQUFtRjtJQUN2RyxrQkFBa0IsRUFBRSwwRkFBMEY7SUFDOUcsa0JBQWtCLEVBQUUscUZBQXFGO0lBQ3pHLHNCQUFzQixFQUFFLHFCQUFxQjtJQUM3QywwQkFBMEIsRUFBRSwrRUFBK0U7SUFDM0csd0JBQXdCLEVBQUUscURBQXFEO0lBQy9FLHdCQUF3QixFQUFFLGlEQUFpRDtJQUMzRSwwQkFBMEIsRUFBRSwrRkFBK0Y7SUFDM0gsd0JBQXdCLEVBQUUsbUNBQW1DO0lBQzdELHdCQUF3QixFQUFFLHFDQUFxQztJQUMvRCwwQkFBMEIsRUFBRSx1RkFBdUY7SUFDbkgsd0JBQXdCLEVBQUUsbURBQW1EO0lBQzdFLHdCQUF3QixFQUFFLHlDQUF5QztJQUNuRSx3QkFBd0IsRUFBRSw0Q0FBNEM7SUFDdEUsd0JBQXdCLEVBQUUsd0NBQXdDO0lBQ2xFLHdCQUF3QixFQUFFLDRDQUE0QztJQUN0RSx5QkFBeUIsRUFBRSx1REFBdUQ7SUFDbEYseUJBQXlCLEVBQUUsZ0RBQWdEO0lBQzNFLHlCQUF5QixFQUFFLDBEQUEwRDtJQUNyRiwwQkFBMEIsRUFBRSxpRkFBaUY7SUFDN0cseUJBQXlCLEVBQUUsc0RBQXNEO0lBQ2pGLHlCQUF5QixFQUFFLHNFQUFzRTtJQUNqRywwQkFBMEIsRUFBRSwwRkFBMEY7SUFDdEgseUJBQXlCLEVBQUUsMEVBQTBFO0lBQ3JHLHlCQUF5QixFQUFFLDRDQUE0QztJQUN2RSw0QkFBNEIsRUFBRSxnQkFBZ0I7SUFDOUMsK0JBQStCLEVBQUUsVUFBVTtJQUMzQyxn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","assetPath":"Assets/i18n/lang/en-US.ts","manifest":{"properties":[],"name":"en-US","description":""},"isCompiled":true}'
+  typescriptHash: 87dd5f2163880a838221d59aec07e18c
+  onlyWriteTrigger: 0

@@ -1,0 +1,43 @@
+fileFormatVersion: 2
+guid: 2fec0c15fc25d4108bc280683c057d7a
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    i18n_1 = require(\"../../i18n/i18n\");\r\nconst i18nManager_1 = require(\"../../i18n/i18nManager\");\r\nclass
+    Language extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake() {\r\n       
+    this.buttons[0].onClick.AddListener(this.OnClickButton.bind(this, this.buttons[0],
+    i18n_1.Language.English));\r\n        this.buttons[1].onClick.AddListener(this.OnClickButton.bind(this,
+    this.buttons[1], i18n_1.Language.Japanese));\r\n        this.buttons[2].onClick.AddListener(this.OnClickButton.bind(this,
+    this.buttons[2], i18n_1.Language.Korean));\r\n        this.buttons[3].onClick.AddListener(this.OnClickButton.bind(this,
+    this.buttons[3], i18n_1.Language.Thai));\r\n        this.buttons[4].onClick.AddListener(this.OnClickButton.bind(this,
+    this.buttons[4], i18n_1.Language.Indonesian));\r\n    }\r\n    OnEnable() {\r\n       
+    let index;\r\n        switch (i18nManager_1.default.Instance.Language) {\r\n           
+    case i18n_1.Language.English:\r\n                index = 0;\r\n               
+    break;\r\n            case i18n_1.Language.Japanese:\r\n                index
+    = 1;\r\n                break;\r\n            case i18n_1.Language.Korean:\r\n               
+    index = 2;\r\n                break;\r\n            case i18n_1.Language.Thai:\r\n               
+    index = 3;\r\n                break;\r\n            case i18n_1.Language.Indonesian:\r\n               
+    index = 4;\r\n                break;\r\n        }\r\n        this.OnClickButton(this.buttons[index],
+    i18nManager_1.default.Instance.Language);\r\n    }\r\n    OnClickButton(button,
+    language) {\r\n        for (let button of this.buttons)\r\n            button.interactable
+    = true;\r\n        button.interactable = false;\r\n        i18nManager_1.default.Instance.SetLanguage(language);\r\n   
+    }\r\n}\r\nexports.default = Language;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTGFuZ3VhZ2UuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJMYW5ndWFnZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLGlEQUFzRDtBQUV0RCwwQ0FBMkQ7QUFDM0Qsd0RBQWlEO0FBRWpELE1BQXFCLFFBQVMsU0FBUSxxQ0FBcUI7SUFJbEQsS0FBSztRQUNWLElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FDakMsSUFBSSxDQUFDLGFBQWEsQ0FBQyxJQUFJLENBQUMsSUFBSSxFQUFFLElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDLEVBQUUsZUFBWSxDQUFDLE9BQU8sQ0FBQyxDQUNyRSxDQUFDO1FBQ0YsSUFBSSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUMsQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUNqQyxJQUFJLENBQUMsYUFBYSxDQUFDLElBQUksQ0FBQyxJQUFJLEVBQUUsSUFBSSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUMsRUFBRSxlQUFZLENBQUMsUUFBUSxDQUFDLENBQ3RFLENBQUM7UUFDRixJQUFJLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQyxDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQ2pDLElBQUksQ0FBQyxhQUFhLENBQUMsSUFBSSxDQUFDLElBQUksRUFBRSxJQUFJLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FBQyxFQUFFLGVBQVksQ0FBQyxNQUFNLENBQUMsQ0FDcEUsQ0FBQztRQUNGLElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FDakMsSUFBSSxDQUFDLGFBQWEsQ0FBQyxJQUFJLENBQUMsSUFBSSxFQUFFLElBQUksQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDLEVBQUUsZUFBWSxDQUFDLElBQUksQ0FBQyxDQUNsRSxDQUFDO1FBQ0YsSUFBSSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUMsQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUNqQyxJQUFJLENBQUMsYUFBYSxDQUFDLElBQUksQ0FBQyxJQUFJLEVBQUUsSUFBSSxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUMsRUFBRSxlQUFZLENBQUMsVUFBVSxDQUFDLENBQ3hFLENBQUM7SUFDSixDQUFDO0lBRU0sUUFBUTtRQUNiLElBQUksS0FBYSxDQUFDO1FBRWxCLFFBQVEscUJBQVcsQ0FBQyxRQUFRLENBQUMsUUFBUSxFQUFFO1lBQ3JDLEtBQUssZUFBWSxDQUFDLE9BQU87Z0JBQ3ZCLEtBQUssR0FBRyxDQUFDLENBQUM7Z0JBQ1YsTUFBTTtZQUNSLEtBQUssZUFBWSxDQUFDLFFBQVE7Z0JBQ3hCLEtBQUssR0FBRyxDQUFDLENBQUM7Z0JBQ1YsTUFBTTtZQUNSLEtBQUssZUFBWSxDQUFDLE1BQU07Z0JBQ3RCLEtBQUssR0FBRyxDQUFDLENBQUM7Z0JBQ1YsTUFBTTtZQUNSLEtBQUssZUFBWSxDQUFDLElBQUk7Z0JBQ3BCLEtBQUssR0FBRyxDQUFDLENBQUM7Z0JBQ1YsTUFBTTtZQUNSLEtBQUssZUFBWSxDQUFDLFVBQVU7Z0JBQzFCLEtBQUssR0FBRyxDQUFDLENBQUM7Z0JBQ1YsTUFBTTtTQUNUO1FBRUQsSUFBSSxDQUFDLGFBQWEsQ0FBQyxJQUFJLENBQUMsT0FBTyxDQUFDLEtBQUssQ0FBQyxFQUFFLHFCQUFXLENBQUMsUUFBUSxDQUFDLFFBQVEsQ0FBQyxDQUFDO0lBQ3pFLENBQUM7SUFFTyxhQUFhLENBQUMsTUFBYyxFQUFFLFFBQXNCO1FBQzFELEtBQUssSUFBSSxNQUFNLElBQUksSUFBSSxDQUFDLE9BQU87WUFBRSxNQUFNLENBQUMsWUFBWSxHQUFHLElBQUksQ0FBQztRQUM1RCxNQUFNLENBQUMsWUFBWSxHQUFHLEtBQUssQ0FBQztRQUM1QixxQkFBVyxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsUUFBUSxDQUFDLENBQUM7SUFDN0MsQ0FBQztDQUNGO0FBbkRELDJCQW1EQyJ9","assetPath":"Assets/UI/Language/Language.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"buttons","type":"UnityEngine.UI.Button[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"Language","description":""},"isCompiled":true}'
+  typescriptHash: 7208ace1332d15a1390fb5d0ca7b4c52
+  onlyWriteTrigger: 0

@@ -1,0 +1,70 @@
+fileFormatVersion: 2
+guid: ac5f4ad65a7974997ad5dc898007aaec
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst ZEPETO_World_1 = require(\"ZEPETO.World\");\r\nconst
+    GlobalMessageManager_1 = require(\"../../Network/Message/GlobalMessageManager\");\r\nconst
+    MessageHandler_1 = require(\"../../Network/Message/MessageHandler\");\r\nconst
+    LocalPlayer_1 = require(\"../../Network/Sync/LocalPlayer\");\r\nconst PlayerManager_1
+    = require(\"../../Network/Sync/PlayerManager\");\r\nconst ClientPackets_1 = require(\"../../Network/World-client/ClientPackets\");\r\nconst
+    SEManager_1 = require(\"../../Sfx/SEManager\");\r\nconst SfxProvider_1 = require(\"../../Sfx/SfxProvider\");\r\nconst
+    VirtualPadController_1 = require(\"../Virtual Pad/VirtualPadController\");\r\nconst
+    GestureCamera_1 = require(\"./GestureCamera\");\r\nconst GesturePlayer_1 = require(\"./GesturePlayer\");\r\nconst
+    GestureUI_1 = require(\"./GestureUI\");\r\nclass Gesture extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    constructor() {\r\n        super(...arguments);\r\n        this.prepared
+    = false;\r\n        this.msgHandler = new MessageHandler_1.MessageHandler();\r\n   
+    }\r\n    static get Instance() {\r\n        return Gesture.instance;\r\n    }\r\n   
+    get UI() {\r\n        return this.ui;\r\n    }\r\n    get IsPrepared() {\r\n       
+    return this.prepared;\r\n    }\r\n    get Contents() {\r\n        return this.contents;\r\n   
+    }\r\n    Awake() {\r\n        Gesture.instance = this;\r\n        this.ui = this._ui.GetComponent($typeof(GestureUI_1.default));\r\n       
+    this.camera = this._camera.GetComponent($typeof(GestureCamera_1.default));\r\n       
+    this.msgHandler.addHandler(ClientPackets_1.server.gesture.MessageType.PlayGesture,
+    this.OnPlayGesture.bind(this));\r\n    }\r\n    async Prepare(character) {\r\n       
+    VirtualPadController_1.default.Instance.OnceInitialized((pad) => {\r\n           
+    pad.TouchPad.OnPointerDownEvent.AddListener(() => {\r\n                character.ZepetoCharacter.CancelGesture();\r\n           
+    });\r\n            pad.JumpButton.onClick.AddListener(() => {\r\n               
+    character.ZepetoCharacter.CancelGesture();\r\n            });\r\n        });\r\n       
+    const contents = (await Promise.all([\r\n            // new Promise<Content[]>((resolve)
+    =>\r\n            //   ZepetoWorldContent.RequestOfficialContentList(\r\n           
+    //     OfficialContentType.Gesture,\r\n            //     resolve,\r\n           
+    //   ),\r\n            // ),\r\n            new Promise((resolve) => ZEPETO_World_1.ZepetoWorldContent.RequestOfficialContentList(ZEPETO_World_1.OfficialContentType.Pose,
+    resolve)),\r\n        ])).flat();\r\n        contents.sort((a, b) => a.Id.localeCompare(b.Id));\r\n       
+    const [player, animations] = await Promise.all([\r\n            GesturePlayer_1.default.Spawn(character.UserId),\r\n           
+    Promise.all(contents.map(async (content) => {\r\n                if (!content.IsDownloadedAnimation)\r\n                   
+    await new Promise((resolve) => content.DownloadAnimation(resolve));\r\n               
+    return content.AnimationClip;\r\n            })),\r\n        ]);\r\n        const
+    thumbnails = await new Promise((resolve) => this.camera.Capture(player, animations,
+    resolve));\r\n        player.Deactivate();\r\n        for (let index = 0; index
+    < animations.length; ++index) {\r\n            const slot = this.ui.AppendSlot(thumbnails[index],
+    contents[index].Id);\r\n            slot.Button.onClick.AddListener(() => {\r\n               
+    GlobalMessageManager_1.default.Instance.sendMessage(ClientPackets_1.client.gesture.MessageType.PlayGesture,
+    ClientPackets_1.client.gesture.encodePlayGesture({\r\n                    gesture:
+    index,\r\n                }));\r\n                character.ZepetoCharacter.SetGesture(animations[index]);\r\n               
+    SEManager_1.default.Instance.Play(SfxProvider_1.default.Instance.UIClick);\r\n           
+    });\r\n        }\r\n        this.contents = contents;\r\n        this.animations
+    = animations;\r\n        this.prepared = true;\r\n    }\r\n    OnPlayGesture(ctx,
+    type, payload) {\r\n        const packet = ClientPackets_1.server.gesture.decodePlayGesture(payload);\r\n       
+    if (!PlayerManager_1.default.Instance.RemoteSyncer.HasPlayer(packet.sessionId))\r\n           
+    return;\r\n        const player = PlayerManager_1.default.Instance.RemoteSyncer.GetPlayer(packet.sessionId);\r\n       
+    player.character.SetGesture(this.animations[packet.gesture]);\r\n    }\r\n}\r\nexports.default
+    = Gesture;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2VzdHVyZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkdlc3R1cmUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw2Q0FBdUU7QUFFdkUsaURBQXNEO0FBQ3RELCtDQUFnRjtBQUVoRixxRkFBOEU7QUFDOUUseUVBQXNFO0FBQ3RFLGdFQUF5RDtBQUN6RCxvRUFBNkQ7QUFDN0QsNEVBQTBFO0FBQzFFLG1EQUE0QztBQUM1Qyx1REFBZ0Q7QUFDaEQsOEVBQXVFO0FBQ3ZFLG1EQUE0QztBQUM1QyxtREFBNEM7QUFDNUMsMkNBQW9DO0FBRXBDLE1BQXFCLE9BQVEsU0FBUSxxQ0FBcUI7SUFBMUQ7O1FBZ0JVLGFBQVEsR0FBRyxLQUFLLENBQUM7UUFHakIsZUFBVSxHQUFHLElBQUksK0JBQWMsRUFBRSxDQUFDO0lBb0c1QyxDQUFDO0lBcEhRLE1BQU0sS0FBSyxRQUFRO1FBQ3hCLE9BQU8sT0FBTyxDQUFDLFFBQVEsQ0FBQztJQUMxQixDQUFDO0lBZ0JELElBQVcsRUFBRTtRQUNYLE9BQU8sSUFBSSxDQUFDLEVBQUUsQ0FBQztJQUNqQixDQUFDO0lBRUQsSUFBVyxVQUFVO1FBQ25CLE9BQU8sSUFBSSxDQUFDLFFBQVEsQ0FBQztJQUN2QixDQUFDO0lBRUQsSUFBVyxRQUFRO1FBQ2pCLE9BQU8sSUFBSSxDQUFDLFFBQVEsQ0FBQztJQUN2QixDQUFDO0lBRU0sS0FBSztRQUNWLE9BQU8sQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDO1FBQ3hCLElBQUksQ0FBQyxFQUFFLEdBQUcsSUFBSSxDQUFDLEdBQUcsQ0FBQyxZQUFZLFNBQUMsbUJBQVMsRUFBRyxDQUFDO1FBQzdDLElBQUksQ0FBQyxNQUFNLEdBQUcsSUFBSSxDQUFDLE9BQU8sQ0FBQyxZQUFZLFNBQUMsdUJBQWEsRUFBRyxDQUFDO1FBRXpELElBQUksQ0FBQyxVQUFVLENBQUMsVUFBVSxDQUN4QixzQkFBTSxDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQUMsV0FBVyxFQUN0QyxJQUFJLENB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","assetPath":"Assets/UI/Gesture/Gesture.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"_ui","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''UI''"]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"_camera","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''System''"]},{"name":"SerializeField","args":[]}]}],"name":"Gesture","description":""},"isCompiled":true}'
+  typescriptHash: 56903b7211c8ca8b0b6ac471eca953c2
+  onlyWriteTrigger: 0

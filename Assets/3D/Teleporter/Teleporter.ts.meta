@@ -1,0 +1,42 @@
+fileFormatVersion: 2
+guid: d4ae634c71cc0433e9c29a86768df6b4
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nvar __decorate = (this && this.__decorate)
+    || function (decorators, target, key, desc) {\r\n    var c = arguments.length,
+    r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target,
+    key) : desc, d;\r\n    if (typeof Reflect === \"object\" && typeof Reflect.decorate
+    === \"function\") r = Reflect.decorate(decorators, target, key, desc);\r\n   
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i])
+    r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\r\n   
+    return c > 3 && r && Object.defineProperty(target, key, r), r;\r\n};\r\nObject.defineProperty(exports,
+    \"__esModule\", { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    PlayerManager_1 = require(\"../../Network/Sync/PlayerManager\");\r\nconst LoadingCover_1
+    = require(\"../../UI/Loading Cover/LoadingCover\");\r\nconst GlobalCoroutineManager_1
+    = require(\"../../Utility/GlobalCoroutineManager\");\r\nclass Teleporter extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    OnTriggerEnter(other) {\r\n       
+    if (other.tag !== ''LocalPlayer'')\r\n            return;\r\n        if (Teleporter.isTeleporting)\r\n           
+    return;\r\n        Teleporter.isTeleporting = true;\r\n        LoadingCover_1.default.Instance.RunWithCover(()
+    => {\r\n            PlayerManager_1.default.Instance.LocalSyncer.Teleport(this.target.position,
+    this.target.rotation);\r\n        });\r\n        GlobalCoroutineManager_1.default.Instance.RunAfter(2,
+    () => {\r\n            Teleporter.isTeleporting = false;\r\n        });\r\n   
+    }\r\n}\r\nTeleporter.isTeleporting = false;\r\n__decorate([], Teleporter.prototype,
+    \"target\", void 0);\r\nexports.default = Teleporter;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGVsZXBvcnRlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlRlbGVwb3J0ZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7Ozs7Ozs7QUFDQSxpREFBc0Q7QUFFdEQsb0VBQTZEO0FBQzdELHNFQUErRDtBQUMvRCxpRkFBMEU7QUFFMUUsTUFBcUIsVUFBVyxTQUFRLHFDQUFxQjtJQU1wRCxjQUFjLENBQUMsS0FBZTtRQUNuQyxJQUFJLEtBQUssQ0FBQyxHQUFHLEtBQUssYUFBYTtZQUFFLE9BQU87UUFDeEMsSUFBSSxVQUFVLENBQUMsYUFBYTtZQUFFLE9BQU87UUFFckMsVUFBVSxDQUFDLGFBQWEsR0FBRyxJQUFJLENBQUM7UUFFaEMsc0JBQVksQ0FBQyxRQUFRLENBQUMsWUFBWSxDQUFDLEdBQUcsRUFBRTtZQUN0Qyx1QkFBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsUUFBUSxDQUN6QyxJQUFJLENBQUMsTUFBTSxDQUFDLFFBQVEsRUFDcEIsSUFBSSxDQUFDLE1BQU0sQ0FBQyxRQUFRLENBQ3JCLENBQUM7UUFDSixDQUFDLENBQUMsQ0FBQztRQUNILGdDQUFzQixDQUFDLFFBQVEsQ0FBQyxRQUFRLENBQUMsQ0FBQyxFQUFFLEdBQUcsRUFBRTtZQUMvQyxVQUFVLENBQUMsYUFBYSxHQUFHLEtBQUssQ0FBQztRQUNuQyxDQUFDLENBQUMsQ0FBQztJQUNMLENBQUM7O0FBcEJjLHdCQUFhLEdBQVksS0FBSyxDQUFDO0FBRzlDLHNEQUEwQjtBQUo1Qiw2QkFzQkMifQ==","assetPath":"Assets/3D/Teleporter/Teleporter.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"target","type":"UnityEngine.Transform","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"Teleporter","description":""},"isCompiled":true}'
+  typescriptHash: 29fe30b8df388313ff578a9c44182e72
+  onlyWriteTrigger: 0

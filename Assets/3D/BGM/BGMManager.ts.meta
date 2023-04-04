@@ -1,0 +1,37 @@
+fileFormatVersion: 2
+guid: 0ef67d9fb59a44d51982c7a39da76124
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst LocalPlayer_1 = require(\"../../Network/Sync/LocalPlayer\");\r\nconst
+    BGMReductionPoint_1 = require(\"./BGMReductionPoint\");\r\nclass BGMManager extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    static get Instance() {\r\n       
+    return this.instance;\r\n    }\r\n    Awake() {\r\n        BGMManager.instance
+    = this;\r\n        this.source = this.GetComponent($typeof(UnityEngine_1.AudioSource));\r\n       
+    this.maxVolume = this.source.volume;\r\n    }\r\n    LateUpdate() {\r\n       
+    const player = LocalPlayer_1.default.Instance;\r\n        if (!player) {\r\n           
+    this.ApplyVolumeReduction(0);\r\n            return;\r\n        }\r\n       
+    const playerPosition = player.ZepetoCharacter.transform.position;\r\n       
+    const reductionRates = BGMReductionPoint_1.default.Points.map((point) => point.ComputeReductionRate(playerPosition));\r\n       
+    const maxReductionRate = Math.max(...reductionRates);\r\n        this.ApplyVolumeReduction(maxReductionRate);\r\n   
+    }\r\n    ApplyVolumeReduction(rate) {\r\n        this.source.volume = this.maxVolume
+    * (1 - rate);\r\n    }\r\n}\r\nexports.default = BGMManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQkdNTWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkJHTU1hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw2Q0FBMEM7QUFDMUMsaURBQXNEO0FBRXRELGdFQUF5RDtBQUN6RCwyREFBb0Q7QUFFcEQsTUFBcUIsVUFBVyxTQUFRLHFDQUFxQjtJQUdwRCxNQUFNLEtBQUssUUFBUTtRQUN4QixPQUFPLElBQUksQ0FBQyxRQUFRLENBQUM7SUFDdkIsQ0FBQztJQUtNLEtBQUs7UUFDVixVQUFVLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQztRQUUzQixJQUFJLENBQUMsTUFBTSxHQUFHLElBQUksQ0FBQyxZQUFZLFNBQUMseUJBQVcsRUFBRyxDQUFDO1FBQy9DLElBQUksQ0FBQyxTQUFTLEdBQUcsSUFBSSxDQUFDLE1BQU0sQ0FBQyxNQUFNLENBQUM7SUFDdEMsQ0FBQztJQUVNLFVBQVU7UUFDZixNQUFNLE1BQU0sR0FBRyxxQkFBVyxDQUFDLFFBQVEsQ0FBQztRQUNwQyxJQUFJLENBQUMsTUFBTSxFQUFFO1lBQ1gsSUFBSSxDQUFDLG9CQUFvQixDQUFDLENBQUMsQ0FBQyxDQUFDO1lBQzdCLE9BQU87U0FDUjtRQUVELE1BQU0sY0FBYyxHQUFHLE1BQU0sQ0FBQyxlQUFlLENBQUMsU0FBUyxDQUFDLFFBQVEsQ0FBQztRQUNqRSxNQUFNLGNBQWMsR0FBRywyQkFBaUIsQ0FBQyxNQUFNLENBQUMsR0FBRyxDQUFDLENBQUMsS0FBSyxFQUFFLEVBQUUsQ0FDNUQsS0FBSyxDQUFDLG9CQUFvQixDQUFDLGNBQWMsQ0FBQyxDQUMzQyxDQUFDO1FBQ0YsTUFBTSxnQkFBZ0IsR0FBRyxJQUFJLENBQUMsR0FBRyxDQUFDLEdBQUcsY0FBYyxDQUFDLENBQUM7UUFFckQsSUFBSSxDQUFDLG9CQUFvQixDQUFDLGdCQUFnQixDQUFDLENBQUM7SUFDOUMsQ0FBQztJQUVNLG9CQUFvQixDQUFDLElBQVk7UUFDdEMsSUFBSSxDQUFDLE1BQU0sQ0FBQyxNQUFNLEdBQUcsSUFBSSxDQUFDLFNBQVMsR0FBRyxDQUFDLENBQUMsR0FBRyxJQUFJLENBQUMsQ0FBQztJQUNuRCxDQUFDO0NBQ0Y7QUFwQ0QsNkJBb0NDIn0=","assetPath":"Assets/3D/BGM/BGMManager.ts","manifest":{"properties":[],"name":"BGMManager","description":""},"isCompiled":true}'
+  typescriptHash: 0d97606f6db1ff5e59f184aeee013467
+  onlyWriteTrigger: 0

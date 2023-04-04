@@ -1,0 +1,38 @@
+fileFormatVersion: 2
+guid: 14f765125e5904403a583687fa3da73a
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Analytics_1 = require(\"ZEPETO.Analytics\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass EventTracker extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    static get Instance() {\r\n        return EventTracker.instance;\r\n   
+    }\r\n    Awake() {\r\n        EventTracker.instance = this;\r\n    }\r\n    Start()
+    {\r\n        this.gaMS = this.msAnalytics.Analytics(ZEPETO_Analytics_1.AnalyticsType.GoogleAnalytics);\r\n   
+    }\r\n    CountEnterWorld() {\r\n        this.MSCountEvent(''EnterWorld'');\r\n   
+    }\r\n    CountTakeSeat() {\r\n        this.MSCountEvent(''TakeSeat'');\r\n   
+    }\r\n    CountEnterPortal() {\r\n        this.MSCountEvent(''EnterPortal'');\r\n   
+    }\r\n    CountOpenTutorial() {\r\n        this.MSCountEvent(''OpenTutorial'');\r\n   
+    }\r\n    CountEnterArea(area) {\r\n        this.MSCountEvent(`EnterArea:${area}`);\r\n   
+    }\r\n    CountOpenMagicCamera() {\r\n        this.MSCountEvent(''OpenMagicCamera'');\r\n   
+    }\r\n    CountOpenStyleMatch() {\r\n        this.MSCountEvent(''OpenStyleMatch'');\r\n   
+    }\r\n    CountOpenMannequin() {\r\n        this.MSCountEvent(''OpenMannequin'');\r\n   
+    }\r\n    MSCountEvent(event) {\r\n        if (this.gaMS)\r\n            this.gaMS.LogEvent(event,
+    {});\r\n    }\r\n}\r\nexports.default = EventTracker;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRXZlbnRUcmFja2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiRXZlbnRUcmFja2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsdURBSTBCO0FBQzFCLGlEQUFzRDtBQUV0RCxNQUFxQixZQUFhLFNBQVEscUNBQXFCO0lBR3RELE1BQU0sS0FBSyxRQUFRO1FBQ3hCLE9BQU8sWUFBWSxDQUFDLFFBQVEsQ0FBQztJQUMvQixDQUFDO0lBT00sS0FBSztRQUNWLFlBQVksQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDO0lBQy9CLENBQUM7SUFFTSxLQUFLO1FBQ1YsSUFBSSxDQUFDLElBQUksR0FBRyxJQUFJLENBQUMsV0FBVyxDQUFDLFNBQVMsQ0FBQyxnQ0FBYSxDQUFDLGVBQWUsQ0FBQyxDQUFDO0lBQ3hFLENBQUM7SUFFTSxlQUFlO1FBQ3BCLElBQUksQ0FBQyxZQUFZLENBQUMsWUFBWSxDQUFDLENBQUM7SUFDbEMsQ0FBQztJQUVNLGFBQWE7UUFDbEIsSUFBSSxDQUFDLFlBQVksQ0FBQyxVQUFVLENBQUMsQ0FBQztJQUNoQyxDQUFDO0lBRU0sZ0JBQWdCO1FBQ3JCLElBQUksQ0FBQyxZQUFZLENBQUMsYUFBYSxDQUFDLENBQUM7SUFDbkMsQ0FBQztJQUVNLGlCQUFpQjtRQUN0QixJQUFJLENBQUMsWUFBWSxDQUFDLGNBQWMsQ0FBQyxDQUFDO0lBQ3BDLENBQUM7SUFFTSxjQUFjLENBQUMsSUFBWTtRQUNoQyxJQUFJLENBQUMsWUFBWSxDQUFDLGFBQWEsSUFBSSxFQUFFLENBQUMsQ0FBQztJQUN6QyxDQUFDO0lBRU0sb0JBQW9CO1FBQ3pCLElBQUksQ0FBQyxZQUFZLENBQUMsaUJBQWlCLENBQUMsQ0FBQztJQUN2QyxDQUFDO0lBRU0sbUJBQW1CO1FBQ3hCLElBQUksQ0FBQyxZQUFZLENBQUMsZ0JBQWdCLENBQUMsQ0FBQztJQUN0QyxDQUFDO0lBRU0sa0JBQWtCO1FBQ3ZCLElBQUksQ0FBQyxZQUFZLENBQUMsZUFBZSxDQUFDLENBQUM7SUFDckMsQ0FBQztJQUVPLFlBQVksQ0FBQyxLQUFhO1FBQ2hDLElBQUksSUFBSSxDQUFDLElBQUk7WUFBRSxJQUFJLENBQUMsSUFBSSxDQUFDLFFBQVEsQ0FBSyxLQUFLLEVBQUUsRUFBRSxDQUFDLENBQUM7SUFDbkQsQ0FBQztDQUNGO0FBdkRELCtCQXVEQyJ9","assetPath":"Assets/3D/Tracking/EventTracker.ts","manifest":{"properties":[{"assembly":"ZEPETO.Analytics","name":"msAnalytics","type":"ZEPETO.Analytics.ZepetoAnalyticsComponent","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"EventTracker","description":""},"isCompiled":true}'
+  typescriptHash: 5045461340608299fc6fcff6d74489e1
+  onlyWriteTrigger: 0

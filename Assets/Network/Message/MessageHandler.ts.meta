@@ -1,0 +1,45 @@
+fileFormatVersion: 2
+guid: 0ec65cf063c0a4c19a1e65d5ea6e1e6f
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.MessageHandler = void 0;\r\nconst GlobalMessageManager_1
+    = require(\"./GlobalMessageManager\");\r\nclass MessageHandler {\r\n    constructor()
+    {\r\n        this.handlers = new Map();\r\n        GlobalMessageManager_1.default.Instance.registerMessageHandler(this);\r\n   
+    }\r\n    get AllTypes() {\r\n        return Array.from(this.handlers.keys());\r\n   
+    }\r\n    registerSignalHandler(signalHandler) {\r\n        this.signalHandler
+    = signalHandler;\r\n    }\r\n    unregisterSignalHandler() {\r\n        this.signalHandler
+    = null;\r\n    }\r\n    addHandler(type, handler, thisArg) {\r\n        if (thisArg
+    !== undefined)\r\n            handler = handler.bind(thisArg);\r\n        const
+    handlers = this.handlers.get(type);\r\n        if (handlers)\r\n            handlers.push(handler);\r\n       
+    else {\r\n            this.handlers.set(type, [handler]);\r\n            if (this.signalHandler)\r\n               
+    this.signalHandler.onTypeAdded(type, this);\r\n        }\r\n    }\r\n    removeHandler(type,
+    handler) {\r\n        const handlers = this.handlers.get(type);\r\n        if
+    (!handlers)\r\n            return;\r\n        const index = handlers.indexOf(handler);\r\n       
+    if (0 <= index) {\r\n            handlers.splice(index, 1);\r\n            if
+    (handlers.length === 0) {\r\n                this.handlers.delete(type);\r\n               
+    if (this.signalHandler)\r\n                    this.signalHandler.onTypeRemoved(type,
+    this);\r\n            }\r\n        }\r\n    }\r\n    removeHandlerAll(type) {\r\n       
+    this.handlers.delete(type);\r\n        if (this.signalHandler)\r\n           
+    this.signalHandler.onTypeRemoved(type, this);\r\n    }\r\n    handle(ctx, type,
+    payload) {\r\n        const handlers = this.handlers.get(type);\r\n        if
+    (!handlers)\r\n            return;\r\n        for (const handler of handlers)\r\n           
+    handler(ctx, type, payload);\r\n    }\r\n}\r\nexports.MessageHandler = MessageHandler;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWVzc2FnZUhhbmRsZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJNZXNzYWdlSGFuZGxlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFDQSxpRUFBMEQ7QUFhMUQsTUFBYSxjQUFjO0lBT3pCO1FBTFEsYUFBUSxHQUEwQyxJQUFJLEdBQUcsRUFHOUQsQ0FBQztRQUdGLDhCQUFvQixDQUFDLFFBQVEsQ0FBQyxzQkFBc0IsQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUM3RCxDQUFDO0lBRUQsSUFBSSxRQUFRO1FBQ1YsT0FBTyxLQUFLLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxRQUFRLENBQUMsSUFBSSxFQUFFLENBQUMsQ0FBQztJQUMxQyxDQUFDO0lBRUQscUJBQXFCLENBQUMsYUFBMEM7UUFDOUQsSUFBSSxDQUFDLGFBQWEsR0FBRyxhQUFhLENBQUM7SUFDckMsQ0FBQztJQUVELHVCQUF1QjtRQUNyQixJQUFJLENBQUMsYUFBYSxHQUFHLElBQUksQ0FBQztJQUM1QixDQUFDO0lBRUQsVUFBVSxDQUNSLElBQVksRUFDWixPQUErQixFQUMvQixPQUFhO1FBRWIsSUFBSSxPQUFPLEtBQUssU0FBUztZQUFFLE9BQU8sR0FBRyxPQUFPLENBQUMsSUFBSSxDQUFDLE9BQU8sQ0FBQyxDQUFDO1FBRTNELE1BQU0sUUFBUSxHQUFHLElBQUksQ0FBQyxRQUFRLENBQUMsR0FBRyxDQUFDLElBQUksQ0FBQyxDQUFDO1FBQ3pDLElBQUksUUFBUTtZQUFFLFFBQVEsQ0FBQyxJQUFJLENBQUMsT0FBTyxDQUFDLENBQUM7YUFDaEM7WUFDSCxJQUFJLENBQUMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxJQUFJLEVBQUUsQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDO1lBQ25DLElBQUksSUFBSSxDQUFDLGFBQWE7Z0JBQUUsSUFBSSxDQUFDLGFBQWEsQ0FBQyxXQUFXLENBQUMsSUFBSSxFQUFFLElBQUksQ0FBQyxDQUFDO1NBQ3BFO0lBQ0gsQ0FBQztJQUVELGFBQWEsQ0FBQyxJQUFZLEVBQUUsT0FBK0I7UUFDekQsTUFBTSxRQUFRLEdBQUcsSUFBSSxDQUFDLFFBQVEsQ0FBQyxHQUFHLENBQUMsSUFBSSxDQUFDLENBQUM7UUFDekMsSUFBSSxDQUFDLFFBQVE7WUFBRSxPQUFPO1FBRXRCLE1BQU0sS0FBSyxHQUFHLFFBQVEsQ0FBQyxPQUFPLENBQUMsT0FBTyxDQUFDLENBQUM7UUFDeEMsSUFBSSxDQUFDLElBQUksS0FBSyxFQUFFO1lBQ2QsUUFBUSxDQUFDLE1BQU0sQ0FBQyxLQUFLLEVBQUUsQ0FBQyxDQUFDLENBQUM7WUFDMUIsSUFBSSxRQUFRLENBQUMsTUFBTSxLQUFLLENBQUMsRUFBRTtnQkFDekIsSUFBSSxDQUFDLFFBQVEsQ0FBQyxNQUFNLENBQUMsSUFBSSxDQUFDLENBQUM7Z0JBQzNCLElBQUksSUFBSSxDQUFDLGFBQWE7b0JBQUUsSUFBSSxDQUFDLGFBQWEsQ0FBQyxhQUFhLENBQUMsSUFBSSxFQUFFLElBQUksQ0FBQyxDQUFDO2FBQ3RFO1NBQ0Y7SUFDSCxDQUFDO0lBRUQsZ0JBQWdCLENBQUMsSUFBWTtRQUMzQixJQUFJLENBQUMsUUFBUSxDQUFDLE1BQU0sQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUMzQixJQUFJLElBQUksQ0FBQyxhQUFhO1lBQUUsSUFBSSxDQUFDLGFBQWEsQ0FBQyxhQUFhLENBQUMsSUFBSSxFQUFFLElBQUksQ0FBQyxDQUFDO0lBQ3ZFLENBQUM7SUFFRCxNQUFNLENBQUMsR0FBUyxFQUFFLElBQVksRUFBRSxPQUFnQjtRQUM5QyxNQUFNLFFBQVEsR0FBRyxJQUFJLENBQUMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUN6QyxJQUFJLENBQUMsUUFBUTtZQUFFLE9BQU87UUFFdEIsS0FBSyxNQUFNLE9BQU8sSUFBSSxRQUFRO1lBQUUsT0FBTyxDQUFDLEdBQUcsRUFBRSxJQUFJLEVBQUUsT0FBTyxDQUFDLENBQUM7SUFDOUQsQ0FBQztDQUNGO0FBL0RELHdDQStEQyJ9","assetPath":"Assets/Scripts/Message/MessageHandler.ts","manifest":{"properties":[],"name":"MessageHandler","description":""},"isCompiled":true}'
+  typescriptHash: d855527533adec7b7209e79e4be217bf

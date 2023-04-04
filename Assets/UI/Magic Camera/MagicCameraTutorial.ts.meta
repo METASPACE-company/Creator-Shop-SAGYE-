@@ -1,0 +1,43 @@
+fileFormatVersion: 2
+guid: 8359c0d7101aa4ff1bf84b53eced7433
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass
+    MagicCameraTutorial extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake()
+    {\r\n        this.button.onClick.AddListener(this.OnClickScreen.bind(this));\r\n   
+    }\r\n    Activate() {\r\n        this.gameObject.SetActive(true);\r\n       
+    this.phase = 0;\r\n        this.phase1.gameObject.SetActive(true);\r\n       
+    this.phase2.gameObject.SetActive(false);\r\n        this.phase3.gameObject.SetActive(false);\r\n       
+    this.padLeftPadding.enabled = false;\r\n        this.padRightPadding.enabled
+    = false;\r\n        for (const frame of this.cameraFrames)\r\n            frame.SetActive(false);\r\n   
+    }\r\n    Deactivate() {\r\n        this.phase1.gameObject.SetActive(false);\r\n       
+    this.phase2.gameObject.SetActive(false);\r\n        this.phase3.gameObject.SetActive(false);\r\n       
+    this.padLeftPadding.enabled = true;\r\n        this.padRightPadding.enabled =
+    true;\r\n        for (const frame of this.cameraFrames)\r\n            frame.SetActive(true);\r\n       
+    this.gameObject.SetActive(false);\r\n    }\r\n    OnClickScreen() {\r\n       
+    if (this.phase === 2) {\r\n            this.Deactivate();\r\n            return;\r\n       
+    }\r\n        this.phase += 1;\r\n        this.phase1.gameObject.SetActive(this.phase
+    === 0);\r\n        this.phase2.gameObject.SetActive(this.phase === 1);\r\n       
+    this.phase3.gameObject.SetActive(this.phase === 2);\r\n    }\r\n}\r\nexports.default
+    = MagicCameraTutorial;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWFnaWNDYW1lcmFUdXRvcmlhbC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk1hZ2ljQ2FtZXJhVHV0b3JpYWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFFQSxpREFBc0Q7QUFFdEQsTUFBcUIsbUJBQW9CLFNBQVEscUNBQXFCO0lBb0I3RCxLQUFLO1FBQ1YsSUFBSSxDQUFDLE1BQU0sQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxhQUFhLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUM7SUFDakUsQ0FBQztJQUVNLFFBQVE7UUFDYixJQUFJLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUVoQyxJQUFJLENBQUMsS0FBSyxHQUFHLENBQUMsQ0FBQztRQUNmLElBQUksQ0FBQyxNQUFNLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUN2QyxJQUFJLENBQUMsTUFBTSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7UUFDeEMsSUFBSSxDQUFDLE1BQU0sQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO1FBRXhDLElBQUksQ0FBQyxjQUFjLENBQUMsT0FBTyxHQUFHLEtBQUssQ0FBQztRQUNwQyxJQUFJLENBQUMsZUFBZSxDQUFDLE9BQU8sR0FBRyxLQUFLLENBQUM7UUFDckMsS0FBSyxNQUFNLEtBQUssSUFBSSxJQUFJLENBQUMsWUFBWTtZQUFFLEtBQUssQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7SUFDaEUsQ0FBQztJQUVNLFVBQVU7UUFDZixJQUFJLENBQUMsTUFBTSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7UUFDeEMsSUFBSSxDQUFDLE1BQU0sQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO1FBQ3hDLElBQUksQ0FBQyxNQUFNLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQztRQUV4QyxJQUFJLENBQUMsY0FBYyxDQUFDLE9BQU8sR0FBRyxJQUFJLENBQUM7UUFDbkMsSUFBSSxDQUFDLGVBQWUsQ0FBQyxPQUFPLEdBQUcsSUFBSSxDQUFDO1FBQ3BDLEtBQUssTUFBTSxLQUFLLElBQUksSUFBSSxDQUFDLFlBQVk7WUFBRSxLQUFLLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxDQUFDO1FBRTdELElBQUksQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO0lBQ25DLENBQUM7SUFFTyxhQUFhO1FBQ25CLElBQUksSUFBSSxDQUFDLEtBQUssS0FBSyxDQUFDLEVBQUU7WUFDcEIsSUFBSSxDQUFDLFVBQVUsRUFBRSxDQUFDO1lBQ2xCLE9BQU87U0FDUjtRQUVELElBQUksQ0FBQyxLQUFLLElBQUksQ0FBQyxDQUFDO1FBQ2hCLElBQUksQ0FBQyxNQUFNLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsS0FBSyxLQUFLLENBQUMsQ0FBQyxDQUFDO1FBQ25ELElBQUksQ0FBQyxNQUFNLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsS0FBSyxLQUFLLENBQUMsQ0FBQyxDQUFDO1FBQ25ELElBQUksQ0FBQyxNQUFNLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsS0FBSyxLQUFLLENBQUMsQ0FBQyxDQUFDO0lBQ3JELENBQUM7Q0FDRjtBQTVERCxzQ0E0REMifQ==","assetPath":"Assets/UI/Magic
+    Camera/MagicCameraTutorial.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"button","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''UI''"]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"phase1","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"phase2","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"phase3","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"padLeftPadding","type":"UnityEngine.UI.Image","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''External
+    UI''"]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"padRightPadding","type":"UnityEngine.UI.Image","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"cameraFrames","type":"UnityEngine.GameObject[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"MagicCameraTutorial","description":""},"isCompiled":true}'
+  typescriptHash: a9121490254661aa62d5abd2b0d69330
+  onlyWriteTrigger: 0

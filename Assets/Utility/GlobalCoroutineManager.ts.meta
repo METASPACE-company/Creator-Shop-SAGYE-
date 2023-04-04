@@ -1,0 +1,45 @@
+fileFormatVersion: 2
+guid: 7424ac91e5b4c418fb55d0ef3771af7d
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nlet fakeImpl = new (class {\r\n   
+    constructor() {\r\n        this.commands_RunAfter = [];\r\n        this.commands_Execute
+    = [];\r\n        this.commands_ExecuteAfter = [];\r\n    }\r\n    RunAfter(delaySeconds,
+    f, ...params) {\r\n        this.commands_RunAfter.push([delaySeconds, f, params]);\r\n   
+    }\r\n    Execute(f, ...params) {\r\n        this.commands_Execute.push([f, params]);\r\n   
+    }\r\n    ExecuteAfter(delaySeconds, f, ...params) {\r\n        this.commands_ExecuteAfter.push([delaySeconds,
+    f, params]);\r\n    }\r\n})();\r\nclass GlobalCoroutineManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    static get Instance() {\r\n        return GlobalCoroutineManager.instance
+    ?? fakeImpl;\r\n    }\r\n    static get RawInstance() {\r\n        return GlobalCoroutineManager.instance;\r\n   
+    }\r\n    Awake() {\r\n        GlobalCoroutineManager.instance = this;\r\n       
+    for (const params of fakeImpl.commands_RunAfter)\r\n            this.RunAfter(...params);\r\n       
+    for (const params of fakeImpl.commands_Execute)\r\n            this.Execute(...params);\r\n       
+    for (const params of fakeImpl.commands_ExecuteAfter)\r\n            this.ExecuteAfter(...params);\r\n       
+    fakeImpl = null;\r\n    }\r\n    RunAfter(delaySeconds, f, ...params) {\r\n       
+    this.Execute(function* (f, params) {\r\n            yield new UnityEngine_1.WaitForSeconds(delaySeconds);\r\n           
+    f(...params);\r\n        }, f, params);\r\n    }\r\n    Execute(f, ...params)
+    {\r\n        this.StartCoroutine(f(...params));\r\n    }\r\n    ExecuteAfter(delaySeconds,
+    f, ...params) {\r\n        this.StartCoroutine(function* (delaySeconds, f, params)
+    {\r\n            yield new UnityEngine_1.WaitForSeconds(delaySeconds);\r\n           
+    this.Execute(f, ...params);\r\n        }.bind(this)(delaySeconds, f, params));\r\n   
+    }\r\n}\r\nexports.default = GlobalCoroutineManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2xvYmFsQ29yb3V0aW5lTWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkdsb2JhbENvcm91dGluZU1hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw2Q0FBNkM7QUFDN0MsaURBQXNEO0FBVXRELElBQUksUUFBUSxHQUFHLElBQUksQ0FBQztJQUFBO1FBQ1gsc0JBQWlCLEdBQW9DLEVBQUUsQ0FBQztRQUN4RCxxQkFBZ0IsR0FBNkIsRUFBRSxDQUFDO1FBQ2hELDBCQUFxQixHQUFxQyxFQUFFLENBQUM7SUFxQnRFLENBQUM7SUFuQlEsUUFBUSxDQUNiLFlBQW9CLEVBQ3BCLENBQVcsRUFDWCxHQUFHLE1BQWlCO1FBRXBCLElBQUksQ0FBQyxpQkFBaUIsQ0FBQyxJQUFJLENBQUMsQ0FBQyxZQUFZLEVBQUUsQ0FBQyxFQUFFLE1BQU0sQ0FBQyxDQUFDLENBQUM7SUFDekQsQ0FBQztJQUVNLE9BQU8sQ0FBQyxDQUFZLEVBQUUsR0FBRyxNQUFpQjtRQUMvQyxJQUFJLENBQUMsZ0JBQWdCLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQyxFQUFFLE1BQU0sQ0FBQyxDQUFDLENBQUM7SUFDMUMsQ0FBQztJQUVNLFlBQVksQ0FDakIsWUFBb0IsRUFDcEIsQ0FBWSxFQUNaLEdBQUcsTUFBaUI7UUFFcEIsSUFBSSxDQUFDLHFCQUFxQixDQUFDLElBQUksQ0FBQyxDQUFDLFlBQVksRUFBRSxDQUFDLEVBQUUsTUFBTSxDQUFDLENBQUMsQ0FBQztJQUM3RCxDQUFDO0NBQ0YsQ0FBQyxFQUFFLENBQUM7QUFFTCxNQUFxQixzQkFDbkIsU0FBUSxxQ0FBcUI7SUFLdEIsTUFBTSxLQUFLLFFBQVE7UUFDeEIsT0FBTyxzQkFBc0IsQ0FBQyxRQUFRLElBQUksUUFBUSxDQUFDO0lBQ3JELENBQUM7SUFFTSxNQUFNLEtBQUssV0FBVztRQUMzQixPQUFPLHNCQUFzQixDQUFDLFFBQVEsQ0FBQztJQUN6QyxDQUFDO0lBRU0sS0FBSztRQUNWLHNCQUFzQixDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7UUFFdkMsS0FBSyxNQUFNLE1BQU0sSUFBSSxRQUFRLENBQUMsaUJBQWlCO1lBQUUsSUFBSSxDQUFDLFFBQVEsQ0FBQyxHQUFHLE1BQU0sQ0FBQyxDQUFDO1FBQzFFLEtBQUssTUFBTSxNQUFNLElBQUksUUFBUSxDQUFDLGdCQUFnQjtZQUFFLElBQUksQ0FBQyxPQUFPLENBQUMsR0FBRyxNQUFNLENBQUMsQ0FBQztRQUN4RSxLQUFLLE1BQU0sTUFBTSxJQUFJLFFBQVEsQ0FBQyxxQkFBcUI7WUFDakQsSUFBSSxDQUFDLFlBQVksQ0FBQyxHQUFHLE1BQU0sQ0FBQyxDQUFDO1FBRS9CLFFBQVEsR0FBRyxJQUFJLENBQUM7SUFDbEIsQ0FBQztJQUVNLFFBQVEsQ0FDYixZQUFvQixFQUNwQixDQUFXLEVBQ1gsR0FBRyxNQUFpQjtRQUVwQixJQUFJLENBQUMsT0FBTyxDQUNWLFFBQVEsQ0FBQyxFQUFFLENBQVcsRUFBRSxNQUFpQjtZQUN2QyxNQUFNLElBQUksNEJBQWMsQ0FBQyxZQUFZLENBQUMsQ0FBQztZQUN2QyxDQUFDLENBQUMsR0FBRyxNQUFNLENBQUMsQ0FBQztRQUNmLENBQUMsRUFDRCxDQUFDLEVBQ0QsTUFBTSxDQUNQLENBQUM7SUFDSixDQUFDO0lBRU0sT0FBTyxDQUFDLENBQVksRUFBRSxHQUFHLE1BQWlCO1FBQy9DLElBQUksQ0FBQyxjQUFjLENBQUMsQ0FBQyxDQUFDLEdBQUcsTUFBTSxDQUFDLENBQUMsQ0FBQztJQUNwQyxDQUFDO0lBRU0sWUFBWSxDQUNqQixZQUFvQixFQUNwQixDQUFZLEVBQ1osR0FBRyxNQUFpQjtRQUVwQixJQUFJLENBQUMsY0FBYyxDQUNqQixRQUFRLENBQUMsRUFBRSxZQUFvQixFQUFFLENBQVksRUFBRSxNQUFpQjtZQUM5RCxNQUFNLElBQUksNEJBQWMsQ0FBQyxZQUFZLENBQUMsQ0FBQztZQUN2QyxJQUFJLENBQUMsT0FBTyxDQUFDLENBQUMsRUFBRSxHQUFHLE1BQU0sQ0FBQyxDQUFDO1FBQzdCLENBQUMsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUMsWUFBWSxFQUFFLENBQUMsRUFBRSxNQUFNLENBQUMsQ0FDdEMsQ0FBQztJQUNKLENBQUM7Q0FDRjtBQXhERCx5Q0F3REMifQ==","assetPath":"Assets/Utility/GlobalCoroutineManager.ts","manifest":{"properties":[],"name":"GlobalCoroutineManager","description":""},"isCompiled":true}'
+  typescriptHash: d7f11eb2abe63cc803ac2243b3b42d78
+  onlyWriteTrigger: 0

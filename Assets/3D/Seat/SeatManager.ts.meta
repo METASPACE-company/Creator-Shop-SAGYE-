@@ -1,0 +1,67 @@
+fileFormatVersion: 2
+guid: 3cd80bde397064fc2857615c0a90cc48
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    UnityEngine_UI_1 = require(\"UnityEngine.UI\");\r\nconst ZEPETO_Character_Controller_1
+    = require(\"ZEPETO.Character.Controller\");\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    GlobalMessageManager_1 = require(\"../../Network/Message/GlobalMessageManager\");\r\nconst
+    MessageHandler_1 = require(\"../../Network/Message/MessageHandler\");\r\nconst
+    LocalPlayer_1 = require(\"../../Network/Sync/LocalPlayer\");\r\nconst PlayerManager_1
+    = require(\"../../Network/Sync/PlayerManager\");\r\nconst ClientPackets_1 = require(\"../../Network/World-client/ClientPackets\");\r\nconst
+    VirtualPadController_1 = require(\"../../UI/Virtual Pad/VirtualPadController\");\r\nconst
+    WorldButton_1 = require(\"../../UI/WorldButton/WorldButton\");\r\nconst EventTracker_1
+    = require(\"../Tracking/EventTracker\");\r\nconst SeatLocator_1 = require(\"./SeatLocator\");\r\nclass
+    SeatManager extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor()
+    {\r\n        super(...arguments);\r\n        this.animationOverrides = new Map();\r\n       
+    this.msgHandler = new MessageHandler_1.MessageHandler();\r\n    }\r\n    static
+    get Instance() {\r\n        return SeatManager.instance;\r\n    }\r\n    Awake()
+    {\r\n        SeatManager.instance = this;\r\n        this.msgHandler.addHandler(ClientPackets_1.server.seat.MessageType.Seat,
+    this.OnMessageSeat.bind(this));\r\n        this.msgHandler.addHandler(ClientPackets_1.server.seat.MessageType.Unseat,
+    this.OnMessageUnseat.bind(this));\r\n        VirtualPadController_1.default.Instance.OnceInitialized((pad)
+    => {\r\n            pad.TouchPad.OnPointerDownEvent.AddListener(() => {\r\n               
+    SeatLocator_1.default.ResetAllButton();\r\n                GlobalMessageManager_1.default.Instance.sendMessage(ClientPackets_1.client.seat.MessageType.Unseat,
+    ClientPackets_1.client.seat.encodeUnseat({}));\r\n            });\r\n           
+    pad.JumpButton.onClick.AddListener(() => {\r\n                SeatLocator_1.default.ResetAllButton();\r\n               
+    GlobalMessageManager_1.default.Instance.sendMessage(ClientPackets_1.client.seat.MessageType.Unseat,
+    ClientPackets_1.client.seat.encodeUnseat({}));\r\n            });\r\n       
+    });\r\n    }\r\n    RegisterSeat(transform, animationOverride) {\r\n        const
+    seatButton = UnityEngine_1.GameObject.Instantiate(this.seatButtonPrefab, this.seatButtonRoot);\r\n       
+    const hash = String(animationOverride ? animationOverride.GetHashCode() : '''');\r\n       
+    if (animationOverride)\r\n            this.animationOverrides.set(hash, animationOverride);\r\n       
+    seatButton.GetComponent($typeof(UnityEngine_UI_1.Button)).onClick.AddListener(()
+    => {\r\n            PlayerManager_1.default.Instance.LocalSyncer.Teleport(transform.position,
+    transform.rotation);\r\n            LocalPlayer_1.default.Instance.ZepetoCharacter.SetGesture(animationOverride
+    ?? this.animation);\r\n            GlobalMessageManager_1.default.Instance.sendMessage(ClientPackets_1.client.seat.MessageType.Seat,
+    ClientPackets_1.client.seat.encodeSeat({\r\n                animation: hash ??
+    '''',\r\n            }));\r\n            seatButton.SetActive(false);\r\n           
+    EventTracker_1.default.Instance.CountTakeSeat();\r\n        });\r\n        seatButton.GetComponent($typeof(WorldButton_1.default)).targetTrsf
+    = transform;\r\n        return seatButton;\r\n    }\r\n    OnMessageSeat(ctx,
+    type, payload) {\r\n        const { animation, userSessionId } = ClientPackets_1.server.seat.decodeSeat(payload);\r\n       
+    if (!ZEPETO_Character_Controller_1.ZepetoPlayers.instance.HasPlayer(userSessionId))\r\n           
+    return;\r\n        const player = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.GetPlayer(userSessionId);\r\n       
+    player.character.SetGesture(this.animationOverrides.get(animation) ?? this.animation);\r\n   
+    }\r\n    OnMessageUnseat(ctx, type, payload) {\r\n        const { userSessionId
+    } = ClientPackets_1.server.seat.decodeSeat(payload);\r\n        if (!ZEPETO_Character_Controller_1.ZepetoPlayers.instance.HasPlayer(userSessionId))\r\n           
+    return;\r\n        const player = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.GetPlayer(userSessionId);\r\n       
+    player.character.CancelGesture();\r\n    }\r\n}\r\nexports.default = SeatManager;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2VhdE1hbmFnZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJTZWF0TWFuYWdlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUFtRTtBQUNuRSxtREFBd0M7QUFDeEMsNkVBQTREO0FBRTVELGlEQUFzRDtBQUV0RCxxRkFBOEU7QUFDOUUseUVBQXNFO0FBQ3RFLGdFQUF5RDtBQUN6RCxvRUFBNkQ7QUFDN0QsNEVBQTBFO0FBQzFFLG9GQUE2RTtBQUM3RSxrRUFBMkQ7QUFDM0QsMkRBQW9EO0FBQ3BELCtDQUF3QztBQUV4QyxNQUFxQixXQUFZLFNBQVEscUNBQXFCO0lBQTlEOztRQWNVLHVCQUFrQixHQUFHLElBQUksR0FBRyxFQUF5QixDQUFDO1FBQ3RELGVBQVUsR0FBRyxJQUFJLCtCQUFjLEVBQUUsQ0FBQztJQXVGNUMsQ0FBQztJQW5HUSxNQUFNLEtBQUssUUFBUTtRQUN4QixPQUFPLFdBQVcsQ0FBQyxRQUFRLENBQUM7SUFDOUIsQ0FBQztJQVlNLEtBQUs7UUFDVixXQUFXLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQztRQUU1QixJQUFJLENBQUMsVUFBVSxDQUFDLFVBQVUsQ0FDeEIsc0JBQU0sQ0FBQyxJQUFJLENBQUMsV0FBVyxDQUFDLElBQUksRUFDNUIsSUFBSSxDQUFDLGFBQWEsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQzlCLENBQUM7UUFDRixJQUFJLENBQUMsVUFBVSxDQUFDLFVBQVUsQ0FDeEIsc0JBQU0sQ0FBQyxJQUFJLENBQUMsV0FBVyxDQUFDLE1BQU0sRUFDOUIsSUFBSSxDQUFDLGVBQWUsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQ2hDLENBQUM7UUFFRiw4QkFBb0IsQ0FBQyxRQUFRLENBQUMsZUFBZSxDQUFDLENBQUMsR0FBRyxFQUFFLEVBQUU7WUFDcEQsR0FBRyxDQUFDLFFBQVEsQ0FBQyxrQkFBa0IsQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO2dCQUMvQyxxQkFBVyxDQUFDLGNB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","assetPath":"Assets/3D/Seat/SeatManager.ts","manifest":{"properties":[{"assembly":"UnityEngine.AnimationModule","name":"animation","type":"UnityEngine.AnimationClip","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"seatButtonRoot","type":"UnityEngine.Transform","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"seatButtonPrefab","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"SeatManager","description":""},"isCompiled":true}'
+  typescriptHash: 6e1ccbb124b529f86c58edaea7e55efa
+  onlyWriteTrigger: 0

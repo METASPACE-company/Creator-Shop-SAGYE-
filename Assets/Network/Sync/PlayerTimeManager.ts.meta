@@ -1,0 +1,46 @@
+fileFormatVersion: 2
+guid: 4b2d7c3eea7b341e68866f2e61b74d6c
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    GlobalMessageManager_1 = require(\"../Message/GlobalMessageManager\");\r\nconst
+    MessageHandler_1 = require(\"../Message/MessageHandler\");\r\nconst ClientPackets_1
+    = require(\"../World-client/ClientPackets\");\r\nclass PlayerTimeManager extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor() {\r\n        super(...arguments);\r\n       
+    this.msgHandler = new MessageHandler_1.MessageHandler();\r\n    }\r\n    static
+    get Instance() {\r\n        return PlayerTimeManager.instance;\r\n    }\r\n   
+    get Offset() {\r\n        return this.offset;\r\n    }\r\n    get RoundTripDelay()
+    {\r\n        return this.roundTripDelay;\r\n    }\r\n    Awake() {\r\n       
+    this.msgHandler.addHandler(ClientPackets_1.server.sync.MessageType.SyncTime,
+    this.SyncTime, this);\r\n        this.msgHandler.addHandler(ClientPackets_1.server.sync.MessageType.SyncTimeDiff,
+    this.SyncTimeDiff, this);\r\n        this.offset = 0;\r\n        this.roundTripDelay
+    = 0;\r\n        PlayerTimeManager.instance = this;\r\n    }\r\n    SyncTime(ctx,
+    type, payload) {\r\n        const t1 = Date.now();\r\n        GlobalMessageManager_1.default.Instance.sendMessage(ClientPackets_1.client.sync.MessageType.SyncTime,
+    ClientPackets_1.client.sync.encodeSyncTime({\r\n            t1,\r\n           
+    t2: Date.now(),\r\n        }));\r\n    }\r\n    SyncTimeDiff(ctx, type, payload)
+    {\r\n        const packet = ClientPackets_1.server.sync.decodeSyncTimeDiff(payload);\r\n       
+    this.offset = packet.offset;\r\n        this.roundTripDelay = packet.roundTripDelay;\r\n       
+    if (this.text1)\r\n            this.text1.text = `offset: ${this.offset}ms`;\r\n       
+    if (this.text2)\r\n            this.text2.text = `roundTripDelay: ${this.roundTripDelay}ms`;\r\n   
+    }\r\n    fromServerTime(time) {\r\n        return time + this.offset;\r\n   
+    }\r\n    toServerTime(time) {\r\n        return time - this.offset;\r\n    }\r\n}\r\nexports.default
+    = PlayerTimeManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUGxheWVyVGltZU1hbmFnZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJQbGF5ZXJUaW1lTWFuYWdlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLGlEQUFzRDtBQUl0RCwwRUFBbUU7QUFDbkUsOERBQTJEO0FBQzNELGlFQUErRDtBQUUvRCxNQUFxQixpQkFBa0IsU0FBUSxxQ0FBcUI7SUFBcEU7O1FBU1UsZUFBVSxHQUFHLElBQUksK0JBQWMsRUFBRSxDQUFDO0lBK0Q1QyxDQUFDO0lBckVRLE1BQU0sS0FBSyxRQUFRO1FBQ3hCLE9BQU8saUJBQWlCLENBQUMsUUFBUSxDQUFDO0lBQ3BDLENBQUM7SUFXRCxJQUFXLE1BQU07UUFDZixPQUFPLElBQUksQ0FBQyxNQUFNLENBQUM7SUFDckIsQ0FBQztJQUVELElBQVcsY0FBYztRQUN2QixPQUFPLElBQUksQ0FBQyxjQUFjLENBQUM7SUFDN0IsQ0FBQztJQUVNLEtBQUs7UUFDVixJQUFJLENBQUMsVUFBVSxDQUFDLFVBQVUsQ0FDeEIsc0JBQU0sQ0FBQyxJQUFJLENBQUMsV0FBVyxDQUFDLFFBQVEsRUFDaEMsSUFBSSxDQUFDLFFBQVEsRUFDYixJQUFJLENBQ0wsQ0FBQztRQUNGLElBQUksQ0FBQyxVQUFVLENBQUMsVUFBVSxDQUN4QixzQkFBTSxDQUFDLElBQUksQ0FBQyxXQUFXLENBQUMsWUFBWSxFQUNwQyxJQUFJLENBQUMsWUFBWSxFQUNqQixJQUFJLENBQ0wsQ0FBQztRQUVGLElBQUksQ0FBQyxNQUFNLEdBQUcsQ0FBQyxDQUFDO1FBQ2hCLElBQUksQ0FBQyxjQUFjLEdBQUcsQ0FBQyxDQUFDO1FBRXhCLGlCQUFpQixDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7SUFDcEMsQ0FBQztJQUVPLFFBQVEsQ0FBQyxHQUFTLEVBQUUsSUFBWSxFQUFFLE9BQWU7UUFDdkQsTUFBTSxFQUFFLEdBQUcsSUFBSSxDQUFDLEdBQUcsRUFBRSxDQUFDO1FBRXRCLDhCQUFvQixDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQ3ZDLHNCQUFNLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxRQUFRLEVBQ2hDLHNCQUFNLENBQUMsSUFBSSxDQUFDLGNBQWMsQ0FBQztZQUN6QixFQUFFO1lBQ0YsRUFBRSxFQUFFLElBQUksQ0FBQyxHQUFHLEVBQUU7U0FDZixDQUFDLENBQ0gsQ0FBQztJQUNKLENBQUM7SUFFTyxZQUFZLENBQUMsR0FBUyxFQUFFLElBQVksRUFBRSxPQUFlO1FBQzNELE1BQU0sTUFBTSxHQUFHLHNCQUFNLENBQUMsSUFBSSxDQUFDLGtCQUFrQixDQUFDLE9BQU8sQ0FBQyxDQUFDO1FBRXZELElBQUksQ0FBQyxNQUFNLEdBQUcsTUFBTSxDQUFDLE1BQU0sQ0FBQztRQUM1QixJQUFJLENBQUMsY0FBYyxHQUFHLE1BQU0sQ0FBQyxjQUFjLENBQUM7UUFFNUMsSUFBSSxJQUFJLENBQUMsS0FBSztZQUFFLElBQUksQ0FBQyxLQUFLLENBQUMsSUFBSSxHQUFHLFdBQVcsSUFBSSxDQUFDLE1BQU0sSUFBSSxDQUFDO1FBQzdELElBQUksSUFBSSxDQUFDLEtBQUs7WUFDWixJQUFJLENBQUMsS0FBSyxDQUFDLElBQUksR0FBRyxtQkFBbUIsSUFBSSxDQUFDLGNBQWMsSUFBSSxDQUFDO0lBQ2pFLENBQUM7SUFFTSxjQUFjLENBQUMsSUFBWTtRQUNoQyxPQUFPLElBQUksR0FBRyxJQUFJLENBQUMsTUFBTSxDQUFDO0lBQzVCLENBQUM7SUFFTSxZQUFZLENBQUMsSUFBWTtRQUM5QixPQUFPLElBQUksR0FBRyxJQUFJLENBQUMsTUFBTSxDQUFDO0lBQzVCLENBQUM7Q0FDRjtBQXhFRCxvQ0F3RUMifQ==","assetPath":"Assets/Network/Sync/PlayerTimeManager.ts","manifest":{"properties":[{"assembly":"Unity.TextMeshPro","name":"text1","type":"TMPro.TMP_Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"Unity.TextMeshPro","name":"text2","type":"TMPro.TMP_Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"PlayerTimeManager","description":""},"isCompiled":true}'
+  typescriptHash: d6b711b9a0baa4d62cadc4d62ab87070
+  onlyWriteTrigger: 0

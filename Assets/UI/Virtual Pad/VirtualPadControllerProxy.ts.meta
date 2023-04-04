@@ -1,0 +1,34 @@
+fileFormatVersion: 2
+guid: 72225c6176b55447096fbae24ec4b25f
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.VirtualPadControllerProxyImpl = void 0;\r\nconst
+    VirtualPadController_1 = require(\"./VirtualPadController\");\r\nclass VirtualPadControllerProxyImpl
+    {\r\n    constructor() {\r\n        this._isActive = null;\r\n        this.handlers
+    = [];\r\n    }\r\n    get isTouched() {\r\n        return this._isActive !==
+    null;\r\n    }\r\n    get isActive() {\r\n        return !!this._isActive;\r\n   
+    }\r\n    get Handlers() {\r\n        const handlers = this.handlers;\r\n       
+    this.handlers = [];\r\n        return handlers;\r\n    }\r\n    OnceInitialized(handler)
+    {\r\n        this.handlers.push(handler);\r\n    }\r\n    SetActive(isActive)
+    {\r\n        this._isActive = isActive;\r\n    }\r\n}\r\nexports.VirtualPadControllerProxyImpl
+    = VirtualPadControllerProxyImpl;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVmlydHVhbFBhZENvbnRyb2xsZXJQcm94eS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlZpcnR1YWxQYWRDb250cm9sbGVyUHJveHkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQUEsaUVBQTBEO0FBTzFELE1BQWEsNkJBQTZCO0lBQTFDO1FBR1UsY0FBUyxHQUFtQixJQUFJLENBQUM7UUFDakMsYUFBUSxHQUErQyxFQUFFLENBQUM7SUF1QnBFLENBQUM7SUFyQkMsSUFBVyxTQUFTO1FBQ2xCLE9BQU8sSUFBSSxDQUFDLFNBQVMsS0FBSyxJQUFJLENBQUM7SUFDakMsQ0FBQztJQUVELElBQVcsUUFBUTtRQUNqQixPQUFPLENBQUMsQ0FBQyxJQUFJLENBQUMsU0FBUyxDQUFDO0lBQzFCLENBQUM7SUFFRCxJQUFXLFFBQVE7UUFDakIsTUFBTSxRQUFRLEdBQUcsSUFBSSxDQUFDLFFBQVEsQ0FBQztRQUMvQixJQUFJLENBQUMsUUFBUSxHQUFHLEVBQUUsQ0FBQztRQUNuQixPQUFPLFFBQVEsQ0FBQztJQUNsQixDQUFDO0lBRUQsZUFBZSxDQUFDLE9BQTRDO1FBQzFELElBQUksQ0FBQyxRQUFRLENBQUMsSUFBSSxDQUFDLE9BQU8sQ0FBQyxDQUFDO0lBQzlCLENBQUM7SUFFRCxTQUFTLENBQUMsUUFBaUI7UUFDekIsSUFBSSxDQUFDLFNBQVMsR0FBRyxRQUFRLENBQUM7SUFDNUIsQ0FBQztDQUNGO0FBM0JELHNFQTJCQyJ9","assetPath":"Assets/UI/Virtual
+    Pad/VirtualPadControllerProxy.ts","manifest":{"properties":[],"name":"VirtualPadControllerProxyImpl","description":""},"isCompiled":true}'
+  typescriptHash: 69d2919cb1c08ad6efaed346bca1d481
+  onlyWriteTrigger: 0

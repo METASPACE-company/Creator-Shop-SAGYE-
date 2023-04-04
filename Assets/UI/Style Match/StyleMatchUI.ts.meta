@@ -1,0 +1,85 @@
+fileFormatVersion: 2
+guid: 1052681670e834216ad703f4e7943cdf
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nvar __decorate = (this && this.__decorate)
+    || function (decorators, target, key, desc) {\r\n    var c = arguments.length,
+    r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target,
+    key) : desc, d;\r\n    if (typeof Reflect === \"object\" && typeof Reflect.decorate
+    === \"function\") r = Reflect.decorate(decorators, target, key, desc);\r\n   
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i])
+    r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\r\n   
+    return c > 3 && r && Object.defineProperty(target, key, r), r;\r\n};\r\nObject.defineProperty(exports,
+    \"__esModule\", { value: true });\r\nconst TMPro_1 = require(\"TMPro\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    i18nManager_1 = require(\"../../i18n/i18nManager\");\r\nconst GlobalCoroutineManager_1
+    = require(\"../../Utility/GlobalCoroutineManager\");\r\nclass StyleMatchUI extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    get StartYesButton() {\r\n       
+    return this.startYesButton;\r\n    }\r\n    get StartNoButton() {\r\n       
+    return this.startNoButton;\r\n    }\r\n    get Selection1Button() {\r\n       
+    return this.selection1Button;\r\n    }\r\n    get Selection2Button() {\r\n       
+    return this.selection2Button;\r\n    }\r\n    get ResultOkButton() {\r\n       
+    return this.resultOkButton;\r\n    }\r\n    get ResultShareButton() {\r\n       
+    return this.resultShareButton;\r\n    }\r\n    Awake() {\r\n        StyleMatchUI.Instance
+    = this;\r\n        this.stateAnimator = this.stateUI.GetComponent($typeof(UnityEngine_1.Animator));\r\n       
+    this.resultAnimator = this.resultUI.GetComponent($typeof(UnityEngine_1.Animator));\r\n   
+    }\r\n    ShowStart() {\r\n        this.startUI.SetActive(true);\r\n        this.stateUI.SetActive(false);\r\n       
+    this.resultUI.SetActive(false);\r\n    }\r\n    HideStart() {\r\n        this.startUI.SetActive(false);\r\n   
+    }\r\n    ApplyState(state, isFirst) {\r\n        if (isFirst) {\r\n           
+    this.stateUI.SetActive(true);\r\n            this.resultUI.SetActive(false);\r\n           
+    this.dialogueText.text = i18nManager_1.default.Instance.Lang.get_Item(state.dialogue);\r\n           
+    this.selection1Text.text = i18nManager_1.default.Instance.Lang.get_Item(state.selectionLabel1);\r\n           
+    this.selection2Text.text = i18nManager_1.default.Instance.Lang.get_Item(state.selectionLabel2);\r\n           
+    this.stateAnimator.SetTrigger(StyleMatchUI.TRIGGER_SHOW);\r\n            return;\r\n       
+    }\r\n        this.stateAnimator.SetTrigger(StyleMatchUI.TRIGGER_HIDE);\r\n       
+    GlobalCoroutineManager_1.default.Instance.RunAfter(1.5, () => {\r\n           
+    this.dialogueText.text = i18nManager_1.default.Instance.Lang.get_Item(state.dialogue);\r\n           
+    this.selection1Text.text = i18nManager_1.default.Instance.Lang.get_Item(state.selectionLabel1);\r\n           
+    this.selection2Text.text = i18nManager_1.default.Instance.Lang.get_Item(state.selectionLabel2);\r\n           
+    this.stateAnimator.SetTrigger(StyleMatchUI.TRIGGER_SHOW);\r\n        });\r\n   
+    }\r\n    ApplyResult(result, onShowCallback) {\r\n        this.resultBGImage.sprite
+    = result.ResultBGSprite;\r\n        this.resultTitleText.text = i18nManager_1.default.Instance.Lang.get_Item(result.ResultTitleText);\r\n       
+    this.resultTypoImage.sprite = result.ResultTypoSprite;\r\n        this.resultSubTitleText.text
+    = i18nManager_1.default.Instance.Lang.get_Item(''ZM_StyleMatching_Title_recommend'');\r\n       
+    this.resultDescriptionText.text = i18nManager_1.default.Instance.Lang.get_Item(result.ResultDescText);\r\n       
+    this.stateAnimator.SetTrigger(StyleMatchUI.TRIGGER_HIDE);\r\n        GlobalCoroutineManager_1.default.Instance.RunAfter(1.5,
+    () => {\r\n            this.stateUI.SetActive(false);\r\n            this.resultUI.SetActive(true);\r\n           
+    this.resultAnimator.SetTrigger(StyleMatchUI.TRIGGER_SHOW);\r\n            onShowCallback();\r\n       
+    });\r\n    }\r\n}\r\nStyleMatchUI.TRIGGER_SHOW = UnityEngine_1.Animator.StringToHash(''show'');\r\nStyleMatchUI.TRIGGER_HIDE
+    = UnityEngine_1.Animator.StringToHash(''hide'');\r\n__decorate([], StyleMatchUI.prototype,
+    \"startUI\", void 0);\r\n__decorate([], StyleMatchUI.prototype, \"startYesButton\",
+    void 0);\r\n__decorate([], StyleMatchUI.prototype, \"startNoButton\", void 0);\r\n__decorate([],
+    StyleMatchUI.prototype, \"stateUI\", void 0);\r\n__decorate([], StyleMatchUI.prototype,
+    \"dialogueText\", void 0);\r\n__decorate([], StyleMatchUI.prototype, \"selection1Button\",
+    void 0);\r\n__decorate([], StyleMatchUI.prototype, \"selection1Text\", void 0);\r\n__decorate([],
+    StyleMatchUI.prototype, \"selection2Button\", void 0);\r\n__decorate([], StyleMatchUI.prototype,
+    \"selection2Text\", void 0);\r\n__decorate([], StyleMatchUI.prototype, \"resultUI\",
+    void 0);\r\n__decorate([], StyleMatchUI.prototype, \"resultBGImage\", void 0);\r\n__decorate([],
+    StyleMatchUI.prototype, \"resultTitleText\", void 0);\r\n__decorate([], StyleMatchUI.prototype,
+    \"resultSubTitleText\", void 0);\r\n__decorate([], StyleMatchUI.prototype, \"resultTypoImage\",
+    void 0);\r\n__decorate([], StyleMatchUI.prototype, \"resultDescriptionText\",
+    void 0);\r\n__decorate([], StyleMatchUI.prototype, \"resultOkButton\", void 0);\r\n__decorate([],
+    StyleMatchUI.prototype, \"resultShareButton\", void 0);\r\nexports.default =
+    StyleMatchUI;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3R5bGVNYXRjaFVJLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiU3R5bGVNYXRjaFVJLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7Ozs7O0FBQUEsaUNBQWlDO0FBQ2pDLDZDQUFtRDtBQUVuRCxpREFBc0Q7QUFFdEQsd0RBQWlEO0FBQ2pELGlGQUEwRTtBQUcxRSxNQUFxQixZQUFhLFNBQVEscUNBQXFCO0lBaUQ3RCxJQUFXLGNBQWM7UUFDdkIsT0FBTyxJQUFJLENBQUMsY0FBYyxDQUFDO0lBQzdCLENBQUM7SUFFRCxJQUFXLGFBQWE7UUFDdEIsT0FBTyxJQUFJLENBQUMsYUFBYSxDQUFDO0lBQzVCLENBQUM7SUFFRCxJQUFXLGdCQUFnQjtRQUN6QixPQUFPLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQztJQUMvQixDQUFDO0lBRUQsSUFBVyxnQkFBZ0I7UUFDekIsT0FBTyxJQUFJLENBQUMsZ0JBQWdCLENBQUM7SUFDL0IsQ0FBQztJQUVELElBQVcsY0FBYztRQUN2QixPQUFPLElBQUksQ0FBQyxjQUFjLENBQUM7SUFDN0IsQ0FBQztJQUVELElBQVcsaUJBQWlCO1FBQzFCLE9BQU8sSUFBSSxDQUFDLGlCQUFpQixDQUFDO0lBQ2hDLENBQUM7SUFFTSxLQUFLO1FBQ1YsWUFBWSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7UUFFN0IsSUFBSSxDQUFDLGFBQWEsR0FBRyxJQUFJLENBQUMsT0FBTyxDQUFDLFlBQVksU0FBQyxzQkFBUSxFQUFHLENBQUM7UUFDM0QsSUFBSSxDQUFDLGNBQWMsR0FBRyxJQUFJLENBQUMsUUFBUSxDQUFDLFlBQVksU0FBQyxzQkFBUSxFQUFHLENBQUM7SUFDL0QsQ0FBQztJQUVNLFNBQVM7UUFDZCxJQUFJLENBQUMsT0FBTyxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUM3QixJQUFJLENBQUMsT0FBTyxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQztRQUM5QixJQUFJLENBQUMsUUFBUSxDQUFD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","assetPath":"Assets/UI/Style
+    Match/StyleMatchUI.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"startUI","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''Start
+    UI''"]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"startYesButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"startNoButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"stateUI","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''State
+    UI''"]},{"name":"SerializeField","args":[]}]},{"assembly":"Unity.TextMeshPro","name":"dialogueText","type":"TMPro.TMP_Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"selection1Button","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"Unity.TextMeshPro","name":"selection1Text","type":"TMPro.TMP_Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"selection2Button","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"Unity.TextMeshPro","name":"selection2Text","type":"TMPro.TMP_Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"resultUI","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''Result
+    UI''"]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"resultBGImage","type":"UnityEngine.UI.Image","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"Unity.TextMeshPro","name":"resultTitleText","type":"TMPro.TMP_Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"Unity.TextMeshPro","name":"resultSubTitleText","type":"TMPro.TMP_Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"resultTypoImage","type":"UnityEngine.UI.Image","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"Unity.TextMeshPro","name":"resultDescriptionText","type":"TMPro.TMP_Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"resultOkButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"resultShareButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"StyleMatchUI","description":""},"isCompiled":true}'
+  typescriptHash: 3bb4df3729e59c64bff25bf7054a5532
+  onlyWriteTrigger: 0

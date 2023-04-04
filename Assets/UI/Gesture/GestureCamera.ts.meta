@@ -1,0 +1,38 @@
+fileFormatVersion: 2
+guid: 6974330d8558849ce98b5672fc72cb8b
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    UnityEngine_Experimental_Rendering_1 = require(\"UnityEngine.Experimental.Rendering\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst GesturePlayer_1 = require(\"./GesturePlayer\");\r\nclass
+    GestureCamera extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake()
+    {\r\n        this.camera = this.GetComponent($typeof(UnityEngine_1.Camera));\r\n   
+    }\r\n    Capture(player, clips, cb) {\r\n        this.StartCoroutine(this.CaptureAnimationClips(player,
+    clips, cb));\r\n    }\r\n    *CaptureAnimationClips(player, clips, cb) {\r\n       
+    const waiter = new UnityEngine_1.WaitForSeconds(0.1);\r\n        let rts = [];\r\n       
+    for (const animation of clips) {\r\n            const rt = UnityEngine_1.RenderTexture.GetTemporary(256,
+    256, 16, UnityEngine_Experimental_Rendering_1.GraphicsFormat.R8G8B8A8_UNorm);\r\n           
+    rts.push(rt);\r\n            this.camera.targetTexture = rt;\r\n            player.ZepetoCharacter.SetGesture(animation);\r\n           
+    yield waiter;\r\n            this.camera.transform.position = new UnityEngine_1.Vector3(0,
+    player.ZepetoCharacter.ZepetoAnimator.GetBoneTransform(UnityEngine_1.HumanBodyBones.Head).transform.position.y,
+    1);\r\n            this.camera.Render();\r\n        }\r\n        cb(rts);\r\n   
+    }\r\n}\r\nexports.default = GestureCamera;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2VzdHVyZUNhbWVyYS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkdlc3R1cmVDYW1lcmEudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw2Q0FPcUI7QUFDckIsMkZBQW9FO0FBQ3BFLGlEQUFzRDtBQUV0RCxtREFBNEM7QUFFNUMsTUFBcUIsYUFBYyxTQUFRLHFDQUFxQjtJQUd2RCxLQUFLO1FBQ1YsSUFBSSxDQUFDLE1BQU0sR0FBRyxJQUFJLENBQUMsWUFBWSxTQUFDLG9CQUFNLEVBQUcsQ0FBQztJQUM1QyxDQUFDO0lBRU0sT0FBTyxDQUNaLE1BQXFCLEVBQ3JCLEtBQXNCLEVBQ3RCLEVBQWtDO1FBRWxDLElBQUksQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLHFCQUFxQixDQUFDLE1BQU0sRUFBRSxLQUFLLEVBQUUsRUFBRSxDQUFDLENBQUMsQ0FBQztJQUNyRSxDQUFDO0lBRU8sQ0FBQyxxQkFBcUIsQ0FDNUIsTUFBcUIsRUFDckIsS0FBc0IsRUFDdEIsRUFBa0M7UUFFbEMsTUFBTSxNQUFNLEdBQUcsSUFBSSw0QkFBYyxDQUFDLEdBQUcsQ0FBQyxDQUFDO1FBQ3ZDLElBQUksR0FBRyxHQUFvQixFQUFFLENBQUM7UUFFOUIsS0FBSyxNQUFNLFNBQVMsSUFBSSxLQUFLLEVBQUU7WUFDN0IsTUFBTSxFQUFFLEdBQUcsMkJBQWEsQ0FBQyxZQUFZLENBQ25DLEdBQUcsRUFDSCxHQUFHLEVBQ0gsRUFBRSxFQUNGLG1EQUFjLENBQUMsY0FBYyxDQUM5QixDQUFDO1lBQ0YsR0FBRyxDQUFDLElBQUksQ0FBQyxFQUFFLENBQUMsQ0FBQztZQUNiLElBQUksQ0FBQyxNQUFNLENBQUMsYUFBYSxHQUFHLEVBQUUsQ0FBQztZQUMvQixNQUFNLENBQUMsZUFBZSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsQ0FBQztZQUU3QyxNQUFNLE1BQU0sQ0FBQztZQUViLElBQUksQ0FBQyxNQUFNLENBQUMsU0FBUyxDQUFDLFFBQVEsR0FBRyxJQUFJLHFCQUFPLENBQzFDLENBQUMsRUFDRCxNQUFNLENBQUMsZUFBZSxDQUFDLGNBQWMsQ0FBQyxnQkFBZ0IsQ0FDcEQsNEJBQWMsQ0FBQyxJQUFJLENBQ3BCLENBQUMsU0FBUyxDQUFDLFFBQVEsQ0FBQyxDQUFDLEVBQ3RCLENBQUMsQ0FDRixDQUFDO1lBQ0YsSUFBSSxDQUFDLE1BQU0sQ0FBQyxNQUFNLEVBQUUsQ0FBQztTQUN0QjtRQUVELEVBQUUsQ0FBQyxHQUFHLENBQUMsQ0FBQztJQUNWLENBQUM7Q0FDRjtBQWhERCxnQ0FnREMifQ==","assetPath":"Assets/UI/Gesture/GestureCamera.ts","manifest":{"properties":[],"name":"GestureCamera","description":""},"isCompiled":true}'
+  typescriptHash: 01c8148bc9505c53e36331ac1e37199e
+  onlyWriteTrigger: 0

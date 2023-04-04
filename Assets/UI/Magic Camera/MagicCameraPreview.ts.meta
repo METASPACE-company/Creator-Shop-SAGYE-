@@ -1,0 +1,40 @@
+fileFormatVersion: 2
+guid: 7e64925099cf247b4a28734eb14ce408
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    MagicCameraObject_1 = require(\"./MagicCameraObject\");\r\nconst MagicCameraPad_1
+    = require(\"./MagicCameraPad\");\r\nconst MagicCameraShotTaking_1 = require(\"./MagicCameraShotTaking\");\r\nconst
+    MagicCameraTutorial_1 = require(\"./MagicCameraTutorial\");\r\nclass MagicCameraPreview
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake() {\r\n        this.cameraButton.onClick.AddListener(this.OnClickCameraButton.bind(this));\r\n       
+    this.takeShotButton.onClick.AddListener(this.OnClickTakeShotButton.bind(this));\r\n   
+    }\r\n    Start() {\r\n        this.gameObject.SetActive(false);\r\n    }\r\n   
+    Activate(tutorial, pad, shotTaking, cameraObject) {\r\n        this.gameObject.SetActive(true);\r\n       
+    this.tutorial = tutorial;\r\n        this.pad = pad;\r\n        this.shotTaking
+    = shotTaking;\r\n        this.cameraObject = cameraObject;\r\n    }\r\n    Deactivate()
+    {\r\n        this.gameObject.SetActive(false);\r\n    }\r\n    OnClickCameraButton()
+    {\r\n        this.Deactivate();\r\n        this.cameraObject.EnterPreview();\r\n       
+    this.pad.Activate(this.tutorial, this, this.shotTaking, this.cameraObject, false);\r\n   
+    }\r\n    OnClickTakeShotButton() {\r\n        this.shotTaking.Activate(this.tutorial,
+    null, this, this.cameraObject);\r\n    }\r\n}\r\nexports.default = MagicCameraPreview;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWFnaWNDYW1lcmFQcmV2aWV3LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTWFnaWNDYW1lcmFQcmV2aWV3LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQ0EsaURBQXNEO0FBRXRELDJEQUFvRDtBQUNwRCxxREFBOEM7QUFDOUMsbUVBQTREO0FBQzVELCtEQUF3RDtBQUV4RCxNQUFxQixrQkFBbUIsU0FBUSxxQ0FBcUI7SUFZNUQsS0FBSztRQUNWLElBQUksQ0FBQyxZQUFZLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsbUJBQW1CLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUM7UUFDM0UsSUFBSSxDQUFDLGNBQWMsQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUNyQyxJQUFJLENBQUMscUJBQXFCLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUN0QyxDQUFDO0lBQ0osQ0FBQztJQUVNLEtBQUs7UUFDVixJQUFJLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQztJQUNuQyxDQUFDO0lBRU0sUUFBUSxDQUNiLFFBQTZCLEVBQzdCLEdBQW1CLEVBQ25CLFVBQWlDLEVBQ2pDLFlBQStCO1FBRS9CLElBQUksQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxDQUFDO1FBQ2hDLElBQUksQ0FBQyxRQUFRLEdBQUcsUUFBUSxDQUFDO1FBQ3pCLElBQUksQ0FBQyxHQUFHLEdBQUcsR0FBRyxDQUFDO1FBQ2YsSUFBSSxDQUFDLFVBQVUsR0FBRyxVQUFVLENBQUM7UUFDN0IsSUFBSSxDQUFDLFlBQVksR0FBRyxZQUFZLENBQUM7SUFDbkMsQ0FBQztJQUVNLFVBQVU7UUFDZixJQUFJLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQztJQUNuQyxDQUFDO0lBRU0sbUJBQW1CO1FBQ3hCLElBQUksQ0FBQyxVQUFVLEVBQUUsQ0FBQztRQUNsQixJQUFJLENBQUMsWUFBWSxDQUFDLFlBQVksRUFBRSxDQUFDO1FBQ2pDLElBQUksQ0FBQyxHQUFHLENBQUMsUUFBUSxDQUNmLElBQUksQ0FBQyxRQUFRLEVBQ2IsSUFBSSxFQUNKLElBQUksQ0FBQyxVQUFVLEVBQ2YsSUFBSSxDQUFDLFlBQVksRUFDakIsS0FBSyxDQUNOLENBQUM7SUFDSixDQUFDO0lBRU0scUJBQXFCO1FBQzFCLElBQUksQ0FBQyxVQUFVLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxRQUFRLEVBQUUsSUFBSSxFQUFFLElBQUksRUFBRSxJQUFJLENBQUMsWUFBWSxDQUFDLENBQUM7SUFDekUsQ0FBQztDQUNGO0FBdkRELHFDQXVEQyJ9","assetPath":"Assets/UI/Magic
+    Camera/MagicCameraPreview.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"cameraButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''UI''"]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"takeShotButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"MagicCameraPreview","description":""},"isCompiled":true}'
+  typescriptHash: 1c83bae19eebaf4846ff7750873a9171
+  onlyWriteTrigger: 0

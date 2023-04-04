@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: ca73d5d1b47ca4a22bc91965692aa693
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    ZEPETO_World_1 = require(\"ZEPETO.World\");\r\nconst LoadingCover_1 = require(\"../../UI/Loading
+    Cover/LoadingCover\");\r\nconst GlobalCoroutineManager_1 = require(\"../../Utility/GlobalCoroutineManager\");\r\nconst
+    EventTracker_1 = require(\"../Tracking/EventTracker\");\r\nclass Portal extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    OnTriggerEnter(other) {\r\n       
+    if (other.tag !== ''LocalPlayer'')\r\n            return;\r\n        EventTracker_1.default.Instance.CountEnterPortal();\r\n       
+    LoadingCover_1.default.Instance.Unreveal();\r\n        GlobalCoroutineManager_1.default.Instance.RunAfter(2,
+    () => {\r\n            ZEPETO_World_1.ZepetoWorldContent.MoveToWorld(this.worldId,
+    () => { });\r\n        });\r\n    }\r\n}\r\nexports.default = Portal;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUG9ydGFsLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiUG9ydGFsLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQ0EsaURBQXNEO0FBQ3RELCtDQUFrRDtBQUVsRCxzRUFBK0Q7QUFDL0QsaUZBQTBFO0FBQzFFLDJEQUFvRDtBQUVwRCxNQUFxQixNQUFPLFNBQVEscUNBQXFCO0lBSWhELGNBQWMsQ0FBQyxLQUFlO1FBQ25DLElBQUksS0FBSyxDQUFDLEdBQUcsS0FBSyxhQUFhO1lBQUUsT0FBTztRQUN4QyxzQkFBWSxDQUFDLFFBQVEsQ0FBQyxnQkFBZ0IsRUFBRSxDQUFDO1FBQ3pDLHNCQUFZLENBQUMsUUFBUSxDQUFDLFFBQVEsRUFBRSxDQUFDO1FBQ2pDLGdDQUFzQixDQUFDLFFBQVEsQ0FBQyxRQUFRLENBQUMsQ0FBQyxFQUFFLEdBQUcsRUFBRTtZQUMvQyxpQ0FBa0IsQ0FBQyxXQUFXLENBQUMsSUFBSSxDQUFDLE9BQU8sRUFBRSxHQUFHLEVBQUUsR0FBRSxDQUFDLENBQUMsQ0FBQztRQUN6RCxDQUFDLENBQUMsQ0FBQztJQUNMLENBQUM7Q0FDRjtBQVpELHlCQVlDIn0=","assetPath":"Assets/3D/Portal/Portal.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"worldId","type":"System.String","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"Portal","description":""},"isCompiled":true}'
+  typescriptHash: c2ae0f1281e2e3a85828274fd3ed481f
+  onlyWriteTrigger: 0

@@ -1,0 +1,80 @@
+fileFormatVersion: 2
+guid: 4e2f6802f2feb4cfb84c4852d185370c
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst MessageHandler_1 = require(\"../Message/MessageHandler\");\r\nconst
+    ClientPackets_1 = require(\"../World-client/ClientPackets\");\r\nconst ClientQuaternionSyncer_1
+    = require(\"./ClientQuaternionSyncer\");\r\nconst ClientVector3Syncer_1 = require(\"./ClientVector3Syncer\");\r\nclass
+    RemotePlayerSyncer extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor()
+    {\r\n        super(...arguments);\r\n        this.msgHandler = new MessageHandler_1.MessageHandler();\r\n       
+    this.players = new Map();\r\n    }\r\n    Awake() {\r\n        this.msgHandler.addHandler(ClientPackets_1.server.sync.MessageType.SyncCharacterState,
+    this.SyncCharacterState, this);\r\n        this.msgHandler.addHandler(ClientPackets_1.server.sync.MessageType.SyncCharacterTeleport,
+    this.SyncCharacterTeleport, this);\r\n    }\r\n    FixedUpdate() {\r\n       
+    this.players.forEach((player) => {\r\n            if (player.syncers) {\r\n               
+    player.player.character.enabled = false;\r\n                player.player.character.transform.SetPositionAndRotation(player.syncers[0].update(),
+    player.syncers[1].update());\r\n                player.player.character.enabled
+    = true;\r\n                if (player.syncers[0].isDone() && player.syncers[1].isDone())\r\n                   
+    player.syncers = null;\r\n            }\r\n            else if (player.velocity)
+    {\r\n                const destination = UnityEngine_1.Vector3.op_Addition(player.player.character.transform.position,
+    UnityEngine_1.Vector3.op_Multiply(player.velocity, UnityEngine_1.Time.deltaTime));\r\n               
+    // TODO: Compensate the time it takes to synchronize position by the syncers.\r\n               
+    player.player.character.enabled = false;\r\n                player.player.character.transform.position
+    = destination;\r\n                player.player.character.enabled = true;\r\n           
+    }\r\n        });\r\n    }\r\n    HasPlayer(sessionId) {\r\n        return this.players.has(sessionId);\r\n   
+    }\r\n    GetPlayer(sessionId) {\r\n        return this.players.get(sessionId).player;\r\n   
+    }\r\n    PushPlayer(sessionId, player) {\r\n        const animator = player.character.GetComponentInChildren($typeof(UnityEngine_1.Animator));\r\n       
+    animator.SetFloat(''MotionSpeed'', 1);\r\n        this.players.set(sessionId,
+    new SyncingPlayer(player));\r\n    }\r\n    PopPlayer(sessionId) {\r\n       
+    const player = this.players.get(sessionId);\r\n        if (!player)\r\n           
+    return;\r\n        this.players.delete(sessionId);\r\n    }\r\n    SyncCharacterState(ctx,
+    type, payload) {\r\n        const packet = ClientPackets_1.server.sync.decodeSyncCharacterState(payload);\r\n       
+    const player = this.players.get(packet.sessionId);\r\n        if (!player)\r\n           
+    return;\r\n        if (player.player.isLocalPlayer)\r\n            return;\r\n       
+    player.player.character.ChangeStateAnimation(packet.state, packet.extraState);\r\n       
+    if (packet.state === ZEPETO_Character_Controller_1.CharacterState.Walk ||\r\n           
+    packet.state === ZEPETO_Character_Controller_1.CharacterState.Run ||\r\n           
+    packet.state === ZEPETO_Character_Controller_1.CharacterState.Move) {\r\n           
+    // Do nothing.\r\n        }\r\n        else if (packet.state === ZEPETO_Character_Controller_1.CharacterState.JumpIdle
+    ||\r\n            packet.state === ZEPETO_Character_Controller_1.CharacterState.JumpMove
+    ||\r\n            packet.state === ZEPETO_Character_Controller_1.CharacterState.Jump)
+    {\r\n            if (packet.extraState === ZEPETO_Character_Controller_1.CharacterJumpState.JumpDouble)\r\n               
+    player.player.character.DoubleJump();\r\n            else\r\n               
+    player.player.character.Jump();\r\n        }\r\n        player.syncers = [\r\n           
+    new ClientVector3Syncer_1.ClientVector3Syncer(player.player.character.transform.position,
+    packet.position, this.positionSyncTime),\r\n            new ClientQuaternionSyncer_1.ClientQuaternionSyncer(player.player.character.transform.rotation,
+    packet.rotation, this.rotationSyncTime),\r\n        ];\r\n        player.velocity
+    = packet.velocity;\r\n    }\r\n    SyncCharacterTeleport(ctx, type, payload)
+    {\r\n        const packet = ClientPackets_1.server.sync.decodeSyncCharacterTeleport(payload);\r\n       
+    const player = this.players.get(packet.sessionId);\r\n        if (!player)\r\n           
+    return;\r\n        if (player.player.isLocalPlayer)\r\n            return;\r\n       
+    player.player.character.ChangeStateAnimation(ZEPETO_Character_Controller_1.CharacterState.Idle);\r\n       
+    player.player.character.enabled = false;\r\n        player.player.character.transform.SetPositionAndRotation(packet.position,
+    packet.rotation);\r\n        player.syncers = null;\r\n        player.velocity
+    = null;\r\n    }\r\n}\r\nexports.default = RemotePlayerSyncer;\r\nclass SyncingPlayer
+    {\r\n    constructor(player) {\r\n        this.player = player;\r\n        this.syncers
+    = null;\r\n        this.velocity = null;\r\n    }\r\n}\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUmVtb3RlUGxheWVyU3luY2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiUmVtb3RlUGxheWVyU3luY2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQXNEO0FBRXRELDZFQUlxQztBQUVyQyxpREFBc0Q7QUFFdEQsOERBQTJEO0FBQzNELGlFQUF1RDtBQUN2RCxxRUFBa0U7QUFDbEUsK0RBQTREO0FBRTVELE1BQXFCLGtCQUFtQixTQUFRLHFDQUFxQjtJQUFyRTs7UUFjVSxlQUFVLEdBQUcsSUFBSSwrQkFBYyxFQUFFLENBQUM7UUFDbEMsWUFBTyxHQUErQixJQUFJLEdBQUcsRUFBRSxDQUFDO0lBNEgxRCxDQUFDO0lBMUhRLEtBQUs7UUFDVixJQUFJLENBQUMsVUFBVSxDQUFDLFVBQVUsQ0FDeEIsc0JBQU0sQ0FBQyxJQUFJLENBQUMsV0FBVyxDQUFDLGtCQUFrQixFQUMxQyxJQUFJLENBQUMsa0JBQWtCLEVBQ3ZCLElBQUksQ0FDTCxDQUFDO1FBQ0YsSUFBSSxDQUFDLFVBQVUsQ0FBQyxVQUFVLENBQ3hCLHNCQUFNLENBQUMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxxQkFBcUIsRUFDN0MsSUFBSSxDQUFDLHFCQUFxQixFQUMxQixJQUFJLENBQ0wsQ0FBQztJQUNKLENBQUM7SUFFTSxXQUFXO1FBQ2hCLElBQUksQ0FBQyxPQUFPLENBQUMsT0FBTyxDQUFDLENBQUMsTUFBTSxFQUFFLEVBQUU7WUFDOUIsSUFBSSxNQUFNLENBQUMsT0FBTyxFQUFFO2dCQUNsQixNQUFNLENBQUMsTUFBTSxDQUFDLFNBQVMsQ0FBQyxPQUFPLEdBQUcsS0FBSyxDQUFDO2dCQUN4QyxNQUFNLENBQUMsTUFBTSxDQUFDLFNBQVMsQ0FBQyxTQUFTLENBQUMsc0JBQXNCLENBQ3RELE1BQU0sQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDLENBQUMsTUFBTSxFQUFFLEVBQzFCLE1BQU0sQ0FBQyxPQUFPLENBQUMsQ0FBQyxDQUFDLENBQUMsTUFBTSxFQUFF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","assetPath":"Assets/Network/Sync/RemotePlayerSyncer.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"positionSyncTime","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''Synchronization''"]},{"name":"SerializeField","args":[]},{"name":"Tooltip","args":["''The
+    time it takes to synchronize the position.''"]}]},{"assembly":"mscorlib","name":"rotationSyncTime","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]},{"name":"Tooltip","args":["''The
+    time it takes to synchronize the rotation.''"]}]},{"assembly":"mscorlib","name":"positionBoostRate","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]},{"name":"Tooltip","args":["''Additional
+    acceleration multiplier to use to compensate for the time it takes to synchronize
+    position if position changes while moving.''"]}]}],"name":"RemotePlayerSyncer","description":""},"isCompiled":true}'
+  typescriptHash: d13ebee8ab6a1f03fd8eda0fc238f70a
+  onlyWriteTrigger: 0

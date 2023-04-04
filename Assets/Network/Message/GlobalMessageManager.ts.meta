@@ -1,0 +1,58 @@
+fileFormatVersion: 2
+guid: 8ff9089acc87f444faec7c4c5e14817d
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    MessageManagerProxy_1 = require(\"./MessageManagerProxy\");\r\nconst MSG_MGR_PROXY
+    = new MessageManagerProxy_1.MessageManagerProxy();\r\nclass GlobalMessageManager
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor() {\r\n       
+    super(...arguments);\r\n        // Private fields\r\n        this.handlers =
+    new Set();\r\n        this.typeHandlers = new Map();\r\n        this.typeRawHandlers
+    = new Map();\r\n    }\r\n    static get Instance() {\r\n        return GlobalMessageManager.instance
+    ?? MSG_MGR_PROXY;\r\n    }\r\n    Start() {\r\n        this.multiplay.add_RoomJoined((room)
+    => {\r\n            this.room = room;\r\n            GlobalMessageManager.instance
+    = this;\r\n            this.merge(MSG_MGR_PROXY);\r\n        });\r\n    }\r\n   
+    sendMessage(type, payload) {\r\n        this.room.Send(type, payload);\r\n   
+    }\r\n    registerMessageHandler(handler) {\r\n        if (this.handlers.has(handler))\r\n           
+    return;\r\n        this.handlers.add(handler);\r\n        for (const type of
+    handler.AllTypes)\r\n            this.onTypeAdded(type, handler);\r\n       
+    handler.registerSignalHandler(this);\r\n    }\r\n    unregisterMessageHandler(handler)
+    {\r\n        if (!this.handlers.has(handler))\r\n            return;\r\n       
+    this.handlers.delete(handler);\r\n        for (const type of handler.AllTypes)\r\n           
+    this.onTypeRemoved(type, handler);\r\n        handler.unregisterSignalHandler();\r\n   
+    }\r\n    onTypeAdded(type, handler) {\r\n        const handlers = this.typeHandlers.get(type);\r\n       
+    if (!handlers) {\r\n            this.typeHandlers.set(type, new Set([handler]));\r\n           
+    let rawHandler = this.typeRawHandlers.get(type);\r\n            if (!rawHandler)
+    {\r\n                rawHandler = this.handle.bind(this, type);\r\n               
+    this.typeRawHandlers.set(type, rawHandler);\r\n            }\r\n            this.room.AddMessageHandler(type,
+    rawHandler);\r\n        }\r\n        else\r\n            handlers.add(handler);\r\n   
+    }\r\n    onTypeRemoved(type, handler) {\r\n        const handlers = this.typeHandlers.get(type);\r\n       
+    if (handlers.size === 1) {\r\n            // NOTE: Currently the ZEPETO does
+    not support removing message handlers.\r\n            // this.room.RemoveMessageHandler(type);\r\n           
+    // this.typeRawHandlers.delete(type);\r\n            this.typeHandlers.delete(type);\r\n       
+    }\r\n        else\r\n            handlers.delete(handler);\r\n    }\r\n    handle(type,
+    payload) {\r\n        const handlers = this.typeHandlers.get(type);\r\n       
+    if (!handlers)\r\n            return;\r\n        for (const handler of handlers)\r\n           
+    handler.handle(this.room, type, payload !== undefined ? payload.toString() :
+    undefined);\r\n    }\r\n    merge(proxy) {\r\n        for (const handler of proxy.ReceiverProxy.Handlers)\r\n           
+    this.registerMessageHandler(handler);\r\n        for (const [type, payload] of
+    proxy.SenderProxy.Messages)\r\n            this.sendMessage(type, payload);\r\n   
+    }\r\n}\r\nexports.default = GlobalMessageManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2xvYmFsTWVzc2FnZU1hbmFnZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJHbG9iYWxNZXNzYWdlTWFuYWdlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLGlEQUFzRDtBQUd0RCwrREFBNEU7QUFJNUUsTUFBTSxhQUFhLEdBQUcsSUFBSSx5Q0FBbUIsRUFBRSxDQUFDO0FBRWhELE1BQXFCLG9CQUNuQixTQUFRLHFDQUFxQjtJQUQvQjs7UUFjRSxpQkFBaUI7UUFDVCxhQUFRLEdBQUcsSUFBSSxHQUFHLEVBQWtCLENBQUM7UUFDckMsaUJBQVksR0FBRyxJQUFJLEdBQUcsRUFBK0IsQ0FBQztRQUN0RCxvQkFBZSxHQUFHLElBQUksR0FBRyxFQUFtQyxDQUFDO0lBaUZ2RSxDQUFDO0lBNUZRLE1BQU0sS0FBSyxRQUFRO1FBQ3hCLE9BQU8sb0JBQW9CLENBQUMsUUFBUSxJQUFJLGFBQWEsQ0FBQztJQUN4RCxDQUFDO0lBV0QsS0FBSztRQUNILElBQUksQ0FBQyxTQUFTLGdCQUFlLENBQUMsSUFBVSxFQUFFLEVBQUU7WUFDMUMsSUFBSSxDQUFDLElBQUksR0FBRyxJQUFJLENBQUM7WUFDakIsb0JBQW9CLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQztZQUNyQyxJQUFJLENBQUMsS0FBSyxDQUFDLGFBQWEsQ0FBQyxDQUFDO1FBQzVCLENBQUMsRUFBQztJQUNKLENBQUM7SUFFRCxXQUFXLENBQUMsSUFBcUIsRUFBRSxPQUFnQjtRQUNqRCxJQUFJLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxJQUFXLEVBQUUsT0FBTyxDQUFDLENBQUM7SUFDdkMsQ0FBQztJQUVELHNCQUFzQixDQUFDLE9BQXVCO1FBQzVDLElBQUksSUFBSSxDQUFDLFFBQVEsQ0FBQyxHQUFHLENBQUMsT0FBTyxDQUFDO1lBQUUsT0FBTztRQUV2QyxJQUFJLENBQUMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxPQUFPLENBQUMsQ0FBQztRQUUzQixLQUFLLE1BQU0sSUFBSSxJQUFJLE9BQU8sQ0FBQyxRQUFRO1lBQUUsSUFBSSxDQUFDLFdBQVcsQ0FBQyxJQUFJLEVBQUUsT0FBTyxDQUFDLENBQUM7UUFFckUsT0FBTyxDQUFDLHFCQUFxQixDQUFDLElBQUksQ0FBQyxDQUFDO0lBQ3RDLENBQUM7SUFFRCx3QkFBd0IsQ0FBQyxPQUF1QjtRQUM5QyxJQUFJLENBQUMsSUFBSSxDQUFDLFFBQVEsQ0FBQyxHQUFHLENBQUMsT0FBTyxDQUFDO1lBQUUsT0FBTztRQUV4QyxJQUFJLENBQUMsUUFBUSxDQUFDLE1BQU0sQ0FBQyxPQUFPLENBQUMsQ0FBQztRQUU5QixLQUFLLE1BQU0sSUFBSSxJQUFJLE9BQU8sQ0FBQyxRQUFRO1lBQUUsSUFBSSxDQUFDLGFBQWEsQ0FBQyxJQUFJLEVBQUUsT0FBTyxDQUFDLENBQUM7UUFFdkUsT0FBTyxDQUFDLHVCQUF1QixFQUFFLENBQUM7SUFDcEMsQ0FBQztJQUVELFdBQVcsQ0FBQyxJQUFZLEVBQUUsT0FBdUI7UUFDL0MsTUFBTSxRQUFRLEdBQUcsSUFBSSxDQUFDLFlBQVksQ0FBQyxHQUFHLENBQUMsSUFBSSxDQUFDLENBQUM7UUFFN0MsSUFBSSxDQUFDLFFBQVEsRUFBRTtZQUNiLElBQUksQ0FBQyxZQUFZLENBQUMsR0FBRyxDQUFDLElBQUksRUFBRSxJQUFJLEdBQUcsQ0FBQyxDQUFDLE9BQU8sQ0FBQyxDQUFDLENBQUMsQ0FBQztZQUVoRCxJQUFJLFVBQVUsR0FBRyxJQUFJLENBQUMsZUFBZSxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsQ0FBQztZQUVoRCxJQUFJLENBQUMsVUFBVSxFQUFFO2dCQUNmLFVBQVUsR0FBRyxJQUFJLENBQUMsTUFBTSxDQUFDLElBQUksQ0FBQyxJQUFJLEVBQUUsSUFBSSxDQUFDLENBQUM7Z0JBQzFDLElBQUksQ0FBQyxlQUFlLENBQUMsR0FBRyxDQUFDLElBQUksRUFBRSxVQUFVLENBQUMsQ0FBQzthQUM1QztZQUVELElBQUksQ0FBQyxJQUFJLENBQUMsaUJBQWlCLENBQUMsSUFBSSxFQUFFLFVBQVUsQ0FBQyxDQUFDO1NBQy9DOztZQUFNLFFBQVEsQ0FBQyxHQUFHLENBQUMsT0FBTyxDQUFDLENBQUM7SUFDL0IsQ0FBQztJQUVELGFBQWEsQ0FBQyxJQUFZLEVBQUUsT0FBdUI7UUFDakQsTUFBTSxRQUFRLEdBQUcsSUFBSSxDQUFDLFlBQVksQ0FBQyxHQUFHLENBQUMsSUFBSSxDQUFDLENBQUM7UUFFN0MsSUFBSSxRQUFRLENBQUMsSUFBSSxLQUFLLENBQUMsRUFBRTtZQUN2Qix5RUFBeUU7WUFDekUsd0NBQXdDO1lBQ3hDLHFDQUFxQztZQUNyQyxJQUFJLENBQUMsWUFBWSxDQUFDLE1BQU0sQ0FBQyxJQUFJLENBQUMsQ0FBQztTQUNoQzs7WUFBTSxRQUFRLENBQUMsTUFBTSxDQUFDLE9BQU8sQ0FBQyxDQUFDO0lBQ2xDLENBQUM7SUFFTyxNQUFNLENBQUMsSUFBWSxFQUFFLE9BQWE7UUFDeEMsTUFBTSxRQUFRLEdBQUcsSUFBSSxDQUFDLFlBQVksQ0FBQyxHQUFHLENBQUMsSUFBSSxDQUFDLENBQUM7UUFDN0MsSUFBSSxDQUFDLFFBQVE7WUFBRSxPQUFPO1FBRXRCLEtBQUssTUFBTSxPQUFPLElBQUksUUFBUTtZQUM1QixPQUFPLENBQUMsTUFBTSxDQUNaLElBQUksQ0FBQyxJQUFJLEVBQ1QsSUFBSSxFQUNKLE9BQU8sS0FBSyxTQUFTLENBQUMsQ0FBQyxDQUFDLE9BQU8sQ0FBQyxRQUFRLEVBQUUsQ0FBQyxDQUFDLENBQUMsU0FBUyxDQUN2RCxDQUFDO0lBQ04sQ0FBQztJQUVPLEtBQUssQ0FBQyxLQUEwQjtRQUN0QyxLQUFLLE1BQU0sT0FBTyxJQUFJLEtBQUssQ0FBQyxhQUFhLENBQUMsUUFBUTtZQUNoRCxJQUFJLENBQUMsc0JBQXNCLENBQUMsT0FBTyxDQUFDLENBQUM7UUFFdkMsS0FBSyxNQUFNLENBQUMsSUFBSSxFQUFFLE9BQU8sQ0FBQyxJQUFJLEtBQUssQ0FBQyxXQUFXLENBQUMsUUFBUTtZQUN0RCxJQUFJLENBQUMsV0FBVyxDQUFDLElBQUksRUFBRSxPQUFPLENBQUMsQ0FBQztJQUNwQyxDQUFDO0NBQ0Y7QUFsR0QsdUNBa0dDIn0=","assetPath":"Assets/Scripts/Message/GlobalMessageManager.ts","manifest":{"properties":[{"assembly":"ZEPETO.World","name":"multiplay","type":"ZEPETO.World.ZepetoWorldMultiplay","isArray":false,"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"GlobalMessageManager","description":""},"isCompiled":true}'
+  typescriptHash: ae535e3b20d0c0709d2085a290efb56b

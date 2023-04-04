@@ -1,0 +1,40 @@
+fileFormatVersion: 2
+guid: 53510827139bd483bb405e68fb10ea6a
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.MessageManagerProxy = exports.MessageReceiverProxy
+    = exports.MessageSenderProxy = void 0;\r\nclass MessageSenderProxy {\r\n    constructor()
+    {\r\n        this.messages = [];\r\n    }\r\n    get Messages() {\r\n       
+    return this.messages;\r\n    }\r\n    sendMessage(type, payload) {\r\n       
+    this.messages.push([type, payload]);\r\n    }\r\n}\r\nexports.MessageSenderProxy
+    = MessageSenderProxy;\r\nclass MessageReceiverProxy {\r\n    constructor() {\r\n       
+    this.handlers = new Set();\r\n    }\r\n    get Handlers() {\r\n        return
+    this.handlers;\r\n    }\r\n    registerMessageHandler(handler) {\r\n        this.handlers.add(handler);\r\n   
+    }\r\n    unregisterMessageHandler(handler) {\r\n        this.handlers.delete(handler);\r\n   
+    }\r\n}\r\nexports.MessageReceiverProxy = MessageReceiverProxy;\r\nclass MessageManagerProxy
+    {\r\n    constructor() {\r\n        this.senderProxy = new MessageSenderProxy();\r\n       
+    this.receiverProxy = new MessageReceiverProxy();\r\n    }\r\n    get SenderProxy()
+    {\r\n        return this.senderProxy;\r\n    }\r\n    get ReceiverProxy() {\r\n       
+    return this.receiverProxy;\r\n    }\r\n    sendMessage(type, payload) {\r\n       
+    this.senderProxy.sendMessage(type, payload);\r\n    }\r\n    registerMessageHandler(handler)
+    {\r\n        this.receiverProxy.registerMessageHandler(handler);\r\n    }\r\n   
+    unregisterMessageHandler(handler) {\r\n        this.receiverProxy.unregisterMessageHandler(handler);\r\n   
+    }\r\n}\r\nexports.MessageManagerProxy = MessageManagerProxy;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWVzc2FnZU1hbmFnZXJQcm94eS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk1lc3NhZ2VNYW5hZ2VyUHJveHkudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBSUEsTUFBYSxrQkFBa0I7SUFBL0I7UUFDVSxhQUFRLEdBQWlDLEVBQUUsQ0FBQztJQVN0RCxDQUFDO0lBUEMsSUFBSSxRQUFRO1FBQ1YsT0FBTyxJQUFJLENBQUMsUUFBUSxDQUFDO0lBQ3ZCLENBQUM7SUFFRCxXQUFXLENBQUMsSUFBcUIsRUFBRSxPQUFnQjtRQUNqRCxJQUFJLENBQUMsUUFBUSxDQUFDLElBQUksQ0FBQyxDQUFDLElBQUksRUFBRSxPQUFPLENBQUMsQ0FBQyxDQUFDO0lBQ3RDLENBQUM7Q0FDRjtBQVZELGdEQVVDO0FBRUQsTUFBYSxvQkFBb0I7SUFBakM7UUFDVSxhQUFRLEdBQUcsSUFBSSxHQUFHLEVBQWtCLENBQUM7SUFhL0MsQ0FBQztJQVhDLElBQUksUUFBUTtRQUNWLE9BQU8sSUFBSSxDQUFDLFFBQVEsQ0FBQztJQUN2QixDQUFDO0lBRUQsc0JBQXNCLENBQUMsT0FBdUI7UUFDNUMsSUFBSSxDQUFDLFFBQVEsQ0FBQyxHQUFHLENBQUMsT0FBTyxDQUFDLENBQUM7SUFDN0IsQ0FBQztJQUVELHdCQUF3QixDQUFDLE9BQXVCO1FBQzlDLElBQUksQ0FBQyxRQUFRLENBQUMsTUFBTSxDQUFDLE9BQU8sQ0FBQyxDQUFDO0lBQ2hDLENBQUM7Q0FDRjtBQWRELG9EQWNDO0FBRUQsTUFBYSxtQkFBbUI7SUFBaEM7UUFDVSxnQkFBVyxHQUFHLElBQUksa0JBQWtCLEVBQUUsQ0FBQztRQUN2QyxrQkFBYSxHQUFHLElBQUksb0JBQW9CLEVBQUUsQ0FBQztJQXFCckQsQ0FBQztJQW5CQyxJQUFJLFdBQVc7UUFDYixPQUFPLElBQUksQ0FBQyxXQUFXLENBQUM7SUFDMUIsQ0FBQztJQUVELElBQUksYUFBYTtRQUNmLE9BQU8sSUFBSSxDQUFDLGFBQWEsQ0FBQztJQUM1QixDQUFDO0lBRUQsV0FBVyxDQUFDLElBQXFCLEVBQUUsT0FBZ0I7UUFDakQsSUFBSSxDQUFDLFdBQVcsQ0FBQyxXQUFXLENBQUMsSUFBSSxFQUFFLE9BQU8sQ0FBQyxDQUFDO0lBQzlDLENBQUM7SUFFRCxzQkFBc0IsQ0FBQyxPQUF1QjtRQUM1QyxJQUFJLENBQUMsYUFBYSxDQUFDLHNCQUFzQixDQUFDLE9BQU8sQ0FBQyxDQUFDO0lBQ3JELENBQUM7SUFFRCx3QkFBd0IsQ0FBQyxPQUF1QjtRQUM5QyxJQUFJLENBQUMsYUFBYSxDQUFDLHdCQUF3QixDQUFDLE9BQU8sQ0FBQyxDQUFDO0lBQ3ZELENBQUM7Q0FDRjtBQXZCRCxrREF1QkMifQ==","assetPath":"Assets/Scripts/Message/MessageManagerProxy.ts","manifest":{"properties":[],"name":"MessageSenderProxy","description":""},"isCompiled":true}'
+  typescriptHash: a54fdb8daba9c1ae20e33290e76dfab8

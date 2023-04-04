@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: 883d2ff5fbce142f38c720a281423ba0
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    Gesture_1 = require(\"../Gesture/Gesture\");\r\nconst MagicCamera_1 = require(\"../Magic
+    Camera/MagicCamera\");\r\nclass MiddleMenuGroup extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    static get Instance() {\r\n        return MiddleMenuGroup.instance;\r\n   
+    }\r\n    Awake() {\r\n        MiddleMenuGroup.instance = this;\r\n        this.magicCamera.onClick.AddListener(()
+    => {\r\n            MagicCamera_1.default.Instance.Activate();\r\n        });\r\n       
+    this.gesture.onClick.AddListener(() => {\r\n            if (Gesture_1.default.Instance.IsPrepared)\r\n               
+    Gesture_1.default.Instance.UI.gameObject.SetActive(true);\r\n        });\r\n   
+    }\r\n}\r\nexports.default = MiddleMenuGroup;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWlkZGxlTWVudUdyb3VwLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTWlkZGxlTWVudUdyb3VwLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQ0EsaURBQXNEO0FBRXRELGdEQUF5QztBQUN6Qyw2REFBc0Q7QUFFdEQsTUFBcUIsZUFBZ0IsU0FBUSxxQ0FBcUI7SUFHekQsTUFBTSxLQUFLLFFBQVE7UUFDeEIsT0FBTyxlQUFlLENBQUMsUUFBUSxDQUFDO0lBQ2xDLENBQUM7SUFRTSxLQUFLO1FBQ1YsZUFBZSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7UUFDaEMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUFDLEdBQUcsRUFBRTtZQUN4QyxxQkFBVyxDQUFDLFFBQVEsQ0FBQyxRQUFRLEVBQUUsQ0FBQztRQUNsQyxDQUFDLENBQUMsQ0FBQztRQUNILElBQUksQ0FBQyxPQUFPLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDcEMsSUFBSSxpQkFBTyxDQUFDLFFBQVEsQ0FBQyxVQUFVO2dCQUM3QixpQkFBTyxDQUFDLFFBQVEsQ0FBQyxFQUFFLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUNuRCxDQUFDLENBQUMsQ0FBQztJQUNMLENBQUM7Q0FDRjtBQXZCRCxrQ0F1QkMifQ==","assetPath":"Assets/UI/Middle
+    Menu Group/MiddleMenuGroup.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"magicCamera","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''UI''"]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"gesture","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"MiddleMenuGroup","description":""},"isCompiled":true}'
+  typescriptHash: 3ab58d39a38fa3684223b5a0d793372b
+  onlyWriteTrigger: 0

@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+guid: 4ee9f535fc5ee48cabb1d0f64bba937e
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    StyleMatch_1 = require(\"../Style Match/StyleMatch\");\r\nconst TutorialGuide_1
+    = require(\"../Tutorial Guide/TutorialGuide\");\r\nclass MenuGroup extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    static get Instance() {\r\n        return MenuGroup.instance;\r\n   
+    }\r\n    Awake() {\r\n        MenuGroup.instance = this;\r\n        this.guide.onClick.AddListener(()
+    => {\r\n            TutorialGuide_1.default.Instance.gameObject.SetActive(true);\r\n       
+    });\r\n        this.styleMatch.onClick.AddListener(() => {\r\n            StyleMatch_1.default.Instance.StartSession();\r\n       
+    });\r\n    }\r\n}\r\nexports.default = MenuGroup;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWVudUdyb3VwLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTWVudUdyb3VwLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQ0EsaURBQXNEO0FBRXRELDBEQUFtRDtBQUNuRCxtRUFBNEQ7QUFFNUQsTUFBcUIsU0FBVSxTQUFRLHFDQUFxQjtJQUduRCxNQUFNLEtBQUssUUFBUTtRQUN4QixPQUFPLFNBQVMsQ0FBQyxRQUFRLENBQUM7SUFDNUIsQ0FBQztJQVFNLEtBQUs7UUFDVixTQUFTLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQztRQUMxQixJQUFJLENBQUMsS0FBSyxDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBQ2xDLHVCQUFhLENBQUMsUUFBUSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUM7UUFDcEQsQ0FBQyxDQUFDLENBQUM7UUFDSCxJQUFJLENBQUMsVUFBVSxDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBQ3ZDLG9CQUFVLENBQUMsUUFBUSxDQUFDLFlBQVksRUFBRSxDQUFDO1FBQ3JDLENBQUMsQ0FBQyxDQUFDO0lBQ0wsQ0FBQztDQUNGO0FBdEJELDRCQXNCQyJ9","assetPath":"Assets/UI/Menu
+    Group/MenuGroup.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"guide","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''UI''"]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"styleMatch","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"MenuGroup","description":""},"isCompiled":true}'
+  typescriptHash: 753eaf69a330dde44a1e0269c73f12ad
+  onlyWriteTrigger: 0

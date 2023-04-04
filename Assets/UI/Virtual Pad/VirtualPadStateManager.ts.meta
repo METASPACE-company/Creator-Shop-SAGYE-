@@ -1,0 +1,40 @@
+fileFormatVersion: 2
+guid: ef3be081ca88743b084ea3f6fa2c46a3
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    VirtualPadController_1 = require(\"./VirtualPadController\");\r\nclass VirtualPadStateManager
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor() {\r\n       
+    super(...arguments);\r\n        this.styleMatch = false;\r\n        this.gesture
+    = false;\r\n        this.magicCamera = false;\r\n    }\r\n    static get Instance()
+    {\r\n        return VirtualPadStateManager.instance;\r\n    }\r\n    get StyleMatch()
+    {\r\n        return this.styleMatch;\r\n    }\r\n    get Gesture() {\r\n       
+    return this.gesture;\r\n    }\r\n    get MagicCamera() {\r\n        return this.magicCamera;\r\n   
+    }\r\n    set StyleMatch(value) {\r\n        this.styleMatch = value;\r\n       
+    this.UpdateVirtualPad();\r\n    }\r\n    set Gesture(value) {\r\n        this.gesture
+    = value;\r\n        this.UpdateVirtualPad();\r\n    }\r\n    set MagicCamera(value)
+    {\r\n        this.magicCamera = value;\r\n        this.UpdateVirtualPad();\r\n   
+    }\r\n    Awake() {\r\n        VirtualPadStateManager.instance = this;\r\n   
+    }\r\n    UpdateVirtualPad() {\r\n        const flag = this.styleMatch || this.gesture
+    || this.magicCamera;\r\n        VirtualPadController_1.default.Instance.SetActive(!flag);\r\n   
+    }\r\n}\r\nexports.default = VirtualPadStateManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVmlydHVhbFBhZFN0YXRlTWFuYWdlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlZpcnR1YWxQYWRTdGF0ZU1hbmFnZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBc0Q7QUFFdEQsaUVBQTBEO0FBRTFELE1BQXFCLHNCQUF1QixTQUFRLHFDQUFxQjtJQUF6RTs7UUFPVSxlQUFVLEdBQUcsS0FBSyxDQUFDO1FBQ25CLFlBQU8sR0FBRyxLQUFLLENBQUM7UUFDaEIsZ0JBQVcsR0FBRyxLQUFLLENBQUM7SUFxQzlCLENBQUM7SUEzQ1EsTUFBTSxLQUFLLFFBQVE7UUFDeEIsT0FBTyxzQkFBc0IsQ0FBQyxRQUFRLENBQUM7SUFDekMsQ0FBQztJQU1ELElBQVcsVUFBVTtRQUNuQixPQUFPLElBQUksQ0FBQyxVQUFVLENBQUM7SUFDekIsQ0FBQztJQUVELElBQVcsT0FBTztRQUNoQixPQUFPLElBQUksQ0FBQyxPQUFPLENBQUM7SUFDdEIsQ0FBQztJQUVELElBQVcsV0FBVztRQUNwQixPQUFPLElBQUksQ0FBQyxXQUFXLENBQUM7SUFDMUIsQ0FBQztJQUVELElBQVcsVUFBVSxDQUFDLEtBQWM7UUFDbEMsSUFBSSxDQUFDLFVBQVUsR0FBRyxLQUFLLENBQUM7UUFDeEIsSUFBSSxDQUFDLGdCQUFnQixFQUFFLENBQUM7SUFDMUIsQ0FBQztJQUVELElBQVcsT0FBTyxDQUFDLEtBQWM7UUFDL0IsSUFBSSxDQUFDLE9BQU8sR0FBRyxLQUFLLENBQUM7UUFDckIsSUFBSSxDQUFDLGdCQUFnQixFQUFFLENBQUM7SUFDMUIsQ0FBQztJQUVELElBQVcsV0FBVyxDQUFDLEtBQWM7UUFDbkMsSUFBSSxDQUFDLFdBQVcsR0FBRyxLQUFLLENBQUM7UUFDekIsSUFBSSxDQUFDLGdCQUFnQixFQUFFLENBQUM7SUFDMUIsQ0FBQztJQUVNLEtBQUs7UUFDVixzQkFBc0IsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDO0lBQ3pDLENBQUM7SUFFTyxnQkFBZ0I7UUFDdEIsTUFBTSxJQUFJLEdBQUcsSUFBSSxDQUFDLFVBQVUsSUFBSSxJQUFJLENBQUMsT0FBTyxJQUFJLElBQUksQ0FBQyxXQUFXLENBQUM7UUFDakUsOEJBQW9CLENBQUMsUUFBUSxDQUFDLFNBQVMsQ0FBQyxDQUFDLElBQUksQ0FBQyxDQUFDO0lBQ2pELENBQUM7Q0FDRjtBQTlDRCx5Q0E4Q0MifQ==","assetPath":"Assets/UI/Virtual
+    Pad/VirtualPadStateManager.ts","manifest":{"properties":[],"name":"VirtualPadStateManager","description":""},"isCompiled":true}'
+  typescriptHash: e1b0b642dfa85213f971be07bbda0537
+  onlyWriteTrigger: 0

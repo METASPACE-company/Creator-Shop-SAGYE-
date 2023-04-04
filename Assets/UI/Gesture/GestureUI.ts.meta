@@ -1,0 +1,36 @@
+fileFormatVersion: 2
+guid: 0a51626062b7d42cb8b6545416f730ba
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst VirtualPadStateManager_1
+    = require(\"../Virtual Pad/VirtualPadStateManager\");\r\nconst GestureUISlot_1
+    = require(\"./GestureUISlot\");\r\nclass GestureUI extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    Awake() {\r\n        this.gameObject.SetActive(false);\r\n    }\r\n   
+    OnEnable() {\r\n        if (VirtualPadStateManager_1.default.Instance)\r\n           
+    VirtualPadStateManager_1.default.Instance.Gesture = true;\r\n    }\r\n    OnDisable()
+    {\r\n        if (VirtualPadStateManager_1.default.Instance)\r\n            VirtualPadStateManager_1.default.Instance.Gesture
+    = false;\r\n    }\r\n    AppendSlot(thumbnail, name) {\r\n        const slotObject
+    = UnityEngine_1.GameObject.Instantiate(this.slot, this.slotParent, false);\r\n       
+    const slot = slotObject.GetComponent($typeof(GestureUISlot_1.default));\r\n       
+    slot.Activate(thumbnail, name);\r\n        return slot;\r\n    }\r\n}\r\nexports.default
+    = GestureUI;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2VzdHVyZVVJLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiR2VzdHVyZVVJLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQTZEO0FBQzdELGlEQUFzRDtBQUV0RCxrRkFBMkU7QUFDM0UsbURBQTRDO0FBRTVDLE1BQXFCLFNBQVUsU0FBUSxxQ0FBcUI7SUFRbkQsS0FBSztRQUNWLElBQUksQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO0lBQ25DLENBQUM7SUFFTSxRQUFRO1FBQ2IsSUFBSSxnQ0FBc0IsQ0FBQyxRQUFRO1lBQ2pDLGdDQUFzQixDQUFDLFFBQVEsQ0FBQyxPQUFPLEdBQUcsSUFBSSxDQUFDO0lBQ25ELENBQUM7SUFFTSxTQUFTO1FBQ2QsSUFBSSxnQ0FBc0IsQ0FBQyxRQUFRO1lBQ2pDLGdDQUFzQixDQUFDLFFBQVEsQ0FBQyxPQUFPLEdBQUcsS0FBSyxDQUFDO0lBQ3BELENBQUM7SUFFTSxVQUFVLENBQUMsU0FBa0IsRUFBRSxJQUFZO1FBQ2hELE1BQU0sVUFBVSxHQUFHLHdCQUFVLENBQUMsV0FBVyxDQUN2QyxJQUFJLENBQUMsSUFBSSxFQUNULElBQUksQ0FBQyxVQUFVLEVBQ2YsS0FBSyxDQUNOLENBQUM7UUFDRixNQUFNLElBQUksR0FBRyxVQUFVLENBQUMsWUFBWSxTQUFDLHVCQUFhLEVBQUcsQ0FBQztRQUN0RCxJQUFJLENBQUMsUUFBUSxDQUFDLFNBQVMsRUFBRSxJQUFJLENBQUMsQ0FBQztRQUMvQixPQUFPLElBQUksQ0FBQztJQUNkLENBQUM7Q0FDRjtBQWhDRCw0QkFnQ0MifQ==","assetPath":"Assets/UI/Gesture/GestureUI.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"slotParent","type":"UnityEngine.Transform","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''UI''"]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"slot","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''Prefab''"]},{"name":"SerializeField","args":[]}]}],"name":"GestureUI","description":""},"isCompiled":true}'
+  typescriptHash: a249ea155e387bedb99334d32d7331d0
+  onlyWriteTrigger: 0

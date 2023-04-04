@@ -1,0 +1,11 @@
+
+packets server gesture {
+  PlayGesture {
+    sessionId: string;
+    gesture: number;
+  }
+
+  StopGesture {
+    sessionId: string;
+  }
+}

@@ -1,0 +1,100 @@
+fileFormatVersion: 2
+guid: 583edfa3dd3c44dccbc7ecdf415310f5
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst GlobalMessageManager_1
+    = require(\"../Message/GlobalMessageManager\");\r\nconst ClientPackets_1 = require(\"../World-client/ClientPackets\");\r\nconst
+    SpeedTracker_1 = require(\"./SpeedTracker\");\r\n// This class receives state
+    changes from the local player and notifies other clients via the network.\r\nclass
+    LocalPlayerSyncer extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor()
+    {\r\n        super(...arguments);\r\n        this.lastState = ZEPETO_Character_Controller_1.CharacterState.Idle;\r\n       
+    this.lastMovementVelocity = UnityEngine_1.Vector3.zero;\r\n        this.player
+    = null;\r\n        this.speedTracker = null;\r\n        this.onStateChangeHandler
+    = null;\r\n        this.periodicSyncCoroutine = null;\r\n    }\r\n    Awake()
+    {\r\n        this.directionThresholdCos = UnityEngine_1.Mathf.Cos(this.directionThreshold
+    * UnityEngine_1.Mathf.Deg2Rad);\r\n        this.onStateChangeHandler = this.Sync.bind(this);\r\n       
+    this.enabled = false;\r\n    }\r\n    Enabled() {\r\n        if (this.usePeriodicSync)\r\n           
+    this.periodicSyncCoroutine = this.StartCoroutine(this.SyncPeriodically(this.periodicSyncInterval));\r\n   
+    }\r\n    Disable() {\r\n        if (this.periodicSyncCoroutine) {\r\n           
+    this.StopCoroutine(this.periodicSyncCoroutine);\r\n            this.periodicSyncCoroutine
+    = null;\r\n        }\r\n    }\r\n    OnDestroy() {\r\n        if (this.periodicSyncCoroutine)\r\n           
+    this.StopCoroutine(this.periodicSyncCoroutine);\r\n    }\r\n    FixedUpdate()
+    {\r\n        if (this.lastState === ZEPETO_Character_Controller_1.CharacterState.Invalid)\r\n           
+    return;\r\n        if (this.lastState === ZEPETO_Character_Controller_1.CharacterState.Idle)\r\n           
+    return;\r\n        if (!this.player)\r\n            return;\r\n        if (!this.speedTracker)\r\n           
+    return;\r\n        const speed = this.speedTracker.speed;\r\n        if (speed
+    < 0.01)\r\n            return;\r\n        if (this.lastMovementVelocity.sqrMagnitude
+    < 0.0001) {\r\n            UnityEngine_1.Debug.Log(''Sync triggered by movement.'');\r\n           
+    this.Sync(this.lastState, this.lastState);\r\n            return;\r\n       
+    }\r\n        if (UnityEngine_1.Vector3.Dot(this.player.character.transform.forward,
+    UnityEngine_1.Vector3.Normalize(this.lastMovementVelocity)) <= this.directionThresholdCos)
+    {\r\n            UnityEngine_1.Debug.Log(''Sync triggered by direction.'');\r\n           
+    this.Sync(this.lastState, this.lastState);\r\n            return;\r\n       
+    }\r\n        if (this.velocityThreshold <=\r\n            UnityEngine_1.Mathf.Abs(speed
+    - this.lastMovementVelocity.magnitude)) {\r\n            UnityEngine_1.Debug.Log(''Sync
+    triggered by velocity.'');\r\n            this.Sync(this.lastState, this.lastState);\r\n           
+    return;\r\n        }\r\n    }\r\n    HasPlayer() {\r\n        return !!this.player;\r\n   
+    }\r\n    PushPlayer(player) {\r\n        this.player = player;\r\n        this.speedTracker
+    = player.character.gameObject.AddComponent($typeof(SpeedTracker_1.default));\r\n       
+    player.character.OnChangedState.AddListener(this.onStateChangeHandler);\r\n       
+    if (this.usePeriodicSync) {\r\n            UnityEngine_1.Debug.Log(`Periodic
+    sync is enabled. Interval: ${this.periodicSyncInterval}`);\r\n            this.periodicSyncCoroutine
+    = this.StartCoroutine(this.SyncPeriodically(this.periodicSyncInterval));\r\n       
+    }\r\n        this.enabled = true;\r\n    }\r\n    PopPlayer() {\r\n        if
+    (this.player && this.player.character)\r\n            this.player.character.OnChangedState.RemoveListener(this.onStateChangeHandler);\r\n       
+    if (this.periodicSyncCoroutine)\r\n            this.StopCoroutine(this.periodicSyncCoroutine);\r\n       
+    this.player = null;\r\n        this.speedTracker = null;\r\n        this.periodicSyncCoroutine
+    = null;\r\n        this.enabled = false;\r\n    }\r\n    Teleport(position, rotation)
+    {\r\n        if (!this.player)\r\n            return;\r\n        const character
+    = this.player.character;\r\n        rotation = rotation ?? character.transform.rotation;\r\n       
+    character.enabled = false;\r\n        character.transform.SetPositionAndRotation(position,
+    rotation);\r\n        character.enabled = true;\r\n        GlobalMessageManager_1.default.Instance.sendMessage(ClientPackets_1.client.sync.MessageType.SyncCharacterTeleport,
+    ClientPackets_1.client.sync.encodeSyncCharacterTeleport({\r\n            position,\r\n           
+    rotation,\r\n        }));\r\n        this.lastState = ZEPETO_Character_Controller_1.CharacterState.Idle;\r\n       
+    this.lastMovementVelocity = UnityEngine_1.Vector3.zero;\r\n    }\r\n    *SyncPeriodically(interval)
+    {\r\n        const awaiter = new UnityEngine_1.WaitForSeconds(interval);\r\n       
+    for (;;) {\r\n            yield awaiter;\r\n            UnityEngine_1.Debug.Log(`Sync
+    triggered by periodic sync. State: ${this.lastState}`);\r\n            this.Sync(this.lastState,
+    this.lastState);\r\n        }\r\n    }\r\n    Sync(to, from) {\r\n        if
+    (!this.player)\r\n            return;\r\n        if (!this.speedTracker)\r\n           
+    return;\r\n        const GetExtraState = () => {\r\n            if (!this.player.character.MotionV2)\r\n               
+    return 0;\r\n            if (to === ZEPETO_Character_Controller_1.CharacterState.Move)\r\n               
+    return this.player.character.MotionV2.CurrentMoveState;\r\n            if (to
+    === ZEPETO_Character_Controller_1.CharacterState.Jump)\r\n                return
+    this.player.character.MotionV2.CurrentJumpState;\r\n            if (to === ZEPETO_Character_Controller_1.CharacterState.Landing)\r\n               
+    return this.player.character.MotionV2.CurrentLandingState;\r\n            return
+    0;\r\n        };\r\n        const transform = this.player.character.transform;\r\n       
+    GlobalMessageManager_1.default.Instance.sendMessage(ClientPackets_1.client.sync.MessageType.SyncCharacterState,
+    ClientPackets_1.client.sync.encodeSyncCharacterState({\r\n            state:
+    to,\r\n            extraState: GetExtraState(),\r\n            position: transform.position,\r\n           
+    rotation: transform.rotation,\r\n            velocity: UnityEngine_1.Vector3.op_Multiply(transform.forward,
+    this.speedTracker.speed),\r\n        }));\r\n        this.lastState = to;\r\n       
+    this.lastMovementVelocity = UnityEngine_1.Vector3.op_Multiply(this.player.character.transform.forward,
+    this.speedTracker.speed);\r\n    }\r\n}\r\nexports.default = LocalPlayerSyncer;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTG9jYWxQbGF5ZXJTeW5jZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJMb2NhbFBsYXllclN5bmNlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQU9xQjtBQUVyQiw2RUFNcUM7QUFDckMsaURBQXNEO0FBRXRELDBFQUFtRTtBQUNuRSxpRUFBdUQ7QUFDdkQsaURBQTBDO0FBRTFDLHNHQUFzRztBQUN0RyxNQUFxQixpQkFBa0IsU0FBUSxxQ0FBcUI7SUFBcEU7O1FBc0JVLGNBQVMsR0FBRyw0Q0FBYyxDQUFDLElBQUksQ0FBQztRQUNoQyx5QkFBb0IsR0FBRyxxQkFBTyxDQUFDLElBQUksQ0FBQztRQUVwQyxXQUFNLEdBQWlCLElBQUksQ0FBQztRQUM1QixpQkFBWSxHQUFpQixJQUFJLENBQUM7UUFDbEMseUJBQW9CLEdBR2hCLElBQUksQ0FBQztRQUNULDBCQUFxQixHQUFjLElBQUksQ0FBQztJQW1MbEQsQ0FBQztJQWpMUSxLQUFLO1FBQ1YsSUFBSSxDQUFDLHFCQUFxQixHQUFHLG1CQUFLLENBQUMsR0FBRyxDQUNwQyxJQUFJLENBQUMsa0JBQWtCLEdBQUcsbUJBQUssQ0FBQyxPQUFPLENBQ3hDLENBQUM7UUFDRixJQUFJLENBQUMsb0JBQW9CLEdBQUcsSUFBSSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUM7UUFFakQsSUFBSSxDQUFDLE9BQU8sR0FBRyxLQUFLLENBQUM7SUFDdkIsQ0FBQztJQUVNLE9BQU87UUFDWixJQUFJLElBQUksQ0FBQyxlQUFlO1lBQ3RCLElBQUksQ0FBQyxxQkFBcUIsR0FBRyxJQUFJLENBQUMsY0FBYyxDQUM5QyxJQUFJLENBQUMsZ0JBQWdCLENBQUMsSUFBSSxDQUFDLG9CQUFvQixDQUFDLENBQ2pELENBQUM7SUFDTixDQUFDO0lBRU0sT0FBTztRQUNaLElBQUksSUFBSSxDQUFDLHFCQUFxQixFQUFFO1lBQzlCLElBQUksQ0FBQyxhQUFhLENBQUMsSUFBSSxDQUFD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","assetPath":"Assets/Network/Sync/LocalPlayerSyncer.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"directionThreshold","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''Threshold''"]},{"name":"SerializeField","args":[]},{"name":"Tooltip","args":["''The
+    threshold of change of the rotation of the player to notify the server.''"]}]},{"assembly":"mscorlib","name":"velocityThreshold","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]},{"name":"Tooltip","args":["''The
+    threshold of change of the velocity of the player to notify the server.''"]}]},{"assembly":"mscorlib","name":"usePeriodicSync","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''Periodic
+    Sync''"]},{"name":"SerializeField","args":[]},{"name":"Tooltip","args":["''Should
+    the periodic sync be used?''"]}]},{"assembly":"mscorlib","name":"periodicSyncInterval","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]},{"name":"Tooltip","args":["''How
+    often should the periodic sync be sent?''"]}]}],"name":"LocalPlayerSyncer","description":""},"isCompiled":true}'
+  typescriptHash: 31654efc4afd28cd6d6bda68057c43bf
+  onlyWriteTrigger: 0

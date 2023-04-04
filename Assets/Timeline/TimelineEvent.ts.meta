@@ -1,0 +1,39 @@
+fileFormatVersion: 2
+guid: 6efc676a7616f43a79f183988a60929a
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.TimelineEvent = void 0;\r\nclass TimelineEvent {\r\n   
+    constructor(timeline) {\r\n        this.timeline = timeline;\r\n    }\r\n   
+    OnPlayed(handler) {\r\n        this.timeline.add_played(handler);\r\n    }\r\n   
+    OffPlayed(handler) {\r\n        this.timeline.remove_played(handler);\r\n   
+    }\r\n    OncePlayed(handler) {\r\n        const wrapper = (timeline) => {\r\n           
+    handler(timeline);\r\n            this.OffPlayed(wrapper);\r\n        };\r\n       
+    this.OnPlayed(wrapper);\r\n    }\r\n    OnPaused(handler) {\r\n        this.timeline.add_paused(handler);\r\n   
+    }\r\n    OffPaused(handler) {\r\n        this.timeline.remove_paused(handler);\r\n   
+    }\r\n    OncePaused(handler) {\r\n        const wrapper = (timeline) => {\r\n           
+    handler(timeline);\r\n            this.OffPaused(wrapper);\r\n        };\r\n       
+    this.OnPaused(wrapper);\r\n    }\r\n    OnStopped(handler) {\r\n        this.timeline.add_stopped(handler);\r\n   
+    }\r\n    OffStopped(handler) {\r\n        this.timeline.remove_stopped(handler);\r\n   
+    }\r\n    OnceStopped(handler) {\r\n        const wrapper = (timeline) => {\r\n           
+    handler(timeline);\r\n            this.OffStopped(wrapper);\r\n        };\r\n       
+    this.OnStopped(wrapper);\r\n    }\r\n}\r\nexports.TimelineEvent = TimelineEvent;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGltZWxpbmVFdmVudC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlRpbWVsaW5lRXZlbnQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBSUEsTUFBYSxhQUFhO0lBQ3hCLFlBQW9CLFFBQTBCO1FBQTFCLGFBQVEsR0FBUixRQUFRLENBQWtCO0lBQUcsQ0FBQztJQUUzQyxRQUFRLENBQUMsT0FBNkI7UUFDM0MsSUFBSSxDQUFDLFFBQVEsQ0FBQyxVQUFVLENBQUMsT0FBTyxDQUFDLENBQUM7SUFDcEMsQ0FBQztJQUVNLFNBQVMsQ0FBQyxPQUE2QjtRQUM1QyxJQUFJLENBQUMsUUFBUSxDQUFDLGFBQWEsQ0FBQyxPQUFPLENBQUMsQ0FBQztJQUN2QyxDQUFDO0lBRU0sVUFBVSxDQUFDLE9BQTZCO1FBQzdDLE1BQU0sT0FBTyxHQUF5QixDQUFDLFFBQVEsRUFBRSxFQUFFO1lBQ2pELE9BQU8sQ0FBQyxRQUFRLENBQUMsQ0FBQztZQUNsQixJQUFJLENBQUMsU0FBUyxDQUFDLE9BQU8sQ0FBQyxDQUFDO1FBQzFCLENBQUMsQ0FBQztRQUNGLElBQUksQ0FBQyxRQUFRLENBQUMsT0FBTyxDQUFDLENBQUM7SUFDekIsQ0FBQztJQUVNLFFBQVEsQ0FBQyxPQUE2QjtRQUMzQyxJQUFJLENBQUMsUUFBUSxDQUFDLFVBQVUsQ0FBQyxPQUFPLENBQUMsQ0FBQztJQUNwQyxDQUFDO0lBRU0sU0FBUyxDQUFDLE9BQTZCO1FBQzVDLElBQUksQ0FBQyxRQUFRLENBQUMsYUFBYSxDQUFDLE9BQU8sQ0FBQyxDQUFDO0lBQ3ZDLENBQUM7SUFFTSxVQUFVLENBQUMsT0FBNkI7UUFDN0MsTUFBTSxPQUFPLEdBQXlCLENBQUMsUUFBUSxFQUFFLEVBQUU7WUFDakQsT0FBTyxDQUFDLFFBQVEsQ0FBQyxDQUFDO1lBQ2xCLElBQUksQ0FBQyxTQUFTLENBQUMsT0FBTyxDQUFDLENBQUM7UUFDMUIsQ0FBQyxDQUFDO1FBQ0YsSUFBSSxDQUFDLFFBQVEsQ0FBQyxPQUFPLENBQUMsQ0FBQztJQUN6QixDQUFDO0lBRU0sU0FBUyxDQUFDLE9BQTZCO1FBQzVDLElBQUksQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLE9BQU8sQ0FBQyxDQUFDO0lBQ3JDLENBQUM7SUFFTSxVQUFVLENBQUMsT0FBNkI7UUFDN0MsSUFBSSxDQUFDLFFBQVEsQ0FBQyxjQUFjLENBQUMsT0FBTyxDQUFDLENBQUM7SUFDeEMsQ0FBQztJQUVNLFdBQVcsQ0FBQyxPQUE2QjtRQUM5QyxNQUFNLE9BQU8sR0FBeUIsQ0FBQyxRQUFRLEVBQUUsRUFBRTtZQUNqRCxPQUFPLENBQUMsUUFBUSxDQUFDLENBQUM7WUFDbEIsSUFBSSxDQUFDLFVBQVUsQ0FBQyxPQUFPLENBQUMsQ0FBQztRQUMzQixDQUFDLENBQUM7UUFDRixJQUFJLENBQUMsU0FBUyxDQUFDLE9BQU8sQ0FBQyxDQUFDO0lBQzFCLENBQUM7Q0FDRjtBQWxERCxzQ0FrREMifQ==","assetPath":"Assets/Timeline/TimelineEvent.ts","manifest":{"properties":[],"name":"TimelineEvent","description":""},"isCompiled":true}'
+  typescriptHash: 0f955f9cf024f5e1872b2ec9a94f026d
+  onlyWriteTrigger: 0

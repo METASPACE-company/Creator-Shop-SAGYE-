@@ -1,0 +1,36 @@
+fileFormatVersion: 2
+guid: fc3d14e6f54cc4e36b2e5b475994f7cf
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Mannequin_1 = require(\"ZEPETO.Mannequin\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst EventTracker_1 = require(\"../../3D/Tracking/EventTracker\");\r\nconst
+    LocalPlayer_1 = require(\"../../Network/Sync/LocalPlayer\");\r\nclass MannequinOpener
+    extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n        const
+    mannequin = this.GetComponent($typeof(ZEPETO_Mannequin_1.MannequinComponent));\r\n       
+    mannequin.onActive.AddListener((contents) => {\r\n            EventTracker_1.default.Instance.CountOpenMannequin();\r\n           
+    ZEPETO_Mannequin_1.Mannequin.OpenUI(contents);\r\n            MannequinOpener.previewer?.ResetContents();\r\n           
+    MannequinOpener.previewer = new ZEPETO_Mannequin_1.MannequinPreviewer(LocalPlayer_1.default.Instance.ZepetoCharacter.Context,
+    contents);\r\n            MannequinOpener.previewer.PreviewContents();\r\n       
+    });\r\n        mannequin.onCancel.AddListener(() => {\r\n            ZEPETO_Mannequin_1.Mannequin.CloseUI();\r\n           
+    MannequinOpener.previewer?.ResetContents();\r\n            MannequinOpener.previewer
+    = null;\r\n        });\r\n    }\r\n}\r\nexports.default = MannequinOpener;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWFubmVxdWluT3BlbmVyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTWFubmVxdWluT3BlbmVyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsdURBSTBCO0FBQzFCLGlEQUFzRDtBQUV0RCxpRUFBMEQ7QUFDMUQsZ0VBQXlEO0FBRXpELE1BQXFCLGVBQWdCLFNBQVEscUNBQXFCO0lBR3pELEtBQUs7UUFDVixNQUFNLFNBQVMsR0FBRyxJQUFJLENBQUMsWUFBWSxTQUFDLHFDQUFrQixFQUFHLENBQUM7UUFDMUQsU0FBUyxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsQ0FBQyxRQUFRLEVBQUUsRUFBRTtZQUMxQyxzQkFBWSxDQUFDLFFBQVEsQ0FBQyxrQkFBa0IsRUFBRSxDQUFDO1lBQzNDLDRCQUFTLENBQUMsTUFBTSxDQUFDLFFBQVEsQ0FBQyxDQUFDO1lBQzNCLGVBQWUsQ0FBQyxTQUFTLEVBQUUsYUFBYSxFQUFFLENBQUM7WUFDM0MsZUFBZSxDQUFDLFNBQVMsR0FBRyxJQUFJLHFDQUFrQixDQUNoRCxxQkFBVyxDQUFDLFFBQVEsQ0FBQyxlQUFlLENBQUMsT0FBTyxFQUM1QyxRQUFRLENBQ1QsQ0FBQztZQUNGLGVBQWUsQ0FBQyxTQUFTLENBQUMsZUFBZSxFQUFFLENBQUM7UUFDOUMsQ0FBQyxDQUFDLENBQUM7UUFDSCxTQUFTLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxHQUFHLEVBQUU7WUFDbEMsNEJBQVMsQ0FBQyxPQUFPLEVBQUUsQ0FBQztZQUNwQixlQUFlLENBQUMsU0FBUyxFQUFFLGFBQWEsRUFBRSxDQUFDO1lBQzNDLGVBQWUsQ0FBQyxTQUFTLEdBQUcsSUFBSSxDQUFDO1FBQ25DLENBQUMsQ0FBQyxDQUFDO0lBQ0wsQ0FBQztDQUNGO0FBckJELGtDQXFCQyJ9","assetPath":"Assets/UI/Mannequin/MannequinOpener.ts","manifest":{"properties":[],"name":"MannequinOpener","description":""},"isCompiled":true}'
+  typescriptHash: 269abee809ca4ba5ea0e5d4b768c4075
+  onlyWriteTrigger: 0

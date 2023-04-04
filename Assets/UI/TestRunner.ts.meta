@@ -1,0 +1,48 @@
+fileFormatVersion: 2
+guid: 82b7c28d277b41fea6d46fa608851f4c
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nconst StyleMatchUI_1 = require(\"./Style
+    Match/StyleMatchUI\");\r\nconst StyleMatch_1 = require(\"./Style Match/StyleMatch\");\r\nclass
+    TestRunner extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n       
+    if (!this.IsTestTargetPlatform())\r\n            return;\r\n        this.isLoaded
+    = false;\r\n        this.StartCoroutine(this.LoadRoutine());\r\n    }\r\n   
+    *LoadRoutine() {\r\n        yield null;\r\n        this.isLoaded = true;\r\n   
+    }\r\n    Update() {\r\n        if (!this.IsTestTargetPlatform())\r\n           
+    return;\r\n        if (!this.isLoaded)\r\n            return;\r\n        for
+    (let i = 0; i < 8; ++i) {\r\n            if (UnityEngine_1.Input.GetKeyDown(UnityEngine_1.KeyCode.Alpha1
+    + i)) {\r\n                this.ShowTestResult(i);\r\n                break;\r\n           
+    }\r\n        }\r\n    }\r\n    IsTestTargetPlatform() {\r\n        switch (UnityEngine_1.Application.platform)
+    {\r\n            case UnityEngine_1.RuntimePlatform.WindowsEditor:\r\n           
+    case UnityEngine_1.RuntimePlatform.LinuxEditor:\r\n            case UnityEngine_1.RuntimePlatform.OSXEditor:\r\n               
+    return true;\r\n            default:\r\n                return false;\r\n       
+    }\r\n    }\r\n    ShowTestResult(index) {\r\n        StyleMatch_1.default.Instance.StartSession();\r\n       
+    StyleMatch_1.default.Instance.Terminate(this.NumberToResultType(index));\r\n   
+    }\r\n    NumberToResultType(index) {\r\n        switch (index) {\r\n           
+    case 0:\r\n                return ''ES_A'';\r\n            case 1:\r\n               
+    return ''ES_B'';\r\n            case 2:\r\n                return ''EN_A'';\r\n           
+    case 3:\r\n                return ''EN_B'';\r\n            case 4:\r\n               
+    return ''IS_A'';\r\n            case 5:\r\n                return ''IS_B'';\r\n           
+    case 6:\r\n                return ''IN_A'';\r\n            case 7:\r\n               
+    return ''IN_B'';\r\n        }\r\n    }\r\n}\r\nexports.default = TestRunner;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVGVzdFJ1bm5lci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlRlc3RSdW5uZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBb0Q7QUFDcEQsNkNBQXlFO0FBQ3pFLDZEQUFzRDtBQUN0RCx5REFBa0Q7QUFHbEQsTUFBcUIsVUFBVyxTQUFRLHFDQUFxQjtJQUluRCxLQUFLO1FBQ1gsSUFBRyxDQUFDLElBQUksQ0FBQyxvQkFBb0IsRUFBRTtZQUFFLE9BQU87UUFFeEMsSUFBSSxDQUFDLFFBQVEsR0FBRyxLQUFLLENBQUM7UUFDdEIsSUFBSSxDQUFDLGNBQWMsQ0FBQyxJQUFJLENBQUMsV0FBVyxFQUFFLENBQUMsQ0FBQztJQUMxQyxDQUFDO0lBRU8sQ0FBQyxXQUFXO1FBQ2xCLE1BQU0sSUFBSSxDQUFDO1FBRVgsSUFBSSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7SUFDdkIsQ0FBQztJQUVPLE1BQU07UUFDWixJQUFHLENBQUMsSUFBSSxDQUFDLG9CQUFvQixFQUFFO1lBQUUsT0FBTztRQUN4QyxJQUFHLENBQUMsSUFBSSxDQUFDLFFBQVE7WUFBRSxPQUFPO1FBRTFCLEtBQUksSUFBSSxDQUFDLEdBQUMsQ0FBQyxFQUFFLENBQUMsR0FBQyxDQUFDLEVBQUUsRUFBRSxDQUFDLEVBQUU7WUFDckIsSUFBRyxtQkFBSyxDQUFDLFVBQVUsQ0FBQyxxQkFBTyxDQUFDLE1BQU0sR0FBRyxDQUFDLENBQUMsRUFBRTtnQkFDdEMsSUFBSSxDQUFDLGNBQWMsQ0FBQyxDQUFDLENBQUMsQ0FBQztnQkFDdkIsTUFBTTthQUNSO1NBQ0Y7SUFDSCxDQUFDO0lBRU8sb0JBQW9CO1FBQzFCLFFBQU8seUJBQVcsQ0FBQyxRQUFRLEVBQUU7WUFDM0IsS0FBSyw2QkFBZSxDQUFDLGFBQWEsQ0FBQztZQUNuQyxLQUFLLDZCQUFlLENBQUMsV0FBVyxDQUFDO1lBQ2pDLEtBQUssNkJBQWUsQ0FBQyxTQUFTO2dCQUM1QixPQUFPLElBQUksQ0FBQztZQUNkO2dCQUNFLE9BQU8sS0FBSyxDQUFDO1NBQ2hCO0lBQ0gsQ0FBQztJQUVPLGNBQWMsQ0FBQyxLQUFVO1FBQy9CLG9CQUFVLENBQUMsUUFBUSxDQUFDLFlBQVksRUFBRSxDQUFDO1FBQ25DLG9CQUFVLENBQUMsUUFBUSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsa0JBQWtCLENBQUMsS0FBSyxDQUFDLENBQUMsQ0FBQztJQUNoRSxDQUFDO0lBRU8sa0JBQWtCLENBQUMsS0FBUztRQUNsQyxRQUFPLEtBQUssRUFBRTtZQUNaLEtBQUssQ0FBQztnQkFDSixPQUFPLE1BQU0sQ0FBQztZQUNoQixLQUFLLENBQUM7Z0JBQ0osT0FBTyxNQUFNLENBQUM7WUFDaEIsS0FBSyxDQUFDO2dCQUNKLE9BQU8sTUFBTSxDQUFDO1lBQ2hCLEtBQUssQ0FBQztnQkFDSixPQUFPLE1BQU0sQ0FBQztZQUNoQixLQUFLLENBQUM7Z0JBQ0osT0FBTyxNQUFNLENBQUM7WUFDaEIsS0FBSyxDQUFDO2dCQUNKLE9BQU8sTUFBTSxDQUFDO1lBQ2hCLEtBQUssQ0FBQztnQkFDSixPQUFPLE1BQU0sQ0FBQztZQUNoQixLQUFLLENBQUM7Z0JBQ0osT0FBTyxNQUFNLENBQUM7U0FDakI7SUFDSCxDQUFDO0NBQ0Y7QUFqRUQsNkJBaUVDIn0=","assetPath":"Assets/UI/TestRunner.ts","manifest":{"properties":[],"name":"TestRunner","description":""},"isCompiled":true}'
+  typescriptHash: 184eaf953f584dcf5728437cb29506a4
+  onlyWriteTrigger: 0

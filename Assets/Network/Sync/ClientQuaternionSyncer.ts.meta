@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: 734ffd298ea1b453ba4c141fa2f4c8cb
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.ClientQuaternionSyncer = void 0;\r\nconst UnityEngine_1
+    = require(\"UnityEngine\");\r\nclass ClientQuaternionSyncer {\r\n    constructor(from,
+    to, duration) {\r\n        this.from = from;\r\n        this.to = to;\r\n       
+    this.duration = duration;\r\n        this.t = UnityEngine_1.Time.timeSinceLevelLoad;\r\n       
+    this.c = UnityEngine_1.Time.timeSinceLevelLoad;\r\n    }\r\n    isDone() {\r\n       
+    return this.c - this.t >= this.duration;\r\n    }\r\n    update() {\r\n       
+    const v = UnityEngine_1.Quaternion.Lerp(this.from, this.to, ease(Math.min((this.c
+    - this.t) / this.duration, 1)));\r\n        this.c = UnityEngine_1.Time.timeSinceLevelLoad;\r\n       
+    return v;\r\n    }\r\n}\r\nexports.ClientQuaternionSyncer = ClientQuaternionSyncer;\r\nfunction
+    ease(t) {\r\n    return t;\r\n}\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ2xpZW50UXVhdGVybmlvblN5bmNlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkNsaWVudFF1YXRlcm5pb25TeW5jZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQUEsNkNBQStDO0FBRS9DLE1BQWEsc0JBQXNCO0lBSWpDLFlBQ1UsSUFBZ0IsRUFDaEIsRUFBYyxFQUNkLFFBQWdCO1FBRmhCLFNBQUksR0FBSixJQUFJLENBQVk7UUFDaEIsT0FBRSxHQUFGLEVBQUUsQ0FBWTtRQUNkLGFBQVEsR0FBUixRQUFRLENBQVE7UUFFeEIsSUFBSSxDQUFDLENBQUMsR0FBRyxrQkFBSSxDQUFDLGtCQUFrQixDQUFDO1FBQ2pDLElBQUksQ0FBQyxDQUFDLEdBQUcsa0JBQUksQ0FBQyxrQkFBa0IsQ0FBQztJQUNuQyxDQUFDO0lBRUQsTUFBTTtRQUNKLE9BQU8sSUFBSSxDQUFDLENBQUMsR0FBRyxJQUFJLENBQUMsQ0FBQyxJQUFJLElBQUksQ0FBQyxRQUFRLENBQUM7SUFDMUMsQ0FBQztJQUVELE1BQU07UUFDSixNQUFNLENBQUMsR0FBRyx3QkFBVSxDQUFDLElBQUksQ0FDdkIsSUFBSSxDQUFDLElBQUksRUFDVCxJQUFJLENBQUMsRUFBRSxFQUNQLElBQUksQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUMsSUFBSSxDQUFDLENBQUMsR0FBRyxJQUFJLENBQUMsQ0FBQyxDQUFDLEdBQUcsSUFBSSxDQUFDLFFBQVEsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUNyRCxDQUFDO1FBQ0YsSUFBSSxDQUFDLENBQUMsR0FBRyxrQkFBSSxDQUFDLGtCQUFrQixDQUFDO1FBQ2pDLE9BQU8sQ0FBQyxDQUFDO0lBQ1gsQ0FBQztDQUNGO0FBMUJELHdEQTBCQztBQUVELFNBQVMsSUFBSSxDQUFDLENBQVM7SUFDckIsT0FBTyxDQUFDLENBQUM7QUFDWCxDQUFDIn0=","assetPath":"Assets/Network/Sync/ClientQuaternionSyncer.ts","manifest":{"properties":[],"name":"ClientQuaternionSyncer","description":""},"isCompiled":true}'
+  typescriptHash: a3368cc90c6b7ff764c24c4a30d55d5b
+  onlyWriteTrigger: 0

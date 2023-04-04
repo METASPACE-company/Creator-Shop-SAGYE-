@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: f83251694e34749ea88c5525214739ac
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass
+    SfxProvider extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    static get
+    Instance() {\r\n        return SfxProvider.instance;\r\n    }\r\n    get UIClick()
+    {\r\n        return this.uiClick;\r\n    }\r\n    get UIPopupShowing() {\r\n       
+    return this.uiPopupShowing;\r\n    }\r\n    Awake() {\r\n        SfxProvider.instance
+    = this;\r\n    }\r\n}\r\nexports.default = SfxProvider;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2Z4UHJvdmlkZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJTZnhQcm92aWRlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLGlEQUFzRDtBQUV0RCxNQUFxQixXQUFZLFNBQVEscUNBQXFCO0lBR3JELE1BQU0sS0FBSyxRQUFRO1FBQ3hCLE9BQU8sV0FBVyxDQUFDLFFBQVEsQ0FBQztJQUM5QixDQUFDO0lBT0QsSUFBVyxPQUFPO1FBQ2hCLE9BQU8sSUFBSSxDQUFDLE9BQU8sQ0FBQztJQUN0QixDQUFDO0lBRUQsSUFBVyxjQUFjO1FBQ3ZCLE9BQU8sSUFBSSxDQUFDLGNBQWMsQ0FBQztJQUM3QixDQUFDO0lBRU0sS0FBSztRQUNWLFdBQVcsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDO0lBQzlCLENBQUM7Q0FDRjtBQXZCRCw4QkF1QkMifQ==","assetPath":"Assets/Sfx/SfxProvider.ts","manifest":{"properties":[{"assembly":"UnityEngine.AudioModule","name":"uiClick","type":"UnityEngine.AudioClip","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.AudioModule","name":"uiPopupShowing","type":"UnityEngine.AudioClip","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"SfxProvider","description":""},"isCompiled":true}'
+  typescriptHash: 52bff78612596afbd89872b92cc58194
+  onlyWriteTrigger: 0

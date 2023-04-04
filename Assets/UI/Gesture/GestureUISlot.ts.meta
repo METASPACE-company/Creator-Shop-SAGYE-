@@ -1,0 +1,32 @@
+fileFormatVersion: 2
+guid: 223b61ee0eadf4d60a6be04057d17d08
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    i18nManager_1 = require(\"../../i18n/i18nManager\");\r\nclass GestureUISlot extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    get Button() {\r\n        return
+    this.button;\r\n    }\r\n    OnEnable() {\r\n        i18nManager_1.default.Instance.Event.OnChange((lang)
+    => {\r\n            if (this.labelText)\r\n                this.label.text =
+    lang.get_Item(this.labelText);\r\n        });\r\n    }\r\n    Activate(thumbnail,
+    labelText) {\r\n        this.thumbnail.texture = thumbnail;\r\n        this.label.text
+    = i18nManager_1.default.Instance.Lang.get_Item(labelText);\r\n        this.labelText
+    = labelText;\r\n    }\r\n}\r\nexports.default = GestureUISlot;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2VzdHVyZVVJU2xvdC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkdlc3R1cmVVSVNsb3QudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFHQSxpREFBc0Q7QUFFdEQsd0RBQWlEO0FBRWpELE1BQXFCLGFBQWMsU0FBUSxxQ0FBcUI7SUFVOUQsSUFBVyxNQUFNO1FBQ2YsT0FBTyxJQUFJLENBQUMsTUFBTSxDQUFDO0lBQ3JCLENBQUM7SUFFTSxRQUFRO1FBQ2IscUJBQVcsQ0FBQyxRQUFRLENBQUMsS0FBSyxDQUFDLFFBQVEsQ0FBQyxDQUFDLElBQUksRUFBRSxFQUFFO1lBQzNDLElBQUksSUFBSSxDQUFDLFNBQVM7Z0JBQUUsSUFBSSxDQUFDLEtBQUssQ0FBQyxJQUFJLEdBQUcsSUFBSSxVQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsQ0FBQztRQUM3RCxDQUFDLENBQUMsQ0FBQztJQUNMLENBQUM7SUFFTSxRQUFRLENBQUMsU0FBa0IsRUFBRSxTQUFpQjtRQUNuRCxJQUFJLENBQUMsU0FBUyxDQUFDLE9BQU8sR0FBRyxTQUFTLENBQUM7UUFDbkMsSUFBSSxDQUFDLEtBQUssQ0FBQyxJQUFJLEdBQUcscUJBQVcsQ0FBQyxRQUFRLENBQUMsSUFBSSxVQUFDLFNBQVMsQ0FBQyxDQUFDO1FBQ3ZELElBQUksQ0FBQyxTQUFTLEdBQUcsU0FBUyxDQUFDO0lBQzdCLENBQUM7Q0FDRjtBQXpCRCxnQ0F5QkMifQ==","assetPath":"Assets/UI/Gesture/GestureUISlot.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"thumbnail","type":"UnityEngine.UI.RawImage","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"button","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"Unity.TextMeshPro","name":"label","type":"TMPro.TMP_Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"GestureUISlot","description":""},"isCompiled":true}'
+  typescriptHash: 71f87929ea8720c29dfeb70373153c64
+  onlyWriteTrigger: 0

@@ -1,0 +1,26 @@
+
+packets server sync {
+  SyncCharacterState {
+    sessionId: string;
+    state: number;
+    extraState: number;
+    position: Vector3;
+    rotation: Quaternion;
+    velocity: Vector3;
+  }
+
+  SyncCharacterTeleport {
+    sessionId: string;
+    position: Vector3;
+    rotation: Quaternion;
+  }
+
+  SyncTime {
+    # Empty.
+  }
+
+  SyncTimeDiff {
+    offset: number;
+    roundTripDelay: number;
+  }
+}

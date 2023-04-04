@@ -1,0 +1,35 @@
+fileFormatVersion: 2
+guid: 8eaa878d7ef194ceab92437e41cb880d
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass NPCBubbleText extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake() {\r\n        this.HideDialogue();\r\n   
+    }\r\n    Update() {\r\n        const camera = UnityEngine_1.Camera.main?.transform;\r\n       
+    if (!camera) {\r\n            this.HideDialogue();\r\n            return;\r\n       
+    }\r\n        this.transform.LookAt(UnityEngine_1.Vector3.op_Addition(this.transform.position,
+    UnityEngine_1.Vector3.op_Subtraction(this.transform.position, camera.position)),
+    UnityEngine_1.Vector3.up);\r\n    }\r\n    ShowDialogue(dialogue) {\r\n       
+    if (!this.gameObject.activeSelf)\r\n            this.gameObject.SetActive(true);\r\n       
+    this.text.text = dialogue;\r\n    }\r\n    HideDialogue() {\r\n        if (this.gameObject.activeSelf)\r\n           
+    this.gameObject.SetActive(false);\r\n    }\r\n}\r\nexports.default = NPCBubbleText;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTlBDQnViYmxlVGV4dC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk5QQ0J1YmJsZVRleHQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFDQSw2Q0FBOEM7QUFDOUMsaURBQXNEO0FBRXRELE1BQXFCLGFBQWMsU0FBUSxxQ0FBcUI7SUFLdkQsS0FBSztRQUNWLElBQUksQ0FBQyxZQUFZLEVBQUUsQ0FBQztJQUN0QixDQUFDO0lBRU0sTUFBTTtRQUNYLE1BQU0sTUFBTSxHQUFHLG9CQUFNLENBQUMsSUFBSSxFQUFFLFNBQVMsQ0FBQztRQUV0QyxJQUFJLENBQUMsTUFBTSxFQUFFO1lBQ1gsSUFBSSxDQUFDLFlBQVksRUFBRSxDQUFDO1lBQ3BCLE9BQU87U0FDUjtRQUVELElBQUksQ0FBQyxTQUFTLENBQUMsTUFBTSxDQUNuQixxQkFBTyxDQUFDLFdBQVcsQ0FDakIsSUFBSSxDQUFDLFNBQVMsQ0FBQyxRQUFRLEVBQ3ZCLHFCQUFPLENBQUMsY0FBYyxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsUUFBUSxFQUFFLE1BQU0sQ0FBQyxRQUFRLENBQUMsQ0FDakUsRUFDRCxxQkFBTyxDQUFDLEVBQUUsQ0FDWCxDQUFDO0lBQ0osQ0FBQztJQUVNLFlBQVksQ0FBQyxRQUFnQjtRQUNsQyxJQUFJLENBQUMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxVQUFVO1lBQUUsSUFBSSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUM7UUFDakUsSUFBSSxDQUFDLElBQUksQ0FBQyxJQUFJLEdBQUcsUUFBUSxDQUFDO0lBQzVCLENBQUM7SUFFTSxZQUFZO1FBQ2pCLElBQUksSUFBSSxDQUFDLFVBQVUsQ0FBQyxVQUFVO1lBQUUsSUFBSSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7SUFDbkUsQ0FBQztDQUNGO0FBbENELGdDQWtDQyJ9","assetPath":"Assets/3D/NPC/NPCBubbleText.ts","manifest":{"properties":[{"assembly":"Unity.TextMeshPro","name":"text","type":"TMPro.TMP_Text","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''UI''"]},{"name":"SerializeField","args":[]}]}],"name":"NPCBubbleText","description":""},"isCompiled":true}'
+  typescriptHash: 163813857130bc06a7037150b4f163a9
+  onlyWriteTrigger: 0

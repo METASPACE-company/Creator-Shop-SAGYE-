@@ -1,0 +1,47 @@
+fileFormatVersion: 2
+guid: c6e071926cc3c4ab18b377cd97bc5f7b
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass MagicCameraModel extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    constructor() {\r\n        super(...arguments);\r\n       
+    this.elevationLevel = 0;\r\n    }\r\n    get Camera() {\r\n        return this.camera;\r\n   
+    }\r\n    get AudioListener() {\r\n        return this.audioListener;\r\n    }\r\n   
+    Awake() {\r\n        this.camera = this.GetComponent($typeof(UnityEngine_1.Camera));\r\n       
+    this.audioListener = this.GetComponent($typeof(UnityEngine_1.AudioListener));\r\n   
+    }\r\n    Activate(target, targetFeetHeight) {\r\n        this.camera.enabled
+    = false;\r\n        this.audioListener.enabled = false;\r\n        this.target
+    = target;\r\n        this.targetFeetHeight = targetFeetHeight;\r\n        this.elevationLevel
+    = 0;\r\n    }\r\n    SetElevationLevel(elevationLevel) {\r\n        if (elevationLevel
+    < -3)\r\n            elevationLevel = -3;\r\n        if (3 < elevationLevel)\r\n           
+    elevationLevel = 3;\r\n        this.elevationLevel = elevationLevel;\r\n    }\r\n   
+    LateUpdate() {\r\n        const heightOffset = MagicCameraModel.REFERENCE_HEIGHT
+    +\r\n            MagicCameraModel.HEIGHT_STEP * this.elevationLevel;\r\n       
+    const height = this.targetFeetHeight + heightOffset;\r\n        const position
+    = this.transform.position;\r\n        position.y = height;\r\n        const diff
+    = UnityEngine_1.Vector3.op_Subtraction(this.target.position, position);\r\n       
+    diff.y = 0;\r\n        const rotation = UnityEngine_1.Quaternion.LookRotation(diff.normalized,
+    UnityEngine_1.Vector3.up);\r\n        this.transform.SetPositionAndRotation(position,
+    rotation);\r\n        // TODO: Show the shadow and make that follow this camera
+    model.\r\n    }\r\n}\r\nexports.default = MagicCameraModel;\r\nMagicCameraModel.REFERENCE_HEIGHT
+    = 1.5;\r\nMagicCameraModel.HEIGHT_STEP = 0.25;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWFnaWNDYW1lcmFNb2RlbC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk1hZ2ljQ2FtZXJhTW9kZWwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw2Q0FNcUI7QUFDckIsaURBQXNEO0FBRXRELE1BQXFCLGdCQUFpQixTQUFRLHFDQUFxQjtJQUFuRTs7UUFRVSxtQkFBYyxHQUFHLENBQUMsQ0FBQztJQTZDN0IsQ0FBQztJQTNDQyxJQUFXLE1BQU07UUFDZixPQUFPLElBQUksQ0FBQyxNQUFNLENBQUM7SUFDckIsQ0FBQztJQUVELElBQVcsYUFBYTtRQUN0QixPQUFPLElBQUksQ0FBQyxhQUFhLENBQUM7SUFDNUIsQ0FBQztJQUVNLEtBQUs7UUFDVixJQUFJLENBQUMsTUFBTSxHQUFHLElBQUksQ0FBQyxZQUFZLFNBQUMsb0JBQU0sRUFBRyxDQUFDO1FBQzFDLElBQUksQ0FBQyxhQUFhLEdBQUcsSUFBSSxDQUFDLFlBQVksU0FBQywyQkFBYSxFQUFHLENBQUM7SUFDMUQsQ0FBQztJQUVNLFFBQVEsQ0FBQyxNQUFpQixFQUFFLGdCQUF3QjtRQUN6RCxJQUFJLENBQUMsTUFBTSxDQUFDLE9BQU8sR0FBRyxLQUFLLENBQUM7UUFDNUIsSUFBSSxDQUFDLGFBQWEsQ0FBQyxPQUFPLEdBQUcsS0FBSyxDQUFDO1FBQ25DLElBQUksQ0FBQyxNQUFNLEdBQUcsTUFBTSxDQUFDO1FBQ3JCLElBQUksQ0FBQyxnQkFBZ0IsR0FBRyxnQkFBZ0IsQ0FBQztRQUN6QyxJQUFJLENBQUMsY0FBYyxHQUFHLENBQUMsQ0FBQztJQUMxQixDQUFDO0lBRU0saUJBQWlCLENBQUMsY0FBc0I7UUFDN0MsSUFBSSxjQUFjLEdBQUcsQ0FBQyxDQUFDO1lBQUUsY0FBYyxHQUFHLENBQUMsQ0FBQyxDQUFDO1FBQzdDLElBQUksQ0FBQyxHQUFHLGNBQWM7WUFBRSxjQUFjLEdBQUcsQ0FBQyxDQUFDO1FBQzNDLElBQUksQ0FBQyxjQUFjLEdBQUcsY0FBYyxDQUFDO0lBQ3ZDLENBQUM7SUFFTSxVQUFVO1FBQ2YsTUFBTSxZQUFZLEdBQ2hCLGdCQUFnQixDQUFDLGdCQUFnQjtZQUNqQyxnQkFBZ0IsQ0FBQyxXQUFXLEdBQUcsSUFBSSxDQUFDLGNBQWMsQ0FBQztRQUNyRCxNQUFNLE1BQU0sR0FBRyxJQUFJLENBQUMsZ0JBQWdCLEdBQUcsWUFBWSxDQUFDO1FBQ3BELE1BQU0sUUFBUSxHQUFHLElBQUksQ0FBQyxTQUFTLENBQUMsUUFBUSxDQUFDO1FBQ3pDLFFBQVEsQ0FBQyxDQUFDLEdBQUcsTUFBTSxDQUFDO1FBRXBCLE1BQU0sSUFBSSxHQUFHLHFCQUFPLENBQUMsY0FBYyxDQUFDLElBQUksQ0FBQyxNQUFNLENBQUMsUUFBUSxFQUFFLFFBQVEsQ0FBQyxDQUFDO1FBQ3BFLElBQUksQ0FBQyxDQUFDLEdBQUcsQ0FBQyxDQUFDO1FBQ1gsTUFBTSxRQUFRLEdBQUcsd0JBQVUsQ0FBQyxZQUFZLENBQUMsSUFBSSxDQUFDLFVBQVUsRUFBRSxxQkFBTyxDQUFDLEVBQUUsQ0FBQyxDQUFDO1FBRXRFLElBQUksQ0FBQyxTQUFTLENBQUMsc0JBQXNCLENBQUMsUUFBUSxFQUFFLFFBQVEsQ0FBQyxDQUFDO1FBRTFELGdFQUFnRTtJQUNsRSxDQUFDOztBQXBESCxtQ0FxREM7QUFwRGdCLGlDQUFnQixHQUFHLEdBQUcsQ0FBQztBQUN2Qiw0QkFBVyxHQUFHLElBQUksQ0FBQyJ9","assetPath":"Assets/UI/Magic
+    Camera/MagicCameraModel.ts","manifest":{"properties":[],"name":"MagicCameraModel","description":""},"isCompiled":true}'
+  typescriptHash: b411bbc877d401f7194e78989eca39e6
+  onlyWriteTrigger: 0

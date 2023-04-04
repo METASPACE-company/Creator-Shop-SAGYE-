@@ -1,0 +1,10 @@
+
+packets server seat {
+  Seat {
+    animation: string;
+    userSessionId: string;
+  }
+  Unseat {
+    userSessionId: string;
+  }
+}

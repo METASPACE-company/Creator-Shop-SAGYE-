@@ -1,0 +1,9 @@
+
+packets client gesture {
+  PlayGesture {
+    gesture: number;
+  }
+
+  StopGesture {
+  }
+}

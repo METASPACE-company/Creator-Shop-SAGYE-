@@ -1,0 +1,7 @@
+
+packets client seat {
+  Seat {
+    animation: string;
+  }
+  Unseat { }
+}

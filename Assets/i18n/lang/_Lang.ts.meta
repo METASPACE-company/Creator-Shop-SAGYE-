@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 010ab794e39c046e38b37fbc2718ad61
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiX0xhbmcuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJfTGFuZy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiIn0=","assetPath":"Assets/i18n/lang/_Lang.ts","manifest":{"properties":[],"name":"_Lang","description":""},"isCompiled":true}'
+  typescriptHash: 7463e55cabde3df5003ac8c6d458739d
+  onlyWriteTrigger: 0

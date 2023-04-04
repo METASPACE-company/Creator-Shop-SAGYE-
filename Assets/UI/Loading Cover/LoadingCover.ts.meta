@@ -1,0 +1,45 @@
+fileFormatVersion: 2
+guid: e7880a5c760cc4bc5bd57b06e80b7469
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst LocalPlayer_1 = require(\"../../Network/Sync/LocalPlayer\");\r\nconst
+    GlobalCoroutineManager_1 = require(\"../../Utility/GlobalCoroutineManager\");\r\nclass
+    LoadingCover extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    static get
+    Instance() {\r\n        return LoadingCover.instance;\r\n    }\r\n    Awake()
+    {\r\n        LoadingCover.instance = this;\r\n        this.animator = this.GetComponent($typeof(UnityEngine_1.Animator));\r\n   
+    }\r\n    Start() {\r\n        GlobalCoroutineManager_1.default.Instance.Execute(function*
+    () {\r\n            // Make sure that the local player has been spawned.\r\n           
+    yield new UnityEngine_1.WaitUntil(() => !!LocalPlayer_1.default.Instance);\r\n           
+    // Wait for the gestures to be prepared.\r\n            // yield new WaitUntil(()
+    => Gesture.Instance.IsPrepared);\r\n            // Reveal in-game screen gently.\r\n           
+    yield new UnityEngine_1.WaitForSeconds(2);\r\n            this.Reveal();\r\n       
+    }.bind(this));\r\n    }\r\n    Reveal() {\r\n        this.animator.SetTrigger(LoadingCover.TRIGGER_REVEAL);\r\n       
+    GlobalCoroutineManager_1.default.Instance.RunAfter(1, () => {\r\n           
+    this.gameObject.SetActive(false);\r\n        });\r\n    }\r\n    Unreveal() {\r\n       
+    this.gameObject.SetActive(true);\r\n        this.animator.SetTrigger(LoadingCover.TRIGGER_UNREVEAL);\r\n   
+    }\r\n    RunWithCover(f) {\r\n        this.Unreveal();\r\n        GlobalCoroutineManager_1.default.Instance.RunAfter(1,
+    () => {\r\n            f();\r\n            GlobalCoroutineManager_1.default.Instance.RunAfter(1,
+    () => {\r\n                this.Reveal();\r\n            });\r\n        });\r\n   
+    }\r\n}\r\nexports.default = LoadingCover;\r\nLoadingCover.TRIGGER_REVEAL = UnityEngine_1.Animator.StringToHash(''reveal'');\r\nLoadingCover.TRIGGER_UNREVEAL
+    = UnityEngine_1.Animator.StringToHash(''unreveal'');\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTG9hZGluZ0NvdmVyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTG9hZGluZ0NvdmVyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQWtFO0FBQ2xFLGlEQUFzRDtBQUV0RCxnRUFBeUQ7QUFDekQsaUZBQTBFO0FBRTFFLE1BQXFCLFlBQWEsU0FBUSxxQ0FBcUI7SUFLdEQsTUFBTSxLQUFLLFFBQVE7UUFDeEIsT0FBTyxZQUFZLENBQUMsUUFBUSxDQUFDO0lBQy9CLENBQUM7SUFJTSxLQUFLO1FBQ1YsWUFBWSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7UUFDN0IsSUFBSSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUMsWUFBWSxTQUFDLHNCQUFRLEVBQUcsQ0FBQztJQUNoRCxDQUFDO0lBRU0sS0FBSztRQUNWLGdDQUFzQixDQUFDLFFBQVEsQ0FBQyxPQUFPLENBQ3JDLFFBQVEsQ0FBQztZQUNQLG9EQUFvRDtZQUNwRCxNQUFNLElBQUksdUJBQVMsQ0FBQyxHQUFHLEVBQUUsQ0FBQyxDQUFDLENBQUMscUJBQVcsQ0FBQyxRQUFRLENBQUMsQ0FBQztZQUVsRCx3Q0FBd0M7WUFDeEMsMERBQTBEO1lBRTFELGdDQUFnQztZQUNoQyxNQUFNLElBQUksNEJBQWMsQ0FBQyxDQUFDLENBQUMsQ0FBQztZQUM1QixJQUFJLENBQUMsTUFBTSxFQUFFLENBQUM7UUFDaEIsQ0FBQyxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsQ0FDYixDQUFDO0lBQ0osQ0FBQztJQUVNLE1BQU07UUFDWCxJQUFJLENBQUMsUUFBUSxDQUFDLFVBQVUsQ0FBQyxZQUFZLENBQUMsY0FBYyxDQUFDLENBQUM7UUFDdEQsZ0NBQXNCLENBQUMsUUFBUSxDQUFDLFFBQVEsQ0FBQyxDQUFDLEVBQUUsR0FBRyxFQUFFO1lBQy9DLElBQUksQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO1FBQ25DLENBQUMsQ0FBQyxDQUFDO0lBQ0wsQ0FBQztJQUVNLFFBQVE7UUFDYixJQUFJLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUNoQyxJQUFJLENBQUMsUUFBUSxDQUFDLFVBQVUsQ0FBQyxZQUFZLENBQUMsZ0JBQWdCLENBQUMsQ0FBQztJQUMxRCxDQUFDO0lBRU0sWUFBWSxDQUFDLENBQVc7UUFDN0IsSUFBSSxDQUFDLFFBQVEsRUFBRSxDQUFDO1FBQ2hCLGdDQUFzQixDQUFDLFFBQVEsQ0FBQyxRQUFRLENBQUMsQ0FBQyxFQUFFLEdBQUcsRUFBRTtZQUMvQyxDQUFDLEVBQUUsQ0FBQztZQUNKLGdDQUFzQixDQUFDLFFBQVEsQ0FBQyxRQUFRLENBQUMsQ0FBQyxFQUFFLEdBQUcsRUFBRTtnQkFDL0MsSUFBSSxDQUFDLE1BQU0sRUFBRSxDQUFDO1lBQ2hCLENBQUMsQ0FBQyxDQUFDO1FBQ0wsQ0FBQyxDQUFDLENBQUM7SUFDTCxDQUFDOztBQXBESCwrQkFxREM7QUFwRGdCLDJCQUFjLEdBQUcsc0JBQVEsQ0FBQyxZQUFZLENBQUMsUUFBUSxDQUFDLENBQUM7QUFDakQsNkJBQWdCLEdBQUcsc0JBQVEsQ0FBQyxZQUFZLENBQUMsVUFBVSxDQUFDLENBQUMifQ==","assetPath":"Assets/UI/Loading
+    Cover/LoadingCover.ts","manifest":{"properties":[],"name":"LoadingCover","description":""},"isCompiled":true}'
+  typescriptHash: feb5a4cc681e3f361fff93cb7f5d381d
+  onlyWriteTrigger: 0

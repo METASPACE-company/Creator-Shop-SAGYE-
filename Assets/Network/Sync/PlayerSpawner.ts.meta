@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 1a7139c37ec1e4eed9df063cdd6633f1
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    PlayerManager_1 = require(\"./PlayerManager\");\r\nclass PlayerSpawner extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start() {\r\n        PlayerManager_1.default.Instance.SetSpawning(this.spawnPlayersAutomatically);\r\n   
+    }\r\n}\r\nexports.default = PlayerSpawner;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUGxheWVyU3Bhd25lci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlBsYXllclNwYXduZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBc0Q7QUFFdEQsbURBQTRDO0FBRTVDLE1BQXFCLGFBQWMsU0FBUSxxQ0FBcUI7SUFJdkQsS0FBSztRQUNWLHVCQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMseUJBQXlCLENBQUMsQ0FBQztJQUNyRSxDQUFDO0NBQ0Y7QUFQRCxnQ0FPQyJ9","assetPath":"Assets/Network/Sync/PlayerSpawner.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"spawnPlayersAutomatically","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"PlayerSpawner","description":""},"isCompiled":true}'
+  typescriptHash: ee4dcc258594b3fe49ebb615d49d0fd4
+  onlyWriteTrigger: 0

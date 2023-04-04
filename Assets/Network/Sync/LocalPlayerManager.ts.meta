@@ -1,0 +1,35 @@
+fileFormatVersion: 2
+guid: 55271e59e125d4ad294a83b38efbdc26
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst Gesture_1 = require(\"../../UI/Gesture/Gesture\");\r\nconst
+    LocalPlayer_1 = require(\"./LocalPlayer\");\r\nconst PlayerManager_1 = require(\"./PlayerManager\");\r\nclass
+    LocalPlayerManager extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Start()
+    {\r\n        PlayerManager_1.default.Instance.AddAddedLocalPlayerHook(async (player,
+    sessionId) => {\r\n            const localPlayerObject = UnityEngine_1.GameObject.Instantiate(this.localPlayerPrefab,
+    player.zepetoPlayer.character.transform, false);\r\n            const localPlayer
+    = localPlayerObject.GetComponent($typeof(LocalPlayer_1.default));\r\n           
+    localPlayer.Activate(sessionId, player.zepetoPlayer);\r\n            await Gesture_1.default.Instance.Prepare(localPlayer);\r\n       
+    });\r\n        PlayerManager_1.default.Instance.AddAddedRemotePlayerHook((player)
+    => {\r\n            player.character.gameObject.tag = ''RemotePlayer'';\r\n       
+    });\r\n    }\r\n}\r\nexports.default = LocalPlayerManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTG9jYWxQbGF5ZXJNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTG9jYWxQbGF5ZXJNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQXlDO0FBQ3pDLGlEQUFzRDtBQUV0RCxzREFBK0M7QUFDL0MsK0NBQXdDO0FBQ3hDLG1EQUE0QztBQUU1QyxNQUFxQixrQkFBbUIsU0FBUSxxQ0FBcUI7SUFLNUQsS0FBSztRQUNWLHVCQUFhLENBQUMsUUFBUSxDQUFDLHVCQUF1QixDQUM1QyxLQUFLLEVBQUUsTUFBTSxFQUFFLFNBQVMsRUFBRSxFQUFFO1lBQzFCLE1BQU0saUJBQWlCLEdBQUcsd0JBQVUsQ0FBQyxXQUFXLENBQzlDLElBQUksQ0FBQyxpQkFBaUIsRUFDdEIsTUFBTSxDQUFDLFlBQVksQ0FBQyxTQUFTLENBQUMsU0FBUyxFQUN2QyxLQUFLLENBQ04sQ0FBQztZQUNGLE1BQU0sV0FBVyxHQUFHLGlCQUFpQixDQUFDLFlBQVksU0FBQyxxQkFBVyxFQUFHLENBQUM7WUFDbEUsV0FBVyxDQUFDLFFBQVEsQ0FBQyxTQUFTLEVBQUUsTUFBTSxDQUFDLFlBQVksQ0FBQyxDQUFDO1lBQ3JELE1BQU0saUJBQU8sQ0FBQyxRQUFRLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxDQUFDO1FBQzlDLENBQUMsQ0FDRixDQUFDO1FBQ0YsdUJBQWEsQ0FBQyxRQUFRLENBQUMsd0JBQXdCLENBQUMsQ0FBQyxNQUFNLEVBQUUsRUFBRTtZQUN6RCxNQUFNLENBQUMsU0FBUyxDQUFDLFVBQVUsQ0FBQyxHQUFHLEdBQUcsY0FBYyxDQUFDO1FBQ25ELENBQUMsQ0FBQyxDQUFDO0lBQ0wsQ0FBQztDQUNGO0FBdEJELHFDQXNCQyJ9","assetPath":"Assets/Network/Sync/LocalPlayerManager.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"localPlayerPrefab","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''Prefabs''"]},{"name":"SerializeField","args":[]}]}],"name":"LocalPlayerManager","description":""},"isCompiled":true}'
+  typescriptHash: ff1fd0ea3c3f02e8b2c9fadef11aefbf
+  onlyWriteTrigger: 0

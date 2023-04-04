@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: df5dd3b5995254a6694d7ccbe5dc5cb4
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst TMPro_1 = require(\"TMPro\");\r\nconst ZEPETO_Script_1
+    = require(\"ZEPETO.Script\");\r\n// Written by AcrylicShrimp, on 2023.01.20.\r\n//
+    TMP has an issue on dynamic and multi-textured font assets.\r\n// See: https://forum.unity.com/threads/text-mesh-pro-fallback-localization.921551/\r\n//
+    This script helps to bypass this issue, by clearing asset data on every font
+    assets that used by this project.\r\nclass FontFixer extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    Awake() {\r\n        for (let font of this.fonts)\r\n            Fix(font);\r\n   
+    }\r\n}\r\nexports.default = FontFixer;\r\nfunction Fix(font) {\r\n    if (font.atlasPopulationMode
+    !== TMPro_1.AtlasPopulationMode.Dynamic)\r\n        return;\r\n    if (!font.isMultiAtlasTexturesEnabled)\r\n       
+    return;\r\n    font.ClearFontAssetData(true);\r\n    const _unused = font.atlasTextures;\r\n}\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRm9udEZpeGVyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiRm9udEZpeGVyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsaUNBQTJEO0FBQzNELGlEQUFzRDtBQUV0RCwyQ0FBMkM7QUFDM0MsOERBQThEO0FBQzlELG1GQUFtRjtBQUNuRixpSEFBaUg7QUFDakgsTUFBcUIsU0FBVSxTQUFRLHFDQUFxQjtJQUluRCxLQUFLO1FBQ1YsS0FBSyxJQUFJLElBQUksSUFBSSxJQUFJLENBQUMsS0FBSztZQUFFLEdBQUcsQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUN6QyxDQUFDO0NBQ0Y7QUFQRCw0QkFPQztBQUVELFNBQVMsR0FBRyxDQUFDLElBQW1CO0lBQzlCLElBQUksSUFBSSxDQUFDLG1CQUFtQixLQUFLLDJCQUFtQixDQUFDLE9BQU87UUFBRSxPQUFPO0lBQ3JFLElBQUksQ0FBQyxJQUFJLENBQUMsMkJBQTJCO1FBQUUsT0FBTztJQUM5QyxJQUFJLENBQUMsa0JBQWtCLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDOUIsTUFBTSxPQUFPLEdBQUcsSUFBSSxDQUFDLGFBQWEsQ0FBQztBQUNyQyxDQUFDIn0=","assetPath":"Assets/UI/Font/FontFixer.ts","manifest":{"properties":[{"assembly":"Unity.TextMeshPro","name":"fonts","type":"TMPro.TMP_FontAsset[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"FontFixer","description":""},"isCompiled":true}'
+  typescriptHash: 0574c17fcac70be4603fabb97882486a
+  onlyWriteTrigger: 0

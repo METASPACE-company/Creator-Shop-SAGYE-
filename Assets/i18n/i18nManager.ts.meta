@@ -1,0 +1,111 @@
+fileFormatVersion: 2
+guid: 09e1fb3558b464279973b46d9137f986
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst i18n_1 = require(\"./i18n\");\r\nconst
+    en_US_1 = require(\"./lang/en-US\");\r\nconst id_ID_1 = require(\"./lang/id-ID\");\r\nconst
+    ja_JP_1 = require(\"./lang/ja-JP\");\r\nconst ko_KR_1 = require(\"./lang/ko-KR\");\r\nconst
+    th_TH_1 = require(\"./lang/th-TH\");\r\nclass i18nManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    static get Instance() {\r\n        return i18nManager.instance;\r\n   
+    }\r\n    get Lang() {\r\n        return this.lang;\r\n    }\r\n    get Language()
+    {\r\n        return this.language;\r\n    }\r\n    get Event() {\r\n        return
+    this.event;\r\n    }\r\n    Awake() {\r\n        i18nManager.instance = this;\r\n       
+    let language;\r\n        switch (UnityEngine_1.Application.systemLanguage) {\r\n           
+    case UnityEngine_1.SystemLanguage.Afrikaans:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Arabic:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.Basque:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Belarusian:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.Bulgarian:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Catalan:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.Chinese:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Czech:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.Danish:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Dutch:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.English:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Estonian:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.Faroese:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Finnish:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.French:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.German:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.Greek:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Hebrew:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.Hugarian:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Icelandic:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.Indonesian:\r\n                language = i18n_1.Language.Indonesian;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Italian:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.Japanese:\r\n                language = i18n_1.Language.Japanese;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Korean:\r\n               
+    language = i18n_1.Language.Korean;\r\n                break;\r\n            case
+    UnityEngine_1.SystemLanguage.Latvian:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Lithuanian:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.Norwegian:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Polish:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.Portuguese:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Romanian:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.Russian:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.SerboCroatian:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.Slovak:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Slovenian:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.Spanish:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Swedish:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.Thai:\r\n                language = i18n_1.Language.Thai;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Turkish:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.Ukrainian:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Vietnamese:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.ChineseSimplified:\r\n                language
+    = i18n_1.Language.English;\r\n                break;\r\n            case UnityEngine_1.SystemLanguage.ChineseTraditional:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    case UnityEngine_1.SystemLanguage.Unknown:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n            case UnityEngine_1.SystemLanguage.Hungarian:\r\n               
+    language = i18n_1.Language.English;\r\n                break;\r\n           
+    default:\r\n                language = i18n_1.Language.English;\r\n               
+    break;\r\n        }\r\n        this.event = new i18n_1.i18nEvent(LanguageToLang(language));\r\n       
+    this.SetLanguage(language);\r\n    }\r\n    SetLanguage(language) {\r\n       
+    this.lang = LanguageToLang(language);\r\n        this.language = language;\r\n       
+    this.event.Emit(this.lang);\r\n    }\r\n}\r\nexports.default = i18nManager;\r\nfunction
+    LanguageToLang(language) {\r\n    switch (language) {\r\n        case i18n_1.Language.English:\r\n           
+    return en_US_1.enUS;\r\n            break;\r\n        case i18n_1.Language.Korean:\r\n           
+    return ko_KR_1.koKR;\r\n            break;\r\n        case i18n_1.Language.Japanese:\r\n           
+    return ja_JP_1.jaJP;\r\n            break;\r\n        case i18n_1.Language.Indonesian:\r\n           
+    return id_ID_1.idID;\r\n            break;\r\n        case i18n_1.Language.Thai:\r\n           
+    return th_TH_1.thTH;\r\n            break;\r\n        default:\r\n           
+    return en_US_1.enUS;\r\n    }\r\n}\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaTE4bk1hbmFnZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpMThuTWFuYWdlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUEwRDtBQUMxRCxpREFBc0Q7QUFDdEQsaUNBQTZDO0FBQzdDLHdDQUFvQztBQUNwQyx3Q0FBb0M7QUFDcEMsd0NBQW9DO0FBQ3BDLHdDQUFvQztBQUNwQyx3Q0FBb0M7QUFHcEMsTUFBcUIsV0FBWSxTQUFRLHFDQUFxQjtJQUdyRCxNQUFNLEtBQUssUUFBUTtRQUN4QixPQUFPLFdBQVcsQ0FBQyxRQUFRLENBQUM7SUFDOUIsQ0FBQztJQU1ELElBQVcsSUFBSTtRQUNiLE9BQU8sSUFBSSxDQUFDLElBQUksQ0FBQztJQUNuQixDQUFDO0lBRUQsSUFBVyxRQUFRO1FBQ2pCLE9BQU8sSUFBSSxDQUFDLFFBQVEsQ0FBQztJQUN2QixDQUFDO0lBRUQsSUFBVyxLQUFLO1FBQ2QsT0FBTyxJQUFJLENBQUMsS0FBSyxDQUFDO0lBQ3BCLENBQUM7SUFFTSxLQUFLO1FBQ1YsV0FBVyxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7UUFFNUIsSUFBSSxRQUFrQixDQUFDO1FBQ3ZCLFFBQVEseUJBQVcsQ0FBQyxjQUFjLEVBQUU7WUFDbEMsS0FBSyw0QkFBYyxDQUFDLFNBQVM7Z0JBQzNCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLE1BQU07Z0JBQ3hCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLE1BQU07Z0JBQ3hCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLFVBQVU7Z0JBQzVCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLFNBQVM7Z0JBQzNCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLE9BQU87Z0JBQ3pCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLE9BQU87Z0JBQ3pCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLEtBQUs7Z0JBQ3ZCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLE1BQU07Z0JBQ3hCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLEtBQUs7Z0JBQ3ZCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLE9BQU87Z0JBQ3pCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLFFBQVE7Z0JBQzFCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLE9BQU87Z0JBQ3pCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLE9BQU87Z0JBQ3pCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLE1BQU07Z0JBQ3hCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLE1BQU07Z0JBQ3hCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLEtBQUs7Z0JBQ3ZCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLE1BQU07Z0JBQ3hCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLFFBQVE7Z0JBQzFCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLFNBQVM7Z0JBQzNCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLFVBQVU7Z0JBQzVCLFFBQVEsR0FBRyxlQUFRLENBQUMsVUFBVSxDQUFDO2dCQUMvQixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLE9BQU87Z0JBQ3pCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLFFBQVE7Z0JBQzFCLFFBQVEsR0FBRyxlQUFRLENBQUMsUUFBUSxDQUFDO2dCQUM3QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLE1BQU07Z0JBQ3hCLFFBQVEsR0FBRyxlQUFRLENBQUMsTUFBTSxDQUFDO2dCQUMzQixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLE9BQU87Z0JBQ3pCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLFVBQVU7Z0JBQzVCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLFNBQVM7Z0JBQzNCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLE1BQU07Z0JBQ3hCLFFBQVEsR0FBRyxlQUFRLENBQUMsT0FBTyxDQUFDO2dCQUM1QixNQUFNO1lBQ1IsS0FBSyw0QkFBYyxDQUFDLFVBQVU7Z0JB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","assetPath":"Assets/i18n/i18nManager.ts","manifest":{"properties":[],"name":"i18nManager","description":""},"isCompiled":true}'
+  typescriptHash: bc8a1032617ae982f71879ce887aaf20
+  onlyWriteTrigger: 0

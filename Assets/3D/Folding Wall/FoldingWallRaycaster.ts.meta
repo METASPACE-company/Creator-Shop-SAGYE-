@@ -1,0 +1,35 @@
+fileFormatVersion: 2
+guid: 3858511b319cc4baa868e4a71c09b82e
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass FoldingWallRaycaster extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake() {\r\n        this.walls
+    = UnityEngine_1.GameObject.FindGameObjectsWithTag(''FoldingWall'').map((wall)
+    => wall.GetComponent($typeof(UnityEngine_1.Renderer)));\r\n    }\r\n    Update()
+    {\r\n        const cameraAvailability = !!UnityEngine_1.Camera.main;\r\n       
+    for (const wall of this.walls) {\r\n            const visibility = !cameraAvailability
+    ||\r\n                70 <=\r\n                    UnityEngine_1.Vector3.Angle(UnityEngine_1.Camera.main.transform.forward,
+    wall.transform.forward);\r\n            if (wall.enabled !== visibility)\r\n               
+    wall.enabled = visibility;\r\n        }\r\n    }\r\n}\r\nexports.default = FoldingWallRaycaster;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRm9sZGluZ1dhbGxSYXljYXN0ZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJGb2xkaW5nV2FsbFJheWNhc3Rlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUFvRTtBQUNwRSxpREFBc0Q7QUFFdEQsTUFBcUIsb0JBQXFCLFNBQVEscUNBQXFCO0lBRzlELEtBQUs7UUFDVixJQUFJLENBQUMsS0FBSyxHQUFHLHdCQUFVLENBQUMsc0JBQXNCLENBQUMsYUFBYSxDQUFDLENBQUMsR0FBRyxDQUFDLENBQUMsSUFBSSxFQUFFLEVBQUUsQ0FDekUsSUFBSSxDQUFDLFlBQVksU0FBQyxzQkFBUSxFQUFHLENBQzlCLENBQUM7SUFDSixDQUFDO0lBRU0sTUFBTTtRQUNYLE1BQU0sa0JBQWtCLEdBQUcsQ0FBQyxDQUFDLG9CQUFNLENBQUMsSUFBSSxDQUFDO1FBRXpDLEtBQUssTUFBTSxJQUFJLElBQUksSUFBSSxDQUFDLEtBQUssRUFBRTtZQUM3QixNQUFNLFVBQVUsR0FDZCxDQUFDLGtCQUFrQjtnQkFDbkIsRUFBRTtvQkFDQSxxQkFBTyxDQUFDLEtBQUssQ0FBQyxvQkFBTSxDQUFDLElBQUksQ0FBQyxTQUFTLENBQUMsT0FBTyxFQUFFLElBQUksQ0FBQyxTQUFTLENBQUMsT0FBTyxDQUFDLENBQUM7WUFDekUsSUFBSSxJQUFJLENBQUMsT0FBTyxLQUFLLFVBQVU7Z0JBQUUsSUFBSSxDQUFDLE9BQU8sR0FBRyxVQUFVLENBQUM7U0FDNUQ7SUFDSCxDQUFDO0NBQ0Y7QUFwQkQsdUNBb0JDIn0=","assetPath":"Assets/3D/Folding
+    Wall/FoldingWallRaycaster.ts","manifest":{"properties":[],"name":"FoldingWallRaycaster","description":""},"isCompiled":true}'
+  typescriptHash: 29391188e483e10372ffb58e00478fd7
+  onlyWriteTrigger: 0

@@ -1,0 +1,38 @@
+fileFormatVersion: 2
+guid: 952483183fdd6c248aac0a4b250a2e9a
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    TMPro_1 = require(\"TMPro\");\r\nclass TMProSizeUpdater extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    Awake() {\r\n        this.fixPhase = 0;\r\n        this.lastString =
+    \"\";\r\n    }\r\n    Start() {\r\n        this.textMeshPro = this.GetComponent($typeof(TMPro_1.TextMeshProUGUI));\r\n   
+    }\r\n    Update() {\r\n        if (!this.textMeshPro)\r\n            return;\r\n       
+    if (this.lastString == this.textMeshPro.text) {\r\n            if (this.fixPhase
+    == 0) {\r\n                this.fixPhase = 1;\r\n                this.lastString
+    += \" \";\r\n                this.textMeshPro.text = this.lastString;\r\n           
+    }\r\n            else if (this.fixPhase == 1) {\r\n                this.fixPhase
+    = 2;\r\n                this.lastString = this.lastStringOrigin;\r\n               
+    this.textMeshPro.text = this.lastString;\r\n            }\r\n        }\r\n       
+    if (this.lastString != this.textMeshPro.text) {\r\n            this.lastStringOrigin
+    = this.textMeshPro.text;\r\n            this.lastString = this.lastStringOrigin;\r\n           
+    this.fixPhase = 0;\r\n        }\r\n    }\r\n}\r\nexports.default = TMProSizeUpdater;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVE1Qcm9TaXplVXBkYXRlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlRNUHJvU2l6ZVVwZGF0ZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSxpREFBb0Q7QUFDcEQsaUNBQXNDO0FBRXRDLE1BQXFCLGdCQUFpQixTQUFRLHFDQUFxQjtJQU92RCxLQUFLO1FBQ1QsSUFBSSxDQUFDLFFBQVEsR0FBRyxDQUFDLENBQUM7UUFDbEIsSUFBSSxDQUFDLFVBQVUsR0FBRyxFQUFFLENBQUM7SUFDekIsQ0FBQztJQUVPLEtBQUs7UUFDVCxJQUFJLENBQUMsV0FBVyxHQUFHLElBQUksQ0FBQyxZQUFZLFNBQUMsdUJBQWUsRUFBRyxDQUFDO0lBQzVELENBQUM7SUFFTyxNQUFNO1FBQ1YsSUFBSSxDQUFDLElBQUksQ0FBQyxXQUFXO1lBQUUsT0FBTztRQUU5QixJQUFJLElBQUksQ0FBQyxVQUFVLElBQUksSUFBSSxDQUFDLFdBQVcsQ0FBQyxJQUFJLEVBQUU7WUFDMUMsSUFBSSxJQUFJLENBQUMsUUFBUSxJQUFJLENBQUMsRUFBRTtnQkFDcEIsSUFBSSxDQUFDLFFBQVEsR0FBRyxDQUFDLENBQUM7Z0JBQ2xCLElBQUksQ0FBQyxVQUFVLElBQUksR0FBRyxDQUFDO2dCQUN2QixJQUFJLENBQUMsV0FBVyxDQUFDLElBQUksR0FBRyxJQUFJLENBQUMsVUFBVSxDQUFDO2FBQzNDO2lCQUFNLElBQUksSUFBSSxDQUFDLFFBQVEsSUFBSSxDQUFDLEVBQUU7Z0JBQzNCLElBQUksQ0FBQyxRQUFRLEdBQUcsQ0FBQyxDQUFDO2dCQUNsQixJQUFJLENBQUMsVUFBVSxHQUFHLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQztnQkFDeEMsSUFBSSxDQUFDLFdBQVcsQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDLFVBQVUsQ0FBQzthQUMzQztTQUNKO1FBQ0QsSUFBSSxJQUFJLENBQUMsVUFBVSxJQUFJLElBQUksQ0FBQyxXQUFXLENBQUMsSUFBSSxFQUFFO1lBQzFDLElBQUksQ0FBQyxnQkFBZ0IsR0FBRyxJQUFJLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQztZQUM5QyxJQUFJLENBQUMsVUFBVSxHQUFHLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQztZQUN4QyxJQUFJLENBQUMsUUFBUSxHQUFHLENBQUMsQ0FBQztTQUNyQjtJQUNMLENBQUM7Q0FDSjtBQXBDRCxtQ0FvQ0MifQ==","assetPath":"Assets/Utility/TMProSizeUpdater.ts","manifest":{"properties":[],"name":"TMProSizeUpdater","description":""},"isCompiled":true}'
+  typescriptHash: 2c23e44dea21250722a60f482a021958
+  onlyWriteTrigger: 0

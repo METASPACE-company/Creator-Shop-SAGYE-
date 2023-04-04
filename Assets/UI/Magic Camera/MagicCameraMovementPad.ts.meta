@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: 9ac1ec30a1e3d4095a6f34d5f5f4b223
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass
+    MagicCameraMovementPad extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n   
+    get TouchPad() {\r\n        return this.touchPad;\r\n    }\r\n    get OkButton()
+    {\r\n        return this.okButton;\r\n    }\r\n}\r\nexports.default = MagicCameraMovementPad;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWFnaWNDYW1lcmFNb3ZlbWVudFBhZC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIk1hZ2ljQ2FtZXJhTW92ZW1lbnRQYWQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFFQSxpREFBc0Q7QUFFdEQsTUFBcUIsc0JBQXVCLFNBQVEscUNBQXFCO0lBTXZFLElBQVcsUUFBUTtRQUNqQixPQUFPLElBQUksQ0FBQyxRQUFRLENBQUM7SUFDdkIsQ0FBQztJQUVELElBQVcsUUFBUTtRQUNqQixPQUFPLElBQUksQ0FBQyxRQUFRLENBQUM7SUFDdkIsQ0FBQztDQUNGO0FBYkQseUNBYUMifQ==","assetPath":"Assets/UI/Magic
+    Camera/MagicCameraMovementPad.ts","manifest":{"properties":[{"assembly":"ZEPETO.Character.Controller","name":"touchPad","type":"ZEPETO.Character.Controller.ZepetoScreenTouchpad","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"okButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"MagicCameraMovementPad","description":""},"isCompiled":true}'
+  typescriptHash: c485f2336088cc064bee89628782da79
+  onlyWriteTrigger: 0

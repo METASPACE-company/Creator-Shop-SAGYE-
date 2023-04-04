@@ -1,0 +1,43 @@
+fileFormatVersion: 2
+guid: f1986de51f0b641e58518dad7e21da68
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nclass
+    UnityUtility {\r\n    static IsRealExists(gameObject) {\r\n        if (!gameObject)\r\n           
+    return false;\r\n        const objString = gameObject.toString();\r\n       
+    if (objString == ''null'' || objString == ''undefined'')\r\n            return
+    false;\r\n        return true;\r\n    }\r\n    static ClearChilds(parent) {\r\n       
+    const childCount = parent.transform.childCount;\r\n        for (let i = childCount
+    - 1; i >= 0; --i) {\r\n            const child = parent.transform.GetChild(i);\r\n           
+    UnityEngine_1.GameObject.Destroy(child.gameObject);\r\n        }\r\n    }\r\n   
+    static GetChilds(parent) {\r\n        const childCount = parent.transform.childCount;\r\n       
+    let childs = new Array(childCount);\r\n        for (let i = 0; i < childCount;
+    ++i) {\r\n            childs[i] = parent.transform.GetChild(i).gameObject;\r\n       
+    }\r\n        return childs;\r\n    }\r\n    static GetChildsRecursive(parent)
+    {\r\n        const childTrsfs = parent.transform.GetComponentsInChildren($typeof(UnityEngine_1.Transform));\r\n       
+    let childs = new Array(childTrsfs.length);\r\n        for (let i = 0; i < childs.length;
+    ++i) {\r\n            const childTrsf = childTrsfs.get_Item(i);\r\n           
+    childs[i] = childTrsf.gameObject;\r\n        }\r\n        return childs;\r\n   
+    }\r\n    static ChangeLayersRecursively(trsf, layer) {\r\n        trsf.gameObject.layer
+    = layer;\r\n        for (const child of this.GetChilds(trsf.gameObject)) {\r\n           
+    this.ChangeLayersRecursively(child.transform, layer);\r\n        }\r\n    }\r\n}\r\nexports.default
+    = UnityUtility;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVW5pdHlVdGlsaXR5LmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiVW5pdHlVdGlsaXR5LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQW9EO0FBRXBELE1BQXFCLFlBQVk7SUFDeEIsTUFBTSxDQUFDLFlBQVksQ0FBQyxVQUFrQjtRQUMzQyxJQUFJLENBQUMsVUFBVTtZQUFFLE9BQU8sS0FBSyxDQUFDO1FBRTlCLE1BQU0sU0FBUyxHQUFHLFVBQVUsQ0FBQyxRQUFRLEVBQUUsQ0FBQztRQUN4QyxJQUFJLFNBQVMsSUFBSSxNQUFNLElBQUksU0FBUyxJQUFJLFdBQVc7WUFBRSxPQUFPLEtBQUssQ0FBQztRQUVsRSxPQUFPLElBQUksQ0FBQztJQUNkLENBQUM7SUFFTSxNQUFNLENBQUMsV0FBVyxDQUFDLE1BQWtCO1FBQzFDLE1BQU0sVUFBVSxHQUFHLE1BQU0sQ0FBQyxTQUFTLENBQUMsVUFBVSxDQUFDO1FBQy9DLEtBQUssSUFBSSxDQUFDLEdBQUcsVUFBVSxHQUFHLENBQUMsRUFBRSxDQUFDLElBQUksQ0FBQyxFQUFFLEVBQUUsQ0FBQyxFQUFFO1lBQ3hDLE1BQU0sS0FBSyxHQUFHLE1BQU0sQ0FBQyxTQUFTLENBQUMsUUFBUSxDQUFDLENBQUMsQ0FBQyxDQUFDO1lBQzNDLHdCQUFVLENBQUMsT0FBTyxDQUFDLEtBQUssQ0FBQyxVQUFVLENBQUMsQ0FBQztTQUN0QztJQUNILENBQUM7SUFFTSxNQUFNLENBQUMsU0FBUyxDQUFDLE1BQWtCO1FBQ3hDLE1BQU0sVUFBVSxHQUFHLE1BQU0sQ0FBQyxTQUFTLENBQUMsVUFBVSxDQUFDO1FBQy9DLElBQUksTUFBTSxHQUFpQixJQUFJLEtBQUssQ0FBQyxVQUFVLENBQUMsQ0FBQztRQUVqRCxLQUFLLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEdBQUcsVUFBVSxFQUFFLEVBQUUsQ0FBQyxFQUFFO1lBQ25DLE1BQU0sQ0FBQyxDQUFDLENBQUMsR0FBRyxNQUFNLENBQUMsU0FBUyxDQUFDLFFBQVEsQ0FBQyxDQUFDLENBQUMsQ0FBQyxVQUFVLENBQUM7U0FDckQ7UUFDRCxPQUFPLE1BQU0sQ0FBQztJQUNoQixDQUFDO0lBRU0sTUFBTSxDQUFDLGtCQUFrQixDQUFDLE1BQWtCO1FBQ2pELE1BQU0sVUFBVSxHQUFHLE1BQU0sQ0FBQyxTQUFTLENBQUMsdUJBQXVCLFNBQUMsdUJBQVMsRUFBRyxDQUFDO1FBRXpFLElBQUksTUFBTSxHQUFHLElBQUksS0FBSyxDQUFDLFVBQVUsQ0FBQyxNQUFNLENBQUMsQ0FBQztRQUMxQyxLQUFLLElBQUksQ0FBQyxHQUFHLENBQUMsRUFBRSxDQUFDLEdBQUcsTUFBTSxDQUFDLE1BQU0sRUFBRSxFQUFFLENBQUMsRUFBRTtZQUN0QyxNQUFNLFNBQVMsR0FBRyxVQUFVLENBQUMsUUFBUSxDQUFDLENBQUMsQ0FBQyxDQUFDO1lBRXpDLE1BQU0sQ0FBQyxDQUFDLENBQUMsR0FBRyxTQUFTLENBQUMsVUFBVSxDQUFDO1NBQ2xDO1FBQ0QsT0FBTyxNQUFNLENBQUM7SUFDaEIsQ0FBQztJQUVNLE1BQU0sQ0FBQyx1QkFBdUIsQ0FBQyxJQUFlLEVBQUUsS0FBVTtRQUMvRCxJQUFJLENBQUMsVUFBVSxDQUFDLEtBQUssR0FBRyxLQUFLLENBQUM7UUFDOUIsS0FBSyxNQUFNLEtBQUssSUFBSSxJQUFJLENBQUMsU0FBUyxDQUFDLElBQUksQ0FBQyxVQUFVLENBQUMsRUFBRTtZQUNuRCxJQUFJLENBQUMsdUJBQXVCLENBQUMsS0FBSyxDQUFDLFNBQVMsRUFBRSxLQUFLLENBQUMsQ0FBQztTQUN0RDtJQUNILENBQUM7Q0FDRjtBQTlDRCwrQkE4Q0MifQ==","assetPath":"Assets/UI/WorldButton/UnityUtility.ts","manifest":{"properties":[],"name":"UnityUtility","description":""},"isCompiled":true}'
+  typescriptHash: 6b2d3ba5bd26a281f36cfb405d033c3e
+  onlyWriteTrigger: 0

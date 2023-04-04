@@ -1,0 +1,31 @@
+fileFormatVersion: 2
+guid: 028763a1ca1084966ab5d30da3b5dad9
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst SeatManager_1 = require(\"./SeatManager\");\r\nclass
+    SeatLocator extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    static ResetAllButton()
+    {\r\n        const seats = UnityEngine_1.GameObject.FindObjectsOfType($typeof(SeatLocator));\r\n       
+    for (const seat of seats)\r\n            seat.button.SetActive(true);\r\n   
+    }\r\n    Start() {\r\n        this.button = SeatManager_1.default.Instance.RegisterSeat(this.transform,
+    this.animationOverride);\r\n    }\r\n}\r\nexports.default = SeatLocator;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU2VhdExvY2F0b3IuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJTZWF0TG9jYXRvci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUF3RDtBQUN4RCxpREFBc0Q7QUFFdEQsK0NBQXdDO0FBRXhDLE1BQXFCLFdBQVksU0FBUSxxQ0FBcUI7SUFNckQsTUFBTSxDQUFDLGNBQWM7UUFDMUIsTUFBTSxLQUFLLEdBQUcsd0JBQVUsQ0FBQyxpQkFBaUIsU0FBQyxXQUFXLEVBQUcsQ0FBQztRQUMxRCxLQUFLLE1BQU0sSUFBSSxJQUFJLEtBQUs7WUFBRSxJQUFJLENBQUMsTUFBTSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUN4RCxDQUFDO0lBRU0sS0FBSztRQUNWLElBQUksQ0FBQyxNQUFNLEdBQUcscUJBQVcsQ0FBQyxRQUFRLENBQUMsWUFBWSxDQUM3QyxJQUFJLENBQUMsU0FBUyxFQUNkLElBQUksQ0FBQyxpQkFBaUIsQ0FDdkIsQ0FBQztJQUNKLENBQUM7Q0FDRjtBQWpCRCw4QkFpQkMifQ==","assetPath":"Assets/3D/Seat/SeatLocator.ts","manifest":{"properties":[{"assembly":"UnityEngine.AnimationModule","name":"animationOverride","type":"UnityEngine.AnimationClip","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"SeatLocator","description":""},"isCompiled":true}'
+  typescriptHash: 8f0347024c99b49489f346b104677421
+  onlyWriteTrigger: 0

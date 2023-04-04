@@ -1,0 +1,57 @@
+fileFormatVersion: 2
+guid: 87cba2fac59a84a35a47d8efbb146225
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst EventTracker_1 = require(\"../../3D/Tracking/EventTracker\");\r\nconst
+    LocalPlayer_1 = require(\"../../Network/Sync/LocalPlayer\");\r\nconst MenuGroup_1
+    = require(\"../Menu Group/MenuGroup\");\r\nconst WorldButtonCanvas_1 = require(\"../WorldButton/WorldButtonCanvas\");\r\nconst
+    MagicCameraObject_1 = require(\"./MagicCameraObject\");\r\nconst MagicCameraPad_1
+    = require(\"./MagicCameraPad\");\r\nconst MagicCameraPreview_1 = require(\"./MagicCameraPreview\");\r\nconst
+    MagicCameraShotTaking_1 = require(\"./MagicCameraShotTaking\");\r\nconst MagicCameraTutorial_1
+    = require(\"./MagicCameraTutorial\");\r\nclass MagicCamera extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    static get Instance() {\r\n        return MagicCamera.instance;\r\n   
+    }\r\n    Awake() {\r\n        this.tutorial = this._tutorial.GetComponent($typeof(MagicCameraTutorial_1.default));\r\n       
+    this.pad = this._pad.GetComponent($typeof(MagicCameraPad_1.default));\r\n       
+    this.preview = this._preview.GetComponent($typeof(MagicCameraPreview_1.default));\r\n       
+    this.shotTaking = this._shotTaking.GetComponent($typeof(MagicCameraShotTaking_1.default));\r\n       
+    MagicCamera.instance = this;\r\n    }\r\n    Activate() {\r\n        if (this.camera)
+    {\r\n            if (this.preview.gameObject.activeSelf)\r\n                this.preview.OnClickCameraButton();\r\n           
+    return;\r\n        }\r\n        const player = LocalPlayer_1.default.Instance;\r\n       
+    if (!player)\r\n            return;\r\n        const transform = player.ZepetoCharacter.transform;\r\n       
+    const position = UnityEngine_1.Vector3.op_Addition(transform.position, UnityEngine_1.Vector3.op_Multiply(transform.forward,
+    0.75));\r\n        this.camera = UnityEngine_1.GameObject.Instantiate(this.cameraPrefab,
+    position, transform.rotation).GetComponent($typeof(MagicCameraObject_1.default));\r\n       
+    this.camera.Activate();\r\n        this.tutorial.Deactivate();\r\n        this.pad.Activate(this.tutorial,
+    this.preview, this.shotTaking, this.camera, true);\r\n        MenuGroup_1.default.Instance.gameObject.SetActive(false);\r\n       
+    UnityEngine_1.GameObject.FindObjectsOfType($typeof(UnityEngine_1.GameObject),
+    true).filter((obj) => obj.name === ''iconImage'')\r\n            .forEach((obj)
+    => obj.SetActive(false));\r\n        WorldButtonCanvas_1.default.Instance.gameObject.SetActive(false);\r\n       
+    EventTracker_1.default.Instance.CountOpenMagicCamera();\r\n    }\r\n    Deactivate()
+    {\r\n        if (!this.camera)\r\n            return;\r\n        this.camera.ExitPreview();\r\n       
+    UnityEngine_1.GameObject.Destroy(this.camera.gameObject);\r\n        this.camera
+    = null;\r\n        this.tutorial.Deactivate();\r\n        this.pad.Deactivate();\r\n       
+    MenuGroup_1.default.Instance.gameObject.SetActive(true);\r\n        UnityEngine_1.GameObject.FindObjectsOfType($typeof(UnityEngine_1.GameObject),
+    true).filter((obj) => obj.name === ''iconImage'')\r\n            .forEach((obj)
+    => obj.SetActive(true));\r\n        WorldButtonCanvas_1.default.Instance.gameObject.SetActive(true);\r\n   
+    }\r\n}\r\nexports.default = MagicCamera;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWFnaWNDYW1lcmEuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJNYWdpY0NhbWVyYS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUFrRDtBQUNsRCxpREFBc0Q7QUFFdEQsaUVBQTBEO0FBQzFELGdFQUF5RDtBQUN6RCx1REFBZ0Q7QUFDaEQsd0VBQWlFO0FBQ2pFLDJEQUFvRDtBQUNwRCxxREFBOEM7QUFDOUMsNkRBQXNEO0FBQ3RELG1FQUE0RDtBQUM1RCwrREFBd0Q7QUFFeEQsTUFBcUIsV0FBWSxTQUFRLHFDQUFxQjtJQUdyRCxNQUFNLEtBQUssUUFBUTtRQUN4QixPQUFPLFdBQVcsQ0FBQyxRQUFRLENBQUM7SUFDOUIsQ0FBQztJQXFCTSxLQUFLO1FBQ1YsSUFBSSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUMsU0FBUyxDQUFDLFlBQVksU0FBQyw2QkFBbUIsRUFBRyxDQUFDO1FBQ25FLElBQUksQ0FBQyxHQUFHLEdBQUcsSUFBSSxDQUFDLElBQUksQ0FBQyxZQUFZLFNBQUMsd0JBQWMsRUFBRyxDQUFDO1FBQ3BELElBQUksQ0FBQyxPQUFPLEdBQUcsSUFBSSxDQUFDLFFBQVEsQ0FBQyxZQUFZLFNBQUMsNEJBQWtCLEVBQUcsQ0FBQztRQUNoRSxJQUFJLENBQUMsVUFBVSxHQUFHLElBQUksQ0FBQyxXQUFXLENBQUMsWUFBWSxTQUFDLCtCQUFxQixFQUFHLENBQUM7UUFDekUsV0FBVyxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUM7SUFDOUIsQ0FBQztJQUVNLFFBQVE7UUFDYixJQUFJLElBQUksQ0FBQyxNQUFNLEVBQUU7WUFDZixJQUFJLElBQUksQ0FBQyxPQUFPLENBQUMsVUFBVSxDQUFDLFVBQVU7Z0JBQ3BDLElBQUksQ0FBQyxPQUFPLENBQUMsbUJBQW1CLEVBQUUsQ0FBQztZQUNyQyxPQUFPO1NBQ1I7UUFFRCxNQUFNLE1BQU0sR0FBRyxxQkFBVyxDQUFDLFFBQVEsQ0FBQztRQUNwQyxJQUFJLENBQUMsTUFBTTtZQUFFLE9BQU87UUFFcEIsTUFBTSxTQUFTLEdBQUcsTUFBTSxDQUFDLGVBQWUsQ0FBQyxTQUFTLENBQUM7UUFDbkQsTUFBTSxRQUFRLEdBQUcscUJBQU8sQ0FBQyxXQUFXLENBQ2xDLFNBQVMsQ0FBQyxRQUFRLEVBQ2xCLHFCQUFPLENBQUMsV0FBVyxDQUFDLFNBQVMsQ0FBQyxPQUFPLEVBQUUsSUFBSSxDQUFDLENBQzdDLENBQUM7UUFDRixJQUFJLENBQUMsTUFBTSxHQUFHLHdCQUFVLENBQUMsV0FBVyxDQUNsQyxJQUFJLENBQUMsWUFBWSxFQUNqQixRQUFRLEVBQ1IsU0FBUyxDQUFDLFFBQVEsQ0FDbkIsQ0FBQyxZQUFZLFNBQUMsMkJBQWlCLEVBQUcsQ0FBQztRQUNwQyxJQUFJLENBQUMsTUFBTSxDQUFDLFFBQVEsRUFBRSxDQUFDO1FBQ3ZCLElBQUksQ0FBQyxRQUFRLENBQUMsVUFBVSxFQUFFLENBQUM7UUFDM0IsSUFBSSxDQUFDLEdBQUcsQ0FBQyxRQUFRLENBQ2YsSUFBSSxDQUFDLFFBQVEsRUFDYixJQUFJLENBQUMsT0FBTyxFQUNaLElBQUksQ0FBQyxVQUFVLEVBQ2YsSUFBSSxDQUFDLE1BQU0sRUFDWCxJQUFJLENBQ0wsQ0FBQztRQUVGLG1CQUFTLENBQUMsUUFBUSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7UUFDL0Msd0JBQVUsQ0FBQyxpQkFBaUIsU0FBQyx3QkFBVSxHQUFFLElBQUksRUFDMUMsTUFBTSxDQUFDLENBQUMsR0FBRyxFQUFFLEVBQUUsQ0FBQyxHQUFHLENBQUMsSUFBSSxLQUFLLFdBQVcsQ0FBQzthQUN6QyxPQUFPLENBQUMsQ0FBQyxHQUFHLEVBQUUsRUFBRSxDQUFDLEdBQUcsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUMsQ0FBQztRQUMxQywyQkFBaUIsQ0FBQyxRQUFRLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxLQUFLLENBQUMsQ0FBQztRQUV2RCxzQkFBWSxDQUFDLFFBQVEsQ0FBQyxvQkFBb0IsRUFBRSxDQUFDO0lBQy9DLENBQUM7SUFFTSxVQUFVO1FBQ2YsSUFBSSxDQUFDLElBQUksQ0FBQyxNQUFNO1lBQUUsT0FBTztRQUV6QixJQUFJLENBQUMsTUFBTSxDQUFDLFdBQVcsRUFBRSxDQUFDO1FBQzFCLHdCQUFVLENBQUMsT0FBTyxDQUFDLElBQUksQ0FBQyxNQUFNLENBQUMsVUFBVSxDQUFDLENBQUM7UUFDM0MsSUFBSSxDQUFDLE1BQU0sR0FBRyxJQUFJLENBQUM7UUFDbkIsSUFBSSxDQUFDLFFBQVEsQ0FBQyxVQUFVLEVBQUUsQ0FBQztRQUMzQixJQUFJLENBQUMsR0FBRyxDQUFDLFVBQVUsRUFBRSxDQUFDO1FBRXRCLG1CQUFTLENBQUMsUUFBUSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUM7UUFDOUMsd0JBQVUsQ0FBQyxpQkFBaUIsU0FBQyx3QkFBVSxHQUFFLElBQUksRUFDMUMsTUFBTSxDQUFDLENBQUMsR0FBRyxFQUFFLEVBQUUsQ0FBQyxHQUFHLENBQUMsSUFBSSxLQUFLLFdBQVcsQ0FBQzthQUN6QyxPQUFPLENBQUMsQ0FBQyxHQUFHLEVBQUUsRUFBRSxDQUFDLEdBQUcsQ0FBQyxTQUFTLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQztRQUN6QywyQkFBaUIsQ0FBQyxRQUFRLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUN4RCxDQUFDO0NBQ0Y7QUF4RkQsOEJBd0ZDIn0=","assetPath":"Assets/UI/Magic
+    Camera/MagicCamera.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"_tutorial","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''UI''"]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"_pad","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"_preview","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"_shotTaking","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"cameraPrefab","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''Camera''"]},{"name":"SerializeField","args":[]}]}],"name":"MagicCamera","description":""},"isCompiled":true}'
+  typescriptHash: 95beb4dd0bff81dd44541b8561517ba0
+  onlyWriteTrigger: 0

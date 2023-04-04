@@ -1,0 +1,74 @@
+fileFormatVersion: 2
+guid: 4b3932804963c459f90014538402e176
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    UnityEngine_EventSystems_1 = require(\"UnityEngine.EventSystems\");\r\nconst
+    UnityEngine_EventSystems_EventTrigger_1 = require(\"UnityEngine.EventSystems.EventTrigger\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst MagicCamera_1 = require(\"./MagicCamera\");\r\nconst
+    MagicCameraObject_1 = require(\"./MagicCameraObject\");\r\nconst MagicCameraPreview_1
+    = require(\"./MagicCameraPreview\");\r\nconst MagicCameraShotTaking_1 = require(\"./MagicCameraShotTaking\");\r\nconst
+    MagicCameraTutorial_1 = require(\"./MagicCameraTutorial\");\r\nconst VirtualPadStateManager_1
+    = require(\"../Virtual Pad/VirtualPadStateManager\");\r\nconst MiddleMenuGroup_1
+    = require(\"../Middle Menu Group/MiddleMenuGroup\");\r\nconst Gesture_1 = require(\"../Gesture/Gesture\");\r\nclass
+    MagicCameraPad extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    Awake()
+    {\r\n        {\r\n            const entry = new UnityEngine_EventSystems_EventTrigger_1.Entry();\r\n           
+    entry.eventID = UnityEngine_EventSystems_1.EventTriggerType.Drag;\r\n           
+    entry.callback.AddListener(this.OnDragRotatingPad.bind(this));\r\n           
+    this.rotationPadEventTrigger.triggers.Add(entry);\r\n        }\r\n        this.heightSlider.onValueChanged.AddListener(this.OnChangeHeightSlider.bind(this));\r\n       
+    this.flashToggle.onValueChanged.AddListener(this.OnToggleFlash.bind(this));\r\n       
+    this.helpButton.onClick.AddListener(this.OnClickHelpButton.bind(this));\r\n       
+    this.backButton.onClick.AddListener(this.OnClickBackButton.bind(this));\r\n       
+    this.takeShotButton.onClick.AddListener(this.OnClickTakeShotButton.bind(this));\r\n       
+    this.plantButton.onClick.AddListener(this.OnClickPlantButton.bind(this));\r\n       
+    for (let index = 0; index < this.zoomButtons.length; ++index)\r\n           
+    this.zoomButtons[index].onClick.AddListener(this.OnClickZoomButton.bind(this,
+    index));\r\n    }\r\n    Start() {\r\n        this.gameObject.SetActive(false);\r\n   
+    }\r\n    Activate(tutorial, preview, shotTaking, cameraObject, initialize) {\r\n       
+    if (this.gameObject.activeSelf)\r\n            return;\r\n        this.gameObject.SetActive(true);\r\n       
+    this.tutorial = tutorial;\r\n        this.preview = preview;\r\n        this.shotTaking
+    = shotTaking;\r\n        this.cameraObject = cameraObject;\r\n        VirtualPadStateManager_1.default.Instance.MagicCamera
+    = true;\r\n        MiddleMenuGroup_1.default.Instance.gameObject.SetActive(false);\r\n       
+    Gesture_1.default.Instance.UI.gameObject.SetActive(false);\r\n        if (initialize)
+    {\r\n            this.cameraObject.ApplyElevationLevel((this.heightSlider.value
+    = 0.5));\r\n            this.cameraObject.ApplyFlash((this.flashToggle.isOn =
+    false));\r\n            this.OnClickZoomButton(1);\r\n        }\r\n    }\r\n   
+    Deactivate() {\r\n        if (!this.gameObject.activeSelf)\r\n            return;\r\n       
+    this.gameObject.SetActive(false);\r\n        VirtualPadStateManager_1.default.Instance.MagicCamera
+    = false;\r\n        MiddleMenuGroup_1.default.Instance.gameObject.SetActive(true);\r\n   
+    }\r\n    OnDragRotatingPad(event) {\r\n        const deltaInInch = UnityEngine_1.Vector2.op_Division(event.delta,
+    UnityEngine_1.Screen.dpi);\r\n        const angle = UnityEngine_1.Vector2.op_Multiply(deltaInInch,
+    this.rotationSensitivity);\r\n        this.cameraObject.ApplyRotation(angle.x,
+    -angle.y);\r\n    }\r\n    OnChangeHeightSlider(height) {\r\n        this.cameraObject.ApplyElevationLevel(height);\r\n   
+    }\r\n    OnToggleFlash(flash) {\r\n        this.cameraObject.ApplyFlash(flash);\r\n   
+    }\r\n    OnClickHelpButton() {\r\n        this.tutorial.Activate();\r\n    }\r\n   
+    OnClickBackButton() {\r\n        MagicCamera_1.default.Instance.Deactivate();\r\n   
+    }\r\n    OnClickTakeShotButton() {\r\n        this.Deactivate();\r\n        this.shotTaking.Activate(this.tutorial,
+    this, this.preview, this.cameraObject);\r\n    }\r\n    OnClickPlantButton()
+    {\r\n        this.Deactivate();\r\n        this.cameraObject?.ExitPreview();\r\n       
+    this.preview.Activate(this.tutorial, this, this.shotTaking, this.cameraObject);\r\n   
+    }\r\n    OnClickZoomButton(level) {\r\n        for (let button of this.zoomButtons)\r\n           
+    button.transform.localScale = UnityEngine_1.Vector3.one;\r\n        this.zoomButtons[level].transform.localScale
+    = UnityEngine_1.Vector3.op_Multiply(UnityEngine_1.Vector3.one, 80 / 60);\r\n       
+    this.cameraObject.ApplyZoomLevel(level);\r\n    }\r\n}\r\nexports.default = MagicCameraPad;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWFnaWNDYW1lcmFQYWQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJNYWdpY0NhbWVyYVBhZC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQUF1RDtBQUN2RCx1RUFJa0M7QUFDbEMsaUdBQThEO0FBRTlELGlEQUFzRDtBQUV0RCwrQ0FBd0M7QUFDeEMsMkRBQW9EO0FBQ3BELDZEQUFzRDtBQUN0RCxtRUFBNEQ7QUFDNUQsK0RBQXdEO0FBQ3hELGtGQUEyRTtBQUMzRSwwRUFBbUU7QUFDbkUsZ0RBQXlDO0FBRXpDLE1BQXFCLGNBQWUsU0FBUSxxQ0FBcUI7SUEyQnhELEtBQUs7UUFDVjtZQUNFLE1BQU0sS0FBSyxHQUFHLElBQUksNkNBQUssRUFBRSxDQUFDO1lBQzFCLEtBQUssQ0FBQyxPQUFPLEdBQUcsMkNBQWdCLENBQUMsSUFBSSxDQUFDO1lBQ3RDLEtBQUssQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxpQkFBaUIsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQztZQUM5RCxJQUFJLENBQUMsdUJBQXVCLENBQUMsUUFBUSxDQUFDLEdBQUcsQ0FBQyxLQUFLLENBQUMsQ0FBQztTQUNsRDtRQUVELElBQUksQ0FBQyxZQUFZLENBQUMsY0FBYyxDQUFDLFdBQVcsQ0FDMUMsSUFBSSxDQUFDLG9CQUFvQixDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsQ0FDckMsQ0FBQztRQUNGLElBQUksQ0FBQyxXQUFXLENBQUMsY0FBYyxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsYUFBYSxDQUFDLElBQUksQ0FBQyxJQUFJLENBQUMsQ0FBQyxDQUFDO1FBQzNFLElBQUksQ0FBQyxVQUFVLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsaUJBQWlCLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUM7UUFDdkUsSUFBSSxDQUFDLFVBQVUsQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUFDLElB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","assetPath":"Assets/UI/Magic
+    Camera/MagicCameraPad.ts","manifest":{"properties":[{"assembly":"UnityEngine.UI","name":"rotationPadEventTrigger","type":"UnityEngine.EventSystems.EventTrigger","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''UI''"]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"heightSlider","type":"UnityEngine.UI.Slider","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"flashToggle","type":"UnityEngine.UI.Toggle","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"helpButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"backButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"takeShotButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"plantButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"zoomButtons","type":"UnityEngine.UI.Button[]","isArray":true,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"rotationSensitivity","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''Configurations''"]},{"name":"SerializeField","args":[]}]}],"name":"MagicCameraPad","description":""},"isCompiled":true}'
+  typescriptHash: 996e52569ea5ee9ef81e4c8e83e04f34
+  onlyWriteTrigger: 0

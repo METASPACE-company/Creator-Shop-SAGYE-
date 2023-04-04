@@ -1,0 +1,57 @@
+fileFormatVersion: 2
+guid: c2e64b7e3d26d40238f9c3dee2e2fa3e
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst LocalPlayer_1 = require(\"../../Network/Sync/LocalPlayer\");\r\nconst
+    UnityUtility_1 = require(\"./UnityUtility\");\r\nclass WorldButton extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    constructor() {\r\n        super(...arguments);\r\n        this.worldOffset
+    = new UnityEngine_1.Vector3(0, 0, 0);\r\n        this.maxDistance = 20;\r\n   
+    }\r\n    Start() {\r\n        this.rectTrsf = this.GetComponent($typeof(UnityEngine_1.RectTransform));\r\n       
+    this.rectTrsf.anchorMin = new UnityEngine_1.Vector2(0, 0);\r\n        this.rectTrsf.anchorMax
+    = new UnityEngine_1.Vector2(0, 0);\r\n        this.isInitialized = true;\r\n   
+    }\r\n    Update() {\r\n        if (!this.isInitialized) {\r\n            return;\r\n       
+    }\r\n        this.UpdatePosition();\r\n    }\r\n    UpdatePosition() {\r\n       
+    if (ZEPETO_Character_Controller_1.ZepetoPlayers.instance == null) {\r\n           
+    return;\r\n        }\r\n        const targetCamera = UnityEngine_1.Camera.main;\r\n       
+    if (!UnityUtility_1.default.IsRealExists(targetCamera) ||\r\n            !UnityUtility_1.default.IsRealExists(this.targetTrsf)
+    ||\r\n            !UnityUtility_1.default.IsRealExists(ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer)
+    ||\r\n            !UnityUtility_1.default.IsRealExists(ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character))
+    {\r\n            this.rectTrsf.anchoredPosition = new UnityEngine_1.Vector2(-100000,
+    -100000);\r\n            return;\r\n        }\r\n        const character = LocalPlayer_1.default.Instance?.ZepetoCharacter;\r\n       
+    if (character == null) {\r\n            return;\r\n        }\r\n        const
+    distanceFromTarget = UnityEngine_1.Vector3.op_Subtraction(character.transform.position,
+    this.targetTrsf.position).magnitude;\r\n        let position;\r\n        const
+    FromCamDir = UnityEngine_1.Vector3.op_Subtraction(this.targetTrsf.position, targetCamera.transform.position);\r\n       
+    const forward = targetCamera.transform.forward;\r\n        const dotProduct =
+    UnityEngine_1.Vector3.Dot(FromCamDir, forward);\r\n        if ((this.maxDistance
+    > 0 && distanceFromTarget > this.maxDistance) ||\r\n            dotProduct <
+    0) {\r\n            position = new UnityEngine_1.Vector2(-100000, -100000);\r\n       
+    }\r\n        else {\r\n            const parentCanvas = this.GetComponentInParent($typeof(UnityEngine_1.Canvas));\r\n           
+    if (!parentCanvas)\r\n                return;\r\n            const parentCanvasRect
+    = parentCanvas.GetComponent($typeof(UnityEngine_1.RectTransform));\r\n           
+    const targetPosition = UnityEngine_1.Vector3.op_Addition(this.targetTrsf.position,
+    this.worldOffset);\r\n            const viewportPosition = targetCamera.WorldToViewportPoint(targetPosition);\r\n           
+    position = new UnityEngine_1.Vector2(viewportPosition.x * parentCanvasRect.sizeDelta.x,
+    viewportPosition.y * parentCanvasRect.sizeDelta.y);\r\n        }\r\n        this.rectTrsf.anchoredPosition
+    = position;\r\n    }\r\n}\r\nexports.default = WorldButton;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiV29ybGRCdXR0b24uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJXb3JsZEJ1dHRvbi50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQU9xQjtBQUNyQiw2RUFBNEQ7QUFDNUQsaURBQXNEO0FBQ3RELGdFQUF5RDtBQUN6RCxpREFBMEM7QUFFMUMsTUFBcUIsV0FBWSxTQUFRLHFDQUFxQjtJQUE5RDs7UUFFUyxnQkFBVyxHQUFZLElBQUkscUJBQU8sQ0FBQyxDQUFDLEVBQUUsQ0FBQyxFQUFFLENBQUMsQ0FBQyxDQUFDO1FBQzVDLGdCQUFXLEdBQVUsRUFBRSxDQUFDO0lBK0VqQyxDQUFDO0lBekVTLEtBQUs7UUFDWCxJQUFJLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQyxZQUFZLFNBQUMsMkJBQWEsRUFBRyxDQUFDO1FBQ25ELElBQUksQ0FBQyxRQUFRLENBQUMsU0FBUyxHQUFHLElBQUkscUJBQU8sQ0FBQyxDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUM7UUFDNUMsSUFBSSxDQUFDLFFBQVEsQ0FBQyxTQUFTLEdBQUcsSUFBSSxxQkFBTyxDQUFDLENBQUMsRUFBRSxDQUFDLENBQUMsQ0FBQztRQUU1QyxJQUFJLENBQUMsYUFBYSxHQUFHLElBQUksQ0FBQztJQUM1QixDQUFDO0lBRU8sTUFBTTtRQUNaLElBQUksQ0FBQyxJQUFJLENBQUMsYUFBYSxFQUFFO1lBQ3ZCLE9BQU87U0FDUjtRQUVELElBQUksQ0FBQyxjQUFjLEVBQUUsQ0FBQztJQUN4QixDQUFDO0lBRU8sY0FBYztRQUNwQixJQUFJLDJDQUFhLENBQUMsUUFBUSxJQUFJLElBQUksRUFBRTtZQUNsQyxPQUFPO1NBQ1I7UUFDRCxNQUFNLFlBQVksR0FBRyxvQkFBTSxDQUFDLElBQUksQ0FBQztRQUVqQyxJQUNFLENBQUMsc0JBQVksQ0FBQyxZQUFZLENBQUMsWUFBWSxDQUFDO1lBQ3hDLENBQUMsc0JBQVksQ0FBQyxZQUFZLENBQUMsSUFBSSxDQUFDLFVBQVUsQ0FBQztZQUMzQyxDQUFDLHNCQUFZLENBQUMsWUFBWSxDQUFDLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQztZQUM5RCxDQUFDLHNCQUFZLENBQUMsWUFBWSxDQUN4QiwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxXQUFXLENBQUMsWUFBWSxDQUFDLFNBQVMsQ0FDMUQsRUFDRDtZQUNBLElBQUksQ0FBQyxRQUFRLENBQUMsZ0JBQWdCLEdBQUcsSUFBSSxxQkFBTyxDQUFDLENBQUMsTUFBTSxFQUFFLENBQUMsTUFBTSxDQUFDLENBQUM7WUFDL0QsT0FBTztTQUNSO1FBRUQsTUFBTSxTQUFTLEdBQUcscUJBQVcsQ0FBQyxRQUFRLEVBQUUsZUFBZSxDQUFDO1FBQ3hELElBQUksU0FBUyxJQUFJLElBQUksRUFBRTtZQUNyQixPQUFPO1NBQ1I7UUFDRCxNQUFNLGtCQUFrQixHQUFHLHFCQUFPLENBQUMsY0FBYyxDQUMvQyxTQUFTLENBQUMsU0FBUyxDQUFDLFFBQVEsRUFDNUIsSUFBSSxDQUFDLFVBQVUsQ0FBQyxRQUFRLENBQ3pCLENBQUMsU0FBUyxDQUFDO1FBQ1osSUFBSSxRQUFRLENBQUM7UUFFYixNQUFNLFVBQVUsR0E1RGxCLHFCQUFPLENBMEYwc21CLGNBQWUsQ0E3QjV0bUIsSUFBSSxDQUFDLFVBQVUsQ0FBQyxRQUFRLEVBQUcsWUFBWSxDQUFDLFNBQVMsQ0FBQyxRQUFRLENBQUEsQ0FBQztRQUM3RCxNQUFNLE9BQU8sR0FBRyxZQUFZLENBQUMsU0FBUyxDQUFDLE9BQU8sQ0FBQztRQUMvQyxNQUFNLFVBQVUsR0FBRyxxQkFBTyxDQUFDLEdBQUcsQ0FBQyxVQUFVLEVBQUUsT0FBTyxDQUFDLENBQUM7UUFFcEQsSUFDRSxDQUFDLElBQUksQ0FBQyxXQUFXLEdBQUcsQ0FBQyxJQUFJLGtCQUFrQixHQUFHLElBQUksQ0FBQyxXQUFXLENBQUM7WUFDL0QsVUFBVSxHQUFHLENBQUMsRUFDZDtZQUNBLFFBQVEsR0FBRyxJQUFJLHFCQUFPLENBQUMsQ0FBQyxNQUFNLEVBQUUsQ0FBQyxNQUFNLENBQUMsQ0FBQztTQUMxQzthQUFNO1lBQ0wsTUFBTSxZQUFZLEdBQUcsSUFBSSxDQUFDLG9CQUFvQixTQUFDLG9CQUFNLEVBQUcsQ0FBQztZQUN6RCxJQUFJLENBQUMsWUFBWTtnQkFBRSxPQUFPO1lBQzFCLE1BQU0sZ0JBQWdCLEdBQUcsWUFBWSxDQUFDLFlBQVksU0FBQywyQkFBYSxFQUFHLENBQUM7WUFFcEUsTUFBTSxjQUFjLEdBQVkscUJBQU8sQ0FBQyxXQUFXLENBQ2pELElBQUksQ0FBQyxVQUFVLENBQUMsUUFBUSxFQUN4QixJQUFJLENBQUMsV0FBVyxDQUNqQixDQUFDO1lBQ0YsTUFBTSxnQkFBZ0IsR0FDcEIsWUFBWSxDQUFDLG9CQUFvQixDQUFDLGNBQWMsQ0FBQyxDQUFDO1lBRXBELFFBQVEsR0FBRyxJQUFJLHFCQUFPLENBQ3BCLGdCQUFnQixDQUFDLENBQUMsR0FBRyxnQkFBZ0IsQ0FBQyxTQUFTLENBQUMsQ0FBQyxFQUNqRCxnQkFBZ0IsQ0FBQyxDQUFDLEdBQUcsZ0JBQWdCLENBQUMsU0FBUyxDQUFDLENBQUMsQ0FDbEQsQ0FBQztTQUNIO1FBQ0QsSUFBSSxDQUFDLFFBQVEsQ0FBQyxnQkFBZ0IsR0FBRyxRQUFRLENBQUM7SUFDNUMsQ0FBQztDQUNGO0FBbEZELDhCQWtGQyJ9","assetPath":"Assets/UI/WorldButton/WorldButton.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"targetTrsf","type":"UnityEngine.Transform","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"UnityEngine.CoreModule","name":"worldOffset","type":"UnityEngine.Vector3","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[]},{"assembly":"mscorlib","name":"maxDistance","type":"System.Single","isArray":false,"initValue":["20"],"enumKeys":[],"enumValues":[],"attributes":[]}],"name":"WorldButton","description":""},"isCompiled":true}'
+  typescriptHash: d3ad074f4f69df560c0defe0aa10e25b
+  onlyWriteTrigger: 0

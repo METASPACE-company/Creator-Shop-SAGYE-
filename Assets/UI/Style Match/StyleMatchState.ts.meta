@@ -1,0 +1,29 @@
+fileFormatVersion: 2
+guid: 317a146bd6951486ea0bd6dc8c876702
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.STYLE_MATCH_RESULT = void 0;\r\nexports.STYLE_MATCH_RESULT
+    = {\r\n    FeedBGColor: undefined,\r\n    FeedTypoSprite: undefined,\r\n    FeedImageBG:
+    undefined,\r\n    Name: '''',\r\n    ResultBGSprite: undefined,\r\n    ResultTypoSprite:
+    undefined,\r\n    ResultDescText: '''',\r\n    ResultTitleText: '''',\r\n   
+    TeleportPoints: undefined,\r\n    WorldId: undefined,\r\n};\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3R5bGVNYXRjaFN0YXRlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiU3R5bGVNYXRjaFN0YXRlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7OztBQThCYSxRQUFBLGtCQUFrQixHQUFxQjtJQUNsRCxXQUFXLEVBQUUsU0FBUztJQUN0QixjQUFjLEVBQUUsU0FBUztJQUN6QixXQUFXLEVBQUUsU0FBUztJQUN0QixJQUFJLEVBQUUsRUFBRTtJQUNSLGNBQWMsRUFBRSxTQUFTO0lBQ3pCLGdCQUFnQixFQUFFLFNBQVM7SUFDM0IsY0FBYyxFQUFFLEVBQUU7SUFDbEIsZUFBZSxFQUFFLEVBQUU7SUFDbkIsY0FBYyxFQUFFLFNBQVM7SUFDekIsT0FBTyxFQUFFLFNBQVM7Q0FDbkIsQ0FBQyJ9","assetPath":"Assets/UI/Style
+    Match/StyleMatchState.ts","manifest":{"properties":[],"name":"StyleMatchState","description":""},"isCompiled":true}'
+  typescriptHash: 34e6f8dc72fd9ce0cc14e8098afcf09c
+  onlyWriteTrigger: 0

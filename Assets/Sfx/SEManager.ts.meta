@@ -1,0 +1,30 @@
+fileFormatVersion: 2
+guid: d65fa93519cf8434e87e28551cf85b7f
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass SEManager extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    static get Instance() {\r\n        return SEManager.instance;\r\n   
+    }\r\n    Awake() {\r\n        SEManager.instance = this;\r\n        this.source
+    = this.GetComponent($typeof(UnityEngine_1.AudioSource));\r\n    }\r\n    Play(sfx,
+    volumeScale = 1) {\r\n        this.source.PlayOneShot(sfx, volumeScale);\r\n   
+    }\r\n}\r\nexports.default = SEManager;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU0VNYW5hZ2VyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiU0VNYW5hZ2VyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsNkNBQXFEO0FBQ3JELGlEQUFzRDtBQUV0RCxNQUFxQixTQUFVLFNBQVEscUNBQXFCO0lBR25ELE1BQU0sS0FBSyxRQUFRO1FBQ3hCLE9BQU8sU0FBUyxDQUFDLFFBQVEsQ0FBQztJQUM1QixDQUFDO0lBSU0sS0FBSztRQUNWLFNBQVMsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDO1FBRTFCLElBQUksQ0FBQyxNQUFNLEdBQUcsSUFBSSxDQUFDLFlBQVksU0FBQyx5QkFBVyxFQUFHLENBQUM7SUFDakQsQ0FBQztJQUVNLElBQUksQ0FBQyxHQUFjLEVBQUUsV0FBVyxHQUFHLENBQUM7UUFDekMsSUFBSSxDQUFDLE1BQU0sQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFLFdBQVcsQ0FBQyxDQUFDO0lBQzVDLENBQUM7Q0FDRjtBQWxCRCw0QkFrQkMifQ==","assetPath":"Assets/Sfx/SEManager.ts","manifest":{"properties":[],"name":"SEManager","description":""},"isCompiled":true}'
+  typescriptHash: 12b954005b9bb87a83efa8c3fdf79852
+  onlyWriteTrigger: 0

@@ -1,0 +1,55 @@
+fileFormatVersion: 2
+guid: db5dff4d5d1354e12a34a155054d3d6a
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst Gesture_1 = require(\"../Gesture/Gesture\");\r\nclass
+    StyleMatchResultFeed extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    SetResult(result)
+    {\r\n        this.backgroundImage.color = result.FeedBGColor;\r\n        this.typoImage.sprite
+    = result.FeedTypoSprite;\r\n        this.feedImageBGMat.SetTexture(''_MainTex'',
+    result.FeedImageBG);\r\n    }\r\n    TakeScreenShot(cb) {\r\n        this.StartCoroutine(this.TakeScreenShotCoroutine(cb));\r\n   
+    }\r\n    *TakeScreenShotCoroutine(cb) {\r\n        const characterTrsf = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.gameObject\r\n           
+    .transform;\r\n        const characterController = characterTrsf.GetComponent($typeof(UnityEngine_1.CharacterController));\r\n       
+    const headBoneTrsf = characterTrsf.Find(''Zepeto Context/hips/spine/chest/chestUpper/neck/head'');\r\n       
+    characterController.enabled = false;\r\n        this.feedImageArea.SetActive(true);\r\n       
+    const contents = Gesture_1.default.Instance.Contents;\r\n        if (contents)
+    {\r\n            const poseContents = contents.filter((content) => [\r\n               
+    ''ZW_POSE_007'',\r\n                ''ZW_POSE_020'',\r\n                ''ZW_POSE_050'',\r\n               
+    ''ZW_POSE_048'',\r\n                ''ZW_POSE_027'',\r\n            ].includes(content.Id));\r\n           
+    if (poseContents.length)\r\n                ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.SetGesture(poseContents[Math.floor(Math.random()
+    * poseContents.length)]\r\n                    .AnimationClip);\r\n        }\r\n       
+    const headBoneCloneTrsf = UnityEngine_1.GameObject.Instantiate(headBoneTrsf.gameObject,
+    characterTrsf, true).transform;\r\n        const headOffset = characterTrsf.position.y
+    - headBoneCloneTrsf.position.y;\r\n        UnityEngine_1.GameObject.Destroy(headBoneCloneTrsf.gameObject);\r\n       
+    const playerPosMemory = characterTrsf.position;\r\n        const playerAngleMemory
+    = characterTrsf.localEulerAngles;\r\n        characterTrsf.position = UnityEngine_1.Vector3.op_Addition(this.feedImageCharacterHeadLocator.position,
+    new UnityEngine_1.Vector3(0, headOffset, 0));\r\n        characterTrsf.localEulerAngles
+    =\r\n            this.feedImageCharacterHeadLocator.localEulerAngles;\r\n       
+    yield null;\r\n        yield new UnityEngine_1.WaitForEndOfFrame();\r\n       
+    this.feedImageCamera.Render();\r\n        characterTrsf.position = playerPosMemory;\r\n       
+    characterTrsf.localEulerAngles = playerAngleMemory;\r\n        characterController.enabled
+    = true;\r\n        this.feedImageArea.SetActive(false);\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character.CancelGesture();\r\n       
+    yield null;\r\n        yield new UnityEngine_1.WaitForEndOfFrame();\r\n       
+    this.feedCamera.Render();\r\n        cb(this.feedCamera.targetTexture);\r\n   
+    }\r\n}\r\nexports.default = StyleMatchResultFeed;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3R5bGVNYXRjaFJlc3VsdEZlZWQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJTdHlsZU1hdGNoUmVzdWx0RmVlZC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQVNxQjtBQUVyQiw2RUFBNEQ7QUFDNUQsaURBQXNEO0FBQ3RELGdEQUF5QztBQUl6QyxNQUFxQixvQkFBcUIsU0FBUSxxQ0FBcUI7SUFnQjlELFNBQVMsQ0FBQyxNQUF3QjtRQUN2QyxJQUFJLENBQUMsZUFBZSxDQUFDLEtBQUssR0FBRyxNQUFNLENBQUMsV0FBVyxDQUFDO1FBQ2hELElBQUksQ0FBQyxTQUFTLENBQUMsTUFBTSxHQUFHLE1BQU0sQ0FBQyxjQUFjLENBQUM7UUFDOUMsSUFBSSxDQUFDLGNBQWMsQ0FBQyxVQUFVLENBQUMsVUFBVSxFQUFFLE1BQU0sQ0FBQyxXQUFXLENBQUMsQ0FBQztJQUNqRSxDQUFDO0lBRU0sY0FBYyxDQUFDLEVBQStCO1FBQ25ELElBQUksQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLHVCQUF1QixDQUFDLEVBQUUsQ0FBQyxDQUFDLENBQUM7SUFDeEQsQ0FBQztJQUVPLENBQUMsdUJBQXVCLENBQUMsRUFBK0I7UUFDOUQsTUFBTSxhQUFhLEdBQ2pCLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDLFVBQVU7YUFDakUsU0FBUyxDQUFDO1FBQ2YsTUFBTSxtQkFBbUIsR0FDdkIsYUFBYSxDQUFDLFlBQVksU0FBQyxpQ0FBbUIsRUFBRyxDQUFDO1FBQ3BELE1BQU0sWUFBWSxHQUFHLGFBQWEsQ0FBQyxJQUFJLENBQ3JDLHNEQUFzRCxDQUN2RCxDQUFDO1FBRUYsbUJBQW1CLENBQUMsT0FBTyxHQUFHLEtBQUssQ0FBQztRQUNwQyxJQUFJLENBQUMsYUFBYSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQztRQUVuQyxNQUFNLFFBQVEsR0FBRyxpQkFBTyxDQUFDLFFBQVEsQ0FBQyxRQUFRLENBQUM7UUFFM0MsSUFBSSxRQUFRLEVBQUU7WUFDWixNQUFNLFlBQVksR0FBRyxRQUFRLENBQUMsTUFBTSxDQUFDLENBQUMsT0FBTyxFQUFFLEVBQUUsQ0FDL0M7Z0JBQ0UsYUFBYTtnQkFDYixhQUFhO2dCQUNiLGFBQWE7Z0JBQ2IsYUFBYTtnQkFDYixhQUFhO2FBQ2QsQ0FBQyxRQUFRLENBQUMsT0FBTyxDQUFDLEVBQUUsQ0FBQyxDQUN2QixDQUFDO1lBRUYsSUFBSSxZQUFZLENBQUMsTUFBTTtnQkFDckIsMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxTQUFTLENBQUMsVUFBVSxDQUNsRSxZQUFZLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUMsTUFBTSxFQUFFLEdBQUcsWUFBWSxDQUFDLE1BQU0sQ0FBQyxDQUFDO3FCQUMxRCxhQUFhLENBQ2pCLENBQUM7U0FDTDtRQUVELE1BQU0saUJBQWlCLEdBQ3JCLHdCQUFVLENBQUMsV0FBVyxDQUNwQixZQUFZLENBQUMsVUFBVSxFQUN2QixhQUFhLEVBQ2IsSUFBSSxDQUVQLENBQUMsU0FBUyxDQUFDO1FBQ1osTUFBTSxVQUFVLEdBQUcsYUFBYSxDQUFDLFFBQVEsQ0FBQyxDQUFDLEdBQUcsaUJBQWlCLENBQUMsUUFBUSxDQUFDLENBQUMsQ0FBQztRQUMzRSx3QkFBVSxDQUFDLE9BQU8sQ0FBQyxpQkFBaUIsQ0FBQyxVQUFVLENBQUMsQ0FBQztRQUVqRCxNQUFNLGVBQWUsR0FBRyxhQUFhLENBQUMsUUFBUSxDQUFDO1FBQy9DLE1BQU0saUJBQWlCLEdBQUcsYUFBYSxDQUFDLGdCQUFnQixDQUFDO1FBRXpELGFBQWEsQ0FBQyxRQUFRLEdBbEZ4QixxQkFBTyxDQTJHdzhrQixXQUFZLENBeEJ2OWtCLElBQUksQ0FBQyw2QkFBNkIsQ0FBQyxRQUFRLEVBQzNDLElBQUkscUJBQU8sQ0FBQyxDQUFDLEVBQUUsVUFBVSxFQUFFLENBQUMsQ0FBQyxDQUFBLENBQUM7UUFDaEMsYUFBYSxDQUFDLGdCQUFnQjtZQUM1QixJQUFJLENBQUMsNkJBQTZCLENBQUMsZ0JBQWdCLENBQUM7UUFFdEQsTUFBTSxJQUFJLENBQUM7UUFDWCxNQUFNLElBQUksK0JBQWlCLEVBQUUsQ0FBQztRQUU5QixJQUFJLENBQUMsZUFBZSxDQUFDLE1BQU0sRUFBRSxDQUFDO1FBRTlCLGFBQWEsQ0FBQyxRQUFRLEdBQUcsZUFBZSxDQUFDO1FBQ3pDLGFBQWEsQ0FBQyxnQkFBZ0IsR0FBRyxpQkFBaUIsQ0FBQztRQUNuRCxtQkFBbUIsQ0FBQyxPQUFPLEdBQUcsSUFBSSxDQUFDO1FBQ25DLElBQUksQ0FBQyxhQUFhLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO1FBRXBDLDJDQUFhLENBQUMsUUFBUSxDQUFDLFdBQVcsQ0FBQyxZQUFZLENBQUMsU0FBUyxDQUFDLGFBQWEsRUFBRSxDQUFDO1FBRTFFLE1BQU0sSUFBSSxDQUFDO1FBQ1gsTUFBTSxJQUFJLCtCQUFpQixFQUFFLENBQUM7UUFFOUIsSUFBSSxDQUFDLFVBQVUsQ0FBQyxNQUFNLEVBQUUsQ0FBQztRQUN6QixFQUFFLENBQUMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxhQUFhLENBQUMsQ0FBQztJQUNwQyxDQUFDO0NBQ0Y7QUFoR0QsdUNBZ0dDIn0=","assetPath":"Assets/UI/Style
+    Match/StyleMatchResultFeed.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"feedCamera","type":"UnityEngine.Camera","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"backgroundImage","type":"UnityEngine.UI.Image","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"feedImageCamera","type":"UnityEngine.Camera","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"feedImageBGMat","type":"UnityEngine.Material","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"typoImage","type":"UnityEngine.UI.Image","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"feedImageCharacterHeadLocator","type":"UnityEngine.Transform","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"feedImageArea","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"StyleMatchResultFeed","description":""},"isCompiled":true}'
+  typescriptHash: 5c851ad5d0be67bd27ca4b73f248f166
+  onlyWriteTrigger: 0

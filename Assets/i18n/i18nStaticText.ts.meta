@@ -1,0 +1,35 @@
+fileFormatVersion: 2
+guid: 8ec38e7caa4fa423ab04927308ac0996
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_UI_1 = require(\"UnityEngine.UI\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst TMPro_1 = require(\"TMPro\");\r\nconst
+    i18nManager_1 = require(\"./i18nManager\");\r\nclass i18nStaticText extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    Start() {\r\n        const uiText = this.GetComponent($typeof(UnityEngine_UI_1.Text));\r\n       
+    const tmpText = this.GetComponent($typeof(TMPro_1.TMP_Text));\r\n        i18nManager_1.default.Instance.Event.OnChange((lang)
+    => {\r\n            let str;\r\n            if (this.isTemplate)\r\n               
+    str = this.key.replace(/@(\\w+)@/g, (match, key) => lang.get_Item(key));\r\n           
+    else {\r\n                str = lang.get_Item(this.key);\r\n                if
+    (!str)\r\n                    return;\r\n            }\r\n            if (uiText)\r\n               
+    uiText.text = str;\r\n            if (tmpText)\r\n                tmpText.text
+    = str;\r\n        });\r\n    }\r\n}\r\nexports.default = i18nStaticText;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaTE4blN0YXRpY1RleHQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpMThuU3RhdGljVGV4dC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLG1EQUFzQztBQUV0QyxpREFBc0Q7QUFFdEQsaUNBQWlDO0FBRWpDLCtDQUF3QztBQUV4QyxNQUFxQixjQUFlLFNBQVEscUNBQXFCO0lBTXhELEtBQUs7UUFDVixNQUFNLE1BQU0sR0FBRyxJQUFJLENBQUMsWUFBWSxTQUFDLHFCQUFJLEVBQUcsQ0FBQztRQUN6QyxNQUFNLE9BQU8sR0FBRyxJQUFJLENBQUMsWUFBWSxTQUFDLGdCQUFRLEVBQUcsQ0FBQztRQUU5QyxxQkFBVyxDQUFDLFFBQVEsQ0FBQyxLQUFLLENBQUMsUUFBUSxDQUFDLENBQUMsSUFBSSxFQUFFLEVBQUU7WUFDM0MsSUFBSSxHQUFXLENBQUM7WUFFaEIsSUFBSSxJQUFJLENBQUMsVUFBVTtnQkFDakIsR0FBRyxHQUFHLElBQUksQ0FBQyxHQUFHLENBQUMsT0FBTyxDQUFDLFVBQVUsRUFBRSxDQUFDLEtBQUssRUFBRSxHQUFHLEVBQUUsRUFBRSxDQUFDLElBQUksVUFBQyxHQUFHLENBQUMsQ0FBQyxDQUFDO2lCQUMzRDtnQkFDSCxHQUFHLEdBQUcsSUFBSSxVQUFDLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQztnQkFDckIsSUFBSSxDQUFDLEdBQUc7b0JBQUUsT0FBTzthQUNsQjtZQUVELElBQUksTUFBTTtnQkFBRSxNQUFNLENBQUMsSUFBSSxHQUFHLEdBQUcsQ0FBQztZQUM5QixJQUFJLE9BQU87Z0JBQUUsT0FBTyxDQUFDLElBQUksR0FBRyxHQUFHLENBQUM7UUFDbEMsQ0FBQyxDQUFDLENBQUM7SUFDTCxDQUFDO0NBQ0Y7QUF4QkQsaUNBd0JDIn0=","assetPath":"Assets/Scripts/i18n/i18nStaticText.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"key","type":"System.String","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"isTemplate","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"i18nStaticText","description":""},"isCompiled":true}'
+  typescriptHash: 01ca96cf2e6aedf5bfda4260ae9793fc
+  onlyWriteTrigger: 0

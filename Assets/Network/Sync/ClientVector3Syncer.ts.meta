@@ -1,0 +1,33 @@
+fileFormatVersion: 2
+guid: 7275caf0ff0154328a8f53ca35a059d6
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.ClientVector3Syncer = void 0;\r\nconst UnityEngine_1
+    = require(\"UnityEngine\");\r\nclass ClientVector3Syncer {\r\n    constructor(from,
+    to, duration) {\r\n        this.from = from;\r\n        this.to = to;\r\n       
+    this.duration = duration;\r\n        this.t = UnityEngine_1.Time.timeSinceLevelLoad;\r\n       
+    this.c = UnityEngine_1.Time.timeSinceLevelLoad;\r\n    }\r\n    isDone() {\r\n       
+    return this.c - this.t >= this.duration;\r\n    }\r\n    update() {\r\n       
+    const v = UnityEngine_1.Vector3.Lerp(this.from, this.to, ease(Math.min((this.c
+    - this.t) / this.duration, 1)));\r\n        this.c = UnityEngine_1.Time.timeSinceLevelLoad;\r\n       
+    return v;\r\n    }\r\n}\r\nexports.ClientVector3Syncer = ClientVector3Syncer;\r\nfunction
+    ease(t) {\r\n    return t;\r\n}\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQ2xpZW50VmVjdG9yM1N5bmNlci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkNsaWVudFZlY3RvcjNTeW5jZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBQUEsNkNBQTRDO0FBRTVDLE1BQWEsbUJBQW1CO0lBSTlCLFlBQ1UsSUFBYSxFQUNiLEVBQVcsRUFDWCxRQUFnQjtRQUZoQixTQUFJLEdBQUosSUFBSSxDQUFTO1FBQ2IsT0FBRSxHQUFGLEVBQUUsQ0FBUztRQUNYLGFBQVEsR0FBUixRQUFRLENBQVE7UUFFeEIsSUFBSSxDQUFDLENBQUMsR0FBRyxrQkFBSSxDQUFDLGtCQUFrQixDQUFDO1FBQ2pDLElBQUksQ0FBQyxDQUFDLEdBQUcsa0JBQUksQ0FBQyxrQkFBa0IsQ0FBQztJQUNuQyxDQUFDO0lBRUQsTUFBTTtRQUNKLE9BQU8sSUFBSSxDQUFDLENBQUMsR0FBRyxJQUFJLENBQUMsQ0FBQyxJQUFJLElBQUksQ0FBQyxRQUFRLENBQUM7SUFDMUMsQ0FBQztJQUVELE1BQU07UUFDSixNQUFNLENBQUMsR0FBRyxxQkFBTyxDQUFDLElBQUksQ0FDcEIsSUFBSSxDQUFDLElBQUksRUFDVCxJQUFJLENBQUMsRUFBRSxFQUNQLElBQUksQ0FBQyxJQUFJLENBQUMsR0FBRyxDQUFDLENBQUMsSUFBSSxDQUFDLENBQUMsR0FBRyxJQUFJLENBQUMsQ0FBQyxDQUFDLEdBQUcsSUFBSSxDQUFDLFFBQVEsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUNyRCxDQUFDO1FBQ0YsSUFBSSxDQUFDLENBQUMsR0FBRyxrQkFBSSxDQUFDLGtCQUFrQixDQUFDO1FBQ2pDLE9BQU8sQ0FBQyxDQUFDO0lBQ1gsQ0FBQztDQUNGO0FBMUJELGtEQTBCQztBQUVELFNBQVMsSUFBSSxDQUFDLENBQVM7SUFDckIsT0FBTyxDQUFDLENBQUM7QUFDWCxDQUFDIn0=","assetPath":"Assets/Network/Sync/ClientVector3Syncer.ts","manifest":{"properties":[],"name":"ClientVector3Syncer","description":""},"isCompiled":true}'
+  typescriptHash: 485d42e26e0cbeeb3760afad727db211
+  onlyWriteTrigger: 0

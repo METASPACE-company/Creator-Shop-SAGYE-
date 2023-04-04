@@ -1,0 +1,49 @@
+fileFormatVersion: 2
+guid: 660754fb79ece41428137a37d75f77cb
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst CAMERA_MIN_HEIGHT = 0.25;\r\nconst
+    CAMERA_MAX_HEIGHT = 1.75;\r\nclass MagicCameraObject extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    Activate() {\r\n        this.mainCamera = UnityEngine_1.Camera.main;\r\n       
+    this.position = this.transform.localPosition;\r\n        this.rotation = this.transform.localRotation;\r\n       
+    this.horizontalAngle = 0;\r\n        this.verticalAngle = 0;\r\n        this.EnterPreview();\r\n   
+    }\r\n    EnterPreview() {\r\n        this.camera.targetTexture = null;\r\n       
+    this.audioListener.enabled = true;\r\n        this.mainCamera.gameObject.SetActive(false);\r\n   
+    }\r\n    ExitPreview() {\r\n        this.camera.targetTexture = this.rtForPreview;\r\n       
+    this.audioListener.enabled = false;\r\n        this.mainCamera.gameObject.SetActive(true);\r\n   
+    }\r\n    ApplyFlash(flash) {\r\n        this.ppLayer.enabled = flash;\r\n   
+    }\r\n    ApplyRotation(horizontal, vertical) {\r\n        this.horizontalAngle
+    += horizontal;\r\n        this.verticalAngle = UnityEngine_1.Mathf.Clamp(this.verticalAngle
+    + vertical, -90, 90);\r\n        this.transform.localRotation = UnityEngine_1.Quaternion.op_Multiply(this.rotation,
+    UnityEngine_1.Quaternion.Euler(this.verticalAngle, this.horizontalAngle, 0));\r\n   
+    }\r\n    ApplyZoomLevel(level) {\r\n        this.camera.fieldOfView = [90, 60,
+    30, 15][level] ?? 60;\r\n    }\r\n    ApplyElevationLevel(level) {\r\n       
+    this.transform.localPosition = UnityEngine_1.Vector3.op_Addition(this.position,
+    UnityEngine_1.Vector3.op_Multiply(UnityEngine_1.Vector3.up, CAMERA_MIN_HEIGHT
+    + (CAMERA_MAX_HEIGHT - CAMERA_MIN_HEIGHT) * level));\r\n    }\r\n    *TakeShotIntoRT(rt)
+    {\r\n        const rtPreview = this.camera.targetTexture; // NOTE: This may null
+    if the camera is in preview mode.\r\n        this.camera.targetTexture = rt;\r\n       
+    yield new UnityEngine_1.WaitForEndOfFrame();\r\n        this.camera.Render();\r\n       
+    this.camera.targetTexture = rtPreview;\r\n    }\r\n}\r\nexports.default = MagicCameraObject;\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWFnaWNDYW1lcmFPYmplY3QuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJNYWdpY0NhbWVyYU9iamVjdC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDZDQVFxQjtBQUVyQixpREFBc0Q7QUFFdEQsTUFBTSxpQkFBaUIsR0FBVyxJQUFJLENBQUM7QUFDdkMsTUFBTSxpQkFBaUIsR0FBVyxJQUFJLENBQUM7QUFFdkMsTUFBcUIsaUJBQWtCLFNBQVEscUNBQXFCO0lBa0IzRCxRQUFRO1FBQ2IsSUFBSSxDQUFDLFVBQVUsR0FBRyxvQkFBTSxDQUFDLElBQUksQ0FBQztRQUM5QixJQUFJLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQyxTQUFTLENBQUMsYUFBYSxDQUFDO1FBQzdDLElBQUksQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDLFNBQVMsQ0FBQyxhQUFhLENBQUM7UUFDN0MsSUFBSSxDQUFDLGVBQWUsR0FBRyxDQUFDLENBQUM7UUFDekIsSUFBSSxDQUFDLGFBQWEsR0FBRyxDQUFDLENBQUM7UUFDdkIsSUFBSSxDQUFDLFlBQVksRUFBRSxDQUFDO0lBQ3RCLENBQUM7SUFFTSxZQUFZO1FBQ2pCLElBQUksQ0FBQyxNQUFNLENBQUMsYUFBYSxHQUFHLElBQUksQ0FBQztRQUNqQyxJQUFJLENBQUMsYUFBYSxDQUFDLE9BQU8sR0FBRyxJQUFJLENBQUM7UUFDbEMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxVQUFVLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxDQUFDO0lBQzlDLENBQUM7SUFFTSxXQUFXO1FBQ2hCLElBQUksQ0FBQyxNQUFNLENBQUMsYUFBYSxHQUFHLElBQUksQ0FBQyxZQUFZLENBQUM7UUFDOUMsSUFBSSxDQUFDLGFBQWEsQ0FBQyxPQUFPLEdBQUcsS0FBSyxDQUFDO1FBQ25DLElBQUksQ0FBQyxVQUFVLENBQUMsVUFBVSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsQ0FBQztJQUM3QyxDQUFDO0lBRU0sVUFBVSxDQUFDLEtBQWM7UUFDOUIsSUFBSSxDQUFDLE9BQU8sQ0FBQyxPQUFPLEdBQUcsS0FBSyxDQUFDO0lBQy9CLENBQUM7SUFFTSxhQUFhLENBQUMsVUFBa0IsRUFBRSxRQUFnQjtRQUN2RCxJQUFJLENBQUMsZUFBZSxJQUFJLFVBQVUsQ0FBQztRQUNuQyxJQUFJLENBQUMsYUFBYSxHQUFHLG1CQUFLLENBQUMsS0FBSyxDQUFDLElBQUksQ0FBQyxhQUFhLEdBQUcsUUFBUSxFQUFFLENBQUMsRUFBRSxFQUFFLEVBQUUsQ0FBQyxDQUFDO1FBQ3pFLElBQUksQ0FBQyxTQUFTLENBQUMsYUFBYSxHQUFHLHdCQUFVLENBQUMsV0FBVyxDQUNuRCxJQUFJLENBQUMsUUFBUSxFQUNiLHdCQUFVLENBQUMsS0FBSyxDQUFDLElBQUksQ0FBQyxhQUFhLEVBQUUsSUFBSSxDQUFDLGVBQWUsRUFBRSxDQUFDLENBQUMsQ0FDOUQsQ0FBQztJQUNKLENBQUM7SUFFTSxjQUFjLENBQUMsS0FBYTtRQUNqQyxJQUFJLENBQUMsTUFBTSxDQUFDLFdBQVcsR0FBRyxDQUFDLEVBQUUsRUFBRSxFQUFFLEVBQUUsRUFBRSxFQUFFLEVBQUUsQ0FBQyxDQUFDLEtBQUssQ0FBQyxJQUFJLEVBQUUsQ0FBQztJQUMxRCxDQUFDO0lBRU0sbUJBQW1CLENBQUMsS0FBYTtRQUN0QyxJQUFJLENBQUMsU0FBUyxDQUFDLGFBQWEsR0FBRyxxQkFBTyxDQUFDLFdBQVcsQ0FDaEQsSUFBSSxDQUFDLFFBQVEsRUFDYixxQkFBTyxDQUFDLFdBQVcsQ0FDakIscUJBQU8sQ0FBQyxFQUFFLEVBQ1YsaUJBQWlCLEdBQUcsQ0FBQyxpQkFBaUIsR0FBRyxpQkFBaUIsQ0FBQyxHQUFHLEtBQUssQ0FDcEUsQ0FDRixDQUFDO0lBQ0osQ0FBQztJQUVNLENBQUMsY0FBYyxDQUFDLEVBQWlCO1FBQ3RDLE1BQU0sU0FBUyxHQUFHLElBQUksQ0FBQyxNQUFNLENBQUMsYUFBYSxDQUFDLENBQUMsd0RBQXdEO1FBQ3JHLElBQUksQ0FBQyxNQUFNLENBQUMsYUFBYSxHQUFHLEVBQUUsQ0FBQztRQUUvQixNQUFNLElBQUksK0JBQWlCLEVBQUUsQ0FBQztRQUU5QixJQUFJLENBQUMsTUFBTSxDQUFDLE1BQU0sRUFBRSxDQUFDO1FBQ3JCLElBQUksQ0FBQyxNQUFNLENBQUMsYUFBYSxHQUFHLFNBQVMsQ0FBQztJQUN4QyxDQUFDO0NBQ0Y7QUEzRUQsb0NBMkVDIn0=","assetPath":"Assets/UI/Magic
+    Camera/MagicCameraObject.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"camera","type":"UnityEngine.Camera","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''Components''"]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.AudioModule","name":"audioListener","type":"UnityEngine.AudioListener","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"Unity.Postprocessing.Runtime","name":"ppLayer","type":"UnityEngine.Rendering.PostProcessing.PostProcessLayer","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"rtForPreview","type":"UnityEngine.RenderTexture","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''RTs''"]},{"name":"SerializeField","args":[]}]}],"name":"MagicCameraObject","description":""},"isCompiled":true}'
+  typescriptHash: 520fdde682e5eb72ebf35649d7caa9cd
+  onlyWriteTrigger: 0

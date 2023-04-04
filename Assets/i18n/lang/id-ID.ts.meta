@@ -1,0 +1,106 @@
+fileFormatVersion: 2
+guid: 29450650a10ed44929c27bd2b4071f7c
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.idID = void 0;\r\n// prettier-ignore\r\nexports.idID
+    = {\r\n    get_Item(key) {\r\n        return this[key];\r\n    },\r\n    ZM_Hub_Title_text1:
+    ''Kunjungi Toko kreator dan METASPACE World Booths di pusat Zepeto Mall.'',\r\n   
+    ZM_Hub_Title_text2: ''Kunjungi Toko Kreator untuk membeli berbagai macam item
+    dan ambil foto di Cool photozones!'',\r\n    ZM_Hub_Title_text3: ''Kamera yang
+    bisa anda kontrol dengan bebas! Ambil foto yang menabjukan dengan Magic Camera
+    function.'',\r\n    ZM_Hub_Title_text4: ''Pilih Gaya Toko Kreator mana yang cocok
+    dengan anda? Yuk cari tau dengan Style Matching Test'',\r\n    ZM_StyleMatching_Start:
+    ''Apa gaya, Anda?'',\r\n    ZM_StyleMatching_Question1: ''Anda memasuki dunia
+    dan bertemu orang didalamnya. Bagaimana anda mendekati mereka?'',\r\n    ZM_StyleMatching_Answer1:
+    ''Pertama, Dekati pengguna dengan gaya yang anda sukai.'',\r\n    ZM_StyleMatching_Answer2:
+    ''Melihat dan menunggu seseorang datang berbicara dengan anda.'',\r\n    ZM_StyleMatching_Question2:
+    ''Anda ingin pindah ke dunia lain dengan teman, bagaimana anda meberi saran kepada
+    teman anda?'',\r\n    ZM_StyleMatching_Answer3: ''\"Haruskah kita pergi ke tempat
+    lain?\"'',\r\n    ZM_StyleMatching_Answer4: ''\"Haruskah kita bertemu dengan
+    teman lain?\"'',\r\n    ZM_StyleMatching_Question3: ''Anda datang di Mall dengan
+    banyak pengguna. Bagaimana dengan Gaya belanja anda?'',\r\n    ZM_StyleMatching_Answer5:
+    ''Berkeliling ke seluruh Map'',\r\n    ZM_StyleMatching_Answer6: ''Langsung membeli
+    hal-hal yang dibutuhkan.'',\r\n    ZM_StyleMatching_Answer7: ''Membantu teman
+    yang sedang galau dengan berbelanja'',\r\n    ZM_StyleMatching_Answer8: ''Melihat-lihat
+    untuk mencari inspirasi'',\r\n    ZM_StyleMatching_Answer9: ''Menemukan merek
+    terbaru untuk merubah Gaya.'',\r\n    ZM_StyleMatching_Answer10: ''Mencari pakaian
+    yang sedang terkenal.'',\r\n    ZM_StyleMatching_Answer11: ''Melihat sekeliling
+    sampai menemukan pakaian yang keren.'',\r\n    ZM_StyleMatching_Answer12: ''Membeli
+    item dengan berbagai macam kegunaan.'',\r\n    ZM_StyleMatching_Question4: ''Apa
+    yang paling penting untuk diperhatikan saat berbelanja pakaian?'',\r\n    ZM_StyleMatching_Answer13:
+    ''Terlalu terlihat unik, berlebihan! Saya suka yang simpel.'',\r\n    ZM_StyleMatching_Answer14:
+    ''Identitasku adalah Bergaya! Saya suka Gaya yang unik. Memperlihatkan jati diri
+    saya.'',\r\n    ZM_StyleMatching_Question5: ''Anda pergi keluar untuk melihat
+    toko pop up. Pilih toko mana yang dapat menarik perhatian anda?'',\r\n    ZM_StyleMatching_Answer15:
+    ''Saya ingin menjadi artis yang dicintai semua orang! Idol Simulator Idol School'',\r\n   
+    ZM_StyleMatching_Answer16: ''Pesta Disko, dimana saya akan menari dengan gairah.'',\r\n   
+    ZM_StyleMatching_ResultShare: ''Posting ke beranda'',\r\n    ZM_StyleMatching_ResultTeleport:
+    ''Teleportasi'',\r\n    ZM_StyleMatching_Title_recommend: ''Gayamu'',\r\n   
+    ZM_StyleMatching_Casual_Title: ''Kasual'',\r\n    ZM_StyleMatching_Street_Title:
+    ''Jalan'',\r\n    ZM_StyleMatching_Romantic_Title: ''Romantis'',\r\n    ZM_StyleMatching_Cosplay_Title:
+    ''Kosplai'',\r\n    ZM_StyleMatching_Formal_Title: ''Formal'',\r\n    ZM_StyleMatching_Luxury_Title:
+    ''Mewah'',\r\n    ZM_StyleMatching_Vintage_Title: ''Vintage'',\r\n    ZM_StyleMatching_Goth_Title:
+    ''Gotik'',\r\n    ZM_StyleMatching_Casual_Text: ''Kembali ke awal! Bagaimana
+    dengan gaya kasual? Simpel sangat bagus.'',\r\n    ZM_StyleMatching_Street_Text:
+    ''Ekstra! Gaya yang tidak dapat dibatasi dengan lingkungan apapun.'',\r\n   
+    ZM_StyleMatching_Romantic_Text: ''Gaya cantik yang dapat membuat mata tertuju
+    dengan anda! Merah muda yang menyenangkan diri Anda!'',\r\n    ZM_StyleMatching_Cosplay_Text:
+    ''Kosplai sebagai anime favorit atau karakter fantasi! Rubah dirimu dengan berbagai
+    kostum.'',\r\n    ZM_StyleMatching_Formal_Text: ''Citra yang keren dan profesional
+    untuk semua wanita dan pria yang cerdas.'',\r\n    ZM_StyleMatching_Luxury_Text:
+    ''Angkat gelasmu karena ini waktunya untuk persta. Kerlap-kerlip menambah kebahagaian.'',\r\n   
+    ZM_StyleMatching_Vintage_Text: ''Temukan pesona lembut vintage. Dan lembaran
+    memo yang estetik membuat anda merasa nyaman dan hangat.'',\r\n    ZM_StyleMatching_Goth_Text:
+    ''Misterius dan nuansa gelap! Halloween adalah momen yang paling Anda sukai setiap
+    tahun. '',\r\n    ZM_StyleMatching_ResultPopup: ''Sukses posting ke beranda/feed.'',\r\n   
+    ZM_MagicCamera_Tutorial1: ''Lampu On/Off'',\r\n    ZM_MagicCamera_Tutorial2:
+    ''Tutorial Kamera'',\r\n    ZM_MagicCamera_Tutorial3: ''Pengaturan tinggi Kamera'',\r\n   
+    ZM_MagicCamera_Tutorial4: ''Pengatuaran Jarak kamera'',\r\n    ZM_MagicCamera_Tutorial5:
+    ''Keluar Kamera'',\r\n    ZM_MagicCamera_Tutorial6: ''Ambil foto'',\r\n    ZM_MagicCamera_Tutorial7:
+    ''Memperbaiki posisi kamera dan kembali ke pengguna'',\r\n    ZM_StyleMatching_Hashtag:
+    ''Apakah hasil dari Style Matching anda? Temukan di Zepeto Mall sekarang!\\n\\n#ZepetoMall
+    #StyleMatching #Creatorshop2 #ZGM #METASPACE'',\r\n    ZM_MagicCamera_Hashtag:
+    ''Ayo Coba Magic Camera terbaru daru Zepeto Mall!\\n\\n#ZepetoMall #MagicCamera
+    #creatorshop2 #ZGM #METASPACE'',\r\n    ZW_POSE_001: ''Hai'',\r\n    ZW_POSE_002:
+    ''Jempol ke atas'',\r\n    ZW_POSE_003: ''Selamat malam'',\r\n    ZW_POSE_004:
+    ''Jantung 1'',\r\n    ZW_POSE_005: ''Jantung 2'',\r\n    ZW_POSE_006: ''Berbaringlah'',\r\n   
+    ZW_POSE_007: ''Model 1'',\r\n    ZW_POSE_010: ''Chin rest 1'',\r\n    ZW_POSE_011:
+    ''Chin rest 2'',\r\n    ZW_POSE_012: ''Duduk 2'',\r\n    ZW_POSE_013: ''Chin
+    rest 3'',\r\n    ZW_POSE_014: ''Komik 2'',\r\n    ZW_POSE_015: ''Pemalu'',\r\n   
+    ZW_POSE_017: ''Komik 3'',\r\n    ZW_POSE_018: ''Rock \\''n\\'' roll'',\r\n   
+    ZW_POSE_019: ''Model 2'',\r\n    ZW_POSE_020: ''Model 3'',\r\n    ZW_POSE_022:
+    ''Ciuman'',\r\n    ZW_POSE_023: ''V-!'',\r\n    ZW_POSE_024: ''Menari 2'',\r\n   
+    ZW_POSE_025: ''Percaya diri'',\r\n    ZW_POSE_027: ''Tari 1'',\r\n    ZW_POSE_028:
+    ''Sihir 1'',\r\n    ZW_POSE_029: ''Sihir 2'',\r\n    ZW_POSE_030: ''Seni bela
+    diri'',\r\n    ZW_POSE_031: ''Salam'',\r\n    ZW_POSE_034: ''Pengantar 1'',\r\n   
+    ZW_POSE_035: ''Setengah hati 1'',\r\n    ZW_POSE_036: ''Setengah hati 2'',\r\n   
+    ZW_POSE_037: ''Menyeimbangkan'',\r\n    ZW_POSE_038: ''Pengantar 2'',\r\n   
+    ZW_POSE_039: ''Jantung 3'',\r\n    ZW_POSE_040: ''Lay 1'',\r\n    ZW_POSE_041_2:
+    ''Lay 2'',\r\n    ZW_POSE_042: ''Pose 6'',\r\n    ZW_POSE_043: ''Duduk 3'',\r\n   
+    ZW_POSE_044: ''Duduk 4'',\r\n    ZW_POSE_045: ''Duduk 5'',\r\n    ZW_POSE_047:
+    ''Baiklah.'',\r\n    ZW_POSE_048: ''Model 4'',\r\n    ZW_POSE_049: ''Model 5'',\r\n   
+    ZW_POSE_050: ''Model 6'',\r\n    ZW_POSE_051: ''Model 7'',\r\n    ZW_POSE_052:
+    ''Menatap'',\r\n    ZW_POSE_053: ''Bangun'',\r\n    ZW_POSE_054: ''Peregangan
+    2'',\r\n    ZW_POSE_055: ''Peregangan 3'',\r\n    ZW_POSE_056: ''Mari kita peregangan'',\r\n   
+    ZW_POSE_057: ''Tujuan'',\r\n    ZW_POSE_GX_IDLE: ''Sihir 3'',\r\n    ZW_POSE_ZH_008:
+    ''Boom boom pow'',\r\n    ZW_POSE_ZH_036: ''Berpikir manusia'',\r\n};\r\n//#
+    sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaWQtSUQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJpZC1JRC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFFQSxrQkFBa0I7QUFDTCxRQUFBLElBQUksR0FBZTtJQUM5QixRQUFRLENBQUMsR0FBVztRQUNsQixPQUFPLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQztJQUNuQixDQUFDO0lBQ0Qsa0JBQWtCLEVBQUUsd0VBQXdFO0lBQzVGLGtCQUFrQixFQUFFLDRGQUE0RjtJQUNoSCxrQkFBa0IsRUFBRSxzR0FBc0c7SUFDMUgsa0JBQWtCLEVBQUUsOEZBQThGO0lBQ2xILHNCQUFzQixFQUFFLGlCQUFpQjtJQUN6QywwQkFBMEIsRUFBRSxvRkFBb0Y7SUFDaEgsd0JBQXdCLEVBQUUsdURBQXVEO0lBQ2pGLHdCQUF3QixFQUFFLDhEQUE4RDtJQUN4RiwwQkFBMEIsRUFBRSw4RkFBOEY7SUFDMUgsd0JBQXdCLEVBQUUsdUNBQXVDO0lBQ2pFLHdCQUF3QixFQUFFLDRDQUE0QztJQUN0RSwwQkFBMEIsRUFBRSxpRkFBaUY7SUFDN0csd0JBQXdCLEVBQUUsNEJBQTRCO0lBQ3RELHdCQUF3QixFQUFFLDJDQUEyQztJQUNyRSx3QkFBd0IsRUFBRSxvREFBb0Q7SUFDOUUsd0JBQXdCLEVBQUUsdUNBQXVDO0lBQ2pFLHdCQUF3QixFQUFFLDZDQUE2QztJQUN2RSx5QkFBeUIsRUFBRSx1Q0FBdUM7SUFDbEUseUJBQXlCLEVBQUUseURBQXlEO0lBQ3BGLHlCQUF5QixFQUFFLDhDQUE4QztJQUN6RSwwQkFBMEIsRUFBRSxxRUFBcUU7SUFDakcseUJBQXlCLEVBQUUsMkRBQTJEO0lBQ3RGLHlCQUF5QixFQUFFLHNGQUFzRjtJQUNqSCwwQkFBMEIsRUFBRSxpR0FBaUc7SUFDN0gseUJBQXlCLEVBQUUsZ0ZBQWdGO0lBQzNHLHlCQUF5QixFQUFFLHFEQUFxRDtJQUNoRiw0QkFBNEIsRUFBRSxvQkFBb0I7SUFDbEQsK0JBQStCLEVBQUUsYUFBYTtJQUM5Qyxn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","assetPath":"Assets/i18n/lang/id-ID.ts","manifest":{"properties":[],"name":"id-ID","description":""},"isCompiled":true}'
+  typescriptHash: 2ba9fbd66612b06f1549927db3505f55
+  onlyWriteTrigger: 0

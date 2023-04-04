@@ -1,0 +1,20 @@
+
+packets client sync {
+  SyncCharacterState {
+    state: number;
+    extraState: number;
+    position: Vector3;
+    rotation: Quaternion;
+    velocity: Vector3;
+  }
+
+  SyncCharacterTeleport {
+    position: Vector3;
+    rotation: Quaternion;
+  }
+
+  SyncTime {
+    t1: number;
+    t2: number;
+  }
+}

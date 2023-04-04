@@ -1,0 +1,46 @@
+fileFormatVersion: 2
+guid: 0d4ea2125a06b48b9bbb12889396d353
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nvar __decorate = (this && this.__decorate)
+    || function (decorators, target, key, desc) {\r\n    var c = arguments.length,
+    r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target,
+    key) : desc, d;\r\n    if (typeof Reflect === \"object\" && typeof Reflect.decorate
+    === \"function\") r = Reflect.decorate(decorators, target, key, desc);\r\n   
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i])
+    r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;\r\n   
+    return c > 3 && r && Object.defineProperty(target, key, r), r;\r\n};\r\nObject.defineProperty(exports,
+    \"__esModule\", { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nclass BGMReductionPoint extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    static get Points() {\r\n       
+    return this.points;\r\n    }\r\n    Awake() {\r\n        BGMReductionPoint.points.push(this);\r\n   
+    }\r\n    ComputeReductionRate(playerPosition) {\r\n        const distance = UnityEngine_1.Vector3.Distance(playerPosition,
+    this.transform.position);\r\n        if (distance <= this.minDistance)\r\n           
+    return this.maxReductionRate;\r\n        if (this.maxDistance <= distance)\r\n           
+    return this.minReductionRate;\r\n        const rate = (distance - this.minDistance)
+    / (this.maxDistance - this.minDistance);\r\n        const reductionRate = easeInQuad(1
+    - rate);\r\n        return (this.minReductionRate +\r\n            (this.maxReductionRate
+    - this.minReductionRate) * reductionRate);\r\n    }\r\n}\r\nBGMReductionPoint.points
+    = [];\r\n__decorate([], BGMReductionPoint.prototype, \"minDistance\", void 0);\r\n__decorate([],
+    BGMReductionPoint.prototype, \"maxDistance\", void 0);\r\n__decorate([], BGMReductionPoint.prototype,
+    \"minReductionRate\", void 0);\r\n__decorate([], BGMReductionPoint.prototype,
+    \"maxReductionRate\", void 0);\r\nexports.default = BGMReductionPoint;\r\nfunction
+    easeInQuad(x) {\r\n    return x * x;\r\n}\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiQkdNUmVkdWN0aW9uUG9pbnQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJCR01SZWR1Y3Rpb25Qb2ludC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7Ozs7OztBQUFBLDZDQUFxRDtBQUNyRCxpREFBc0Q7QUFFdEQsTUFBcUIsaUJBQWtCLFNBQVEscUNBQXFCO0lBRzNELE1BQU0sS0FBSyxNQUFNO1FBQ3RCLE9BQU8sSUFBSSxDQUFDLE1BQU0sQ0FBQztJQUNyQixDQUFDO0lBV00sS0FBSztRQUNWLGlCQUFpQixDQUFDLE1BQU0sQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDdEMsQ0FBQztJQUVNLG9CQUFvQixDQUFDLGNBQXVCO1FBQ2pELE1BQU0sUUFBUSxHQUFHLHFCQUFPLENBQUMsUUFBUSxDQUFDLGNBQWMsRUFBRSxJQUFJLENBQUMsU0FBUyxDQUFDLFFBQVEsQ0FBQyxDQUFDO1FBRTNFLElBQUksUUFBUSxJQUFJLElBQUksQ0FBQyxXQUFXO1lBQUUsT0FBTyxJQUFJLENBQUMsZ0JBQWdCLENBQUM7UUFDL0QsSUFBSSxJQUFJLENBQUMsV0FBVyxJQUFJLFFBQVE7WUFBRSxPQUFPLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQztRQUUvRCxNQUFNLElBQUksR0FDUixDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUMsV0FBVyxDQUFDLEdBQUcsQ0FBQyxJQUFJLENBQUMsV0FBVyxHQUFHLElBQUksQ0FBQyxXQUFXLENBQUMsQ0FBQztRQUN4RSxNQUFNLGFBQWEsR0FBRyxVQUFVLENBQUMsQ0FBQyxHQUFHLElBQUksQ0FBQyxDQUFDO1FBRTNDLE9BQU8sQ0FDTCxJQUFJLENBQUMsZ0JBQWdCO1lBQ3JCLENBQUMsSUFBSSxDQUFDLGdCQUFnQixHQUFHLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxHQUFHLGFBQWEsQ0FDaEUsQ0FBQztJQUNKLENBQUM7O0FBakNjLHdCQUFNLEdBQXdCLEVBQUUsQ0FBQztBQU9oRCxrRUFBNEI7QUFFNUIsa0VBQTRCO0FBRTVCLHVFQUFpQztBQUVqQyx1RUFBaUM7QUFkbkMsb0NBbUNDO0FBRUQsU0FBUyxVQUFVLENBQUMsQ0FBUztJQUMzQixPQUFPLENBQUMsR0FBRyxDQUFDLENBQUM7QUFDZixDQUFDIn0=","assetPath":"Assets/3D/BGM/BGMReductionPoint.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"minDistance","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"maxDistance","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"minReductionRate","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"mscorlib","name":"maxReductionRate","type":"System.Single","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"BGMReductionPoint","description":""},"isCompiled":true}'
+  typescriptHash: 15a0ee7031348dc6097072e379d23b9d
+  onlyWriteTrigger: 0

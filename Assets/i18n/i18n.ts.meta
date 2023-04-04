@@ -1,0 +1,39 @@
+fileFormatVersion: 2
+guid: 58286d721e25b4d6bb99056202c7f0a5
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.i18nEvent = exports.Language = void 0;\r\nvar Language;\r\n(function
+    (Language) {\r\n    Language[Language[\"English\"] = 0] = \"English\";\r\n   
+    Language[Language[\"Korean\"] = 1] = \"Korean\";\r\n    Language[Language[\"Japanese\"]
+    = 2] = \"Japanese\";\r\n    Language[Language[\"Indonesian\"] = 3] = \"Indonesian\";\r\n   
+    Language[Language[\"Thai\"] = 4] = \"Thai\";\r\n})(Language = exports.Language
+    || (exports.Language = {}));\r\nclass i18nEvent {\r\n    constructor(lang) {\r\n       
+    this.lang = lang;\r\n        this.handlers = new Set();\r\n    }\r\n    OnChange(handler)
+    {\r\n        if (isRealNil(handler))\r\n            return;\r\n        handler(this.lang);\r\n       
+    this.handlers.add(handler);\r\n    }\r\n    OffChange(handler) {\r\n        this.handlers.delete(handler);\r\n   
+    }\r\n    Emit(lang) {\r\n        this.lang = lang;\r\n        this.handlers =
+    new Set([...this.handlers.values()].filter((handler) => !isRealNil(handler)));\r\n       
+    for (const handler of this.handlers.values())\r\n            handler(lang);\r\n   
+    }\r\n}\r\nexports.i18nEvent = i18nEvent;\r\nfunction isRealNil(value) {\r\n   
+    if (!value)\r\n        return true;\r\n    const str = typeof value.toString
+    === ''function'' ? value.toString() : String(value);\r\n    return str === ''undefined''
+    || str === ''null'';\r\n}\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaTE4bi5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbImkxOG4udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBRUEsSUFBWSxRQU1YO0FBTkQsV0FBWSxRQUFRO0lBQ2xCLDZDQUFPLENBQUE7SUFDUCwyQ0FBTSxDQUFBO0lBQ04sK0NBQVEsQ0FBQTtJQUNSLG1EQUFVLENBQUE7SUFDVix1Q0FBSSxDQUFBO0FBQ04sQ0FBQyxFQU5XLFFBQVEsR0FBUixnQkFBUSxLQUFSLGdCQUFRLFFBTW5CO0FBRUQsTUFBYSxTQUFTO0lBR3BCLFlBQTJCLElBQWdCO1FBQWhCLFNBQUksR0FBSixJQUFJLENBQVk7UUFGbkMsYUFBUSxHQUFHLElBQUksR0FBRyxFQUFvQixDQUFDO0lBRUQsQ0FBQztJQUV4QyxRQUFRLENBQUMsT0FBeUI7UUFDdkMsSUFBSSxTQUFTLENBQUMsT0FBTyxDQUFDO1lBQUUsT0FBTztRQUUvQixPQUFPLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDO1FBQ25CLElBQUksQ0FBQyxRQUFRLENBQUMsR0FBRyxDQUFDLE9BQU8sQ0FBQyxDQUFDO0lBQzdCLENBQUM7SUFFTSxTQUFTLENBQUMsT0FBeUI7UUFDeEMsSUFBSSxDQUFDLFFBQVEsQ0FBQyxNQUFNLENBQUMsT0FBTyxDQUFDLENBQUM7SUFDaEMsQ0FBQztJQUVNLElBQUksQ0FBQyxJQUFnQjtRQUMxQixJQUFJLENBQUMsSUFBSSxHQUFHLElBQUksQ0FBQztRQUNqQixJQUFJLENBQUMsUUFBUSxHQUFHLElBQUksR0FBRyxDQUNyQixDQUFDLEdBQUcsSUFBSSxDQUFDLFFBQVEsQ0FBQyxNQUFNLEVBQUUsQ0FBQyxDQUFDLE1BQU0sQ0FBQyxDQUFDLE9BQU8sRUFBRSxFQUFFLENBQUMsQ0FBQyxTQUFTLENBQUMsT0FBTyxDQUFDLENBQUMsQ0FDckUsQ0FBQztRQUVGLEtBQUssTUFBTSxPQUFPLElBQUksSUFBSSxDQUFDLFFBQVEsQ0FBQyxNQUFNLEVBQUU7WUFBRSxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDOUQsQ0FBQztDQUNGO0FBeEJELDhCQXdCQztBQUlELFNBQVMsU0FBUyxDQUFDLEtBQVU7SUFDM0IsSUFBSSxDQUFDLEtBQUs7UUFBRSxPQUFPLElBQUksQ0FBQztJQUV4QixNQUFNLEdBQUcsR0FDUCxPQUFPLEtBQUssQ0FBQyxRQUFRLEtBQUssVUFBVSxDQUFDLENBQUMsQ0FBQyxLQUFLLENBQUMsUUFBUSxFQUFFLENBQUMsQ0FBQyxDQUFDLE1BQU0sQ0FBQyxLQUFLLENBQUMsQ0FBQztJQUUxRSxPQUFPLEdBQUcsS0FBSyxXQUFXLElBQUksR0FBRyxLQUFLLE1BQU0sQ0FBQztBQUMvQyxDQUFDIn0=","assetPath":"Assets/i18n/i18n.ts","manifest":{"properties":[],"name":"i18nEvent","description":""},"isCompiled":true}'
+  typescriptHash: 8b94f4e9536bf0231fa6a7ecc2918c71
+  onlyWriteTrigger: 0

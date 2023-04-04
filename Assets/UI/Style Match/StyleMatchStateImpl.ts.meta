@@ -1,0 +1,77 @@
+fileFormatVersion: 2
+guid: d3c625701b4154536a4d088f0d8d66f1
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nexports.StyleMatch_End2 = exports.StyleMatch_End1 = exports.StyleMatch_IN
+    = exports.StyleMatch_IS = exports.StyleMatch_I = exports.StyleMatch_EN = exports.StyleMatch_ES
+    = exports.StyleMatch_E = exports.StyleMatch_Start = void 0;\r\nclass StyleMatch_Start
+    {\r\n    get dialogue() {\r\n        return ''ZM_StyleMatching_Question1'';\r\n   
+    }\r\n    get selectionLabel1() {\r\n        return ''ZM_StyleMatching_Answer1'';\r\n   
+    }\r\n    get selectionLabel2() {\r\n        return ''ZM_StyleMatching_Answer2'';\r\n   
+    }\r\n    HandleSelection(selection, controller) {\r\n        controller.Translate(selection
+    === 0 ? new StyleMatch_E() : new StyleMatch_I());\r\n    }\r\n}\r\nexports.StyleMatch_Start
+    = StyleMatch_Start;\r\nclass StyleMatch_E {\r\n    get dialogue() {\r\n       
+    return ''ZM_StyleMatching_Question2'';\r\n    }\r\n    get selectionLabel1()
+    {\r\n        return ''ZM_StyleMatching_Answer3'';\r\n    }\r\n    get selectionLabel2()
+    {\r\n        return ''ZM_StyleMatching_Answer4'';\r\n    }\r\n    HandleSelection(selection,
+    controller) {\r\n        controller.Translate(selection === 0 ? new StyleMatch_EN()
+    : new StyleMatch_ES());\r\n    }\r\n}\r\nexports.StyleMatch_E = StyleMatch_E;\r\nclass
+    StyleMatch_ES {\r\n    get dialogue() {\r\n        return ''ZM_StyleMatching_Question3'';\r\n   
+    }\r\n    get selectionLabel1() {\r\n        return ''ZM_StyleMatching_Answer5'';\r\n   
+    }\r\n    get selectionLabel2() {\r\n        return ''ZM_StyleMatching_Answer6'';\r\n   
+    }\r\n    HandleSelection(selection, controller) {\r\n        controller.Translate(new
+    StyleMatch_End1(selection === 0 ? ''ES_A'' : ''ES_B''));\r\n    }\r\n}\r\nexports.StyleMatch_ES
+    = StyleMatch_ES;\r\nclass StyleMatch_EN {\r\n    get dialogue() {\r\n       
+    return ''ZM_StyleMatching_Question3'';\r\n    }\r\n    get selectionLabel1()
+    {\r\n        return ''ZM_StyleMatching_Answer7'';\r\n    }\r\n    get selectionLabel2()
+    {\r\n        return ''ZM_StyleMatching_Answer8'';\r\n    }\r\n    HandleSelection(selection,
+    controller) {\r\n        controller.Translate(new StyleMatch_End1(selection ===
+    0 ? ''EN_A'' : ''EN_B''));\r\n    }\r\n}\r\nexports.StyleMatch_EN = StyleMatch_EN;\r\nclass
+    StyleMatch_I {\r\n    get dialogue() {\r\n        return ''ZM_StyleMatching_Question2'';\r\n   
+    }\r\n    get selectionLabel1() {\r\n        return ''ZM_StyleMatching_Answer3'';\r\n   
+    }\r\n    get selectionLabel2() {\r\n        return ''ZM_StyleMatching_Answer4'';\r\n   
+    }\r\n    HandleSelection(selection, controller) {\r\n        controller.Translate(selection
+    === 0 ? new StyleMatch_IN() : new StyleMatch_IS());\r\n    }\r\n}\r\nexports.StyleMatch_I
+    = StyleMatch_I;\r\nclass StyleMatch_IS {\r\n    get dialogue() {\r\n        return
+    ''ZM_StyleMatching_Question3'';\r\n    }\r\n    get selectionLabel1() {\r\n       
+    return ''ZM_StyleMatching_Answer9'';\r\n    }\r\n    get selectionLabel2() {\r\n       
+    return ''ZM_StyleMatching_Answer10'';\r\n    }\r\n    HandleSelection(selection,
+    controller) {\r\n        controller.Translate(new StyleMatch_End1(selection ===
+    0 ? ''IS_A'' : ''IS_B''));\r\n    }\r\n}\r\nexports.StyleMatch_IS = StyleMatch_IS;\r\nclass
+    StyleMatch_IN {\r\n    get dialogue() {\r\n        return ''ZM_StyleMatching_Question3'';\r\n   
+    }\r\n    get selectionLabel1() {\r\n        return ''ZM_StyleMatching_Answer11'';\r\n   
+    }\r\n    get selectionLabel2() {\r\n        return ''ZM_StyleMatching_Answer12'';\r\n   
+    }\r\n    HandleSelection(selection, controller) {\r\n        controller.Translate(new
+    StyleMatch_End1(selection === 0 ? ''IN_A'' : ''IN_B''));\r\n    }\r\n}\r\nexports.StyleMatch_IN
+    = StyleMatch_IN;\r\nclass StyleMatch_End1 {\r\n    constructor(result) {\r\n       
+    this.result = result;\r\n    }\r\n    get dialogue() {\r\n        return ''ZM_StyleMatching_Question4'';\r\n   
+    }\r\n    get selectionLabel1() {\r\n        return ''ZM_StyleMatching_Answer13'';\r\n   
+    }\r\n    get selectionLabel2() {\r\n        return ''ZM_StyleMatching_Answer14'';\r\n   
+    }\r\n    HandleSelection(selection, controller) {\r\n        controller.Translate(new
+    StyleMatch_End2(this.result));\r\n    }\r\n}\r\nexports.StyleMatch_End1 = StyleMatch_End1;\r\nclass
+    StyleMatch_End2 {\r\n    constructor(result) {\r\n        this.result = result;\r\n   
+    }\r\n    get dialogue() {\r\n        return ''ZM_StyleMatching_Question5'';\r\n   
+    }\r\n    get selectionLabel1() {\r\n        return ''ZM_StyleMatching_Answer15'';\r\n   
+    }\r\n    get selectionLabel2() {\r\n        return ''ZM_StyleMatching_Answer16'';\r\n   
+    }\r\n    HandleSelection(selection, controller) {\r\n        controller.Terminate(this.result);\r\n   
+    }\r\n}\r\nexports.StyleMatch_End2 = StyleMatch_End2;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3R5bGVNYXRjaFN0YXRlSW1wbC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlN0eWxlTWF0Y2hTdGF0ZUltcGwudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7O0FBTUEsTUFBYSxnQkFBZ0I7SUFDM0IsSUFBVyxRQUFRO1FBQ2pCLE9BQU8sNEJBQTRCLENBQUM7SUFDdEMsQ0FBQztJQUVELElBQVcsZUFBZTtRQUN4QixPQUFPLDBCQUEwQixDQUFDO0lBQ3BDLENBQUM7SUFFRCxJQUFXLGVBQWU7UUFDeEIsT0FBTywwQkFBMEIsQ0FBQztJQUNwQyxDQUFDO0lBRUQsZUFBZSxDQUFDLFNBQWlCLEVBQUUsVUFBZ0M7UUFDakUsVUFBVSxDQUFDLFNBQVMsQ0FDbEIsU0FBUyxLQUFLLENBQUMsQ0FBQyxDQUFDLENBQUMsSUFBSSxZQUFZLEVBQUUsQ0FBQyxDQUFDLENBQUMsSUFBSSxZQUFZLEVBQUUsQ0FDMUQsQ0FBQztJQUNKLENBQUM7Q0FDRjtBQWxCRCw0Q0FrQkM7QUFFRCxNQUFhLFlBQVk7SUFDdkIsSUFBVyxRQUFRO1FBQ2pCLE9BQU8sNEJBQTRCLENBQUM7SUFDdEMsQ0FBQztJQUVELElBQVcsZUFBZTtRQUN4QixPQUFPLDBCQUEwQixDQUFDO0lBQ3BDLENBQUM7SUFFRCxJQUFXLGVBQWU7UUFDeEIsT0FBTywwQkFBMEIsQ0FBQztJQUNwQyxDQUFDO0lBRUQsZUFBZSxDQUFDLFNBQWlCLEVBQUUsVUFBZ0M7UUFDakUsVUFBVSxDQUFDLFNBQVMsQ0FDbEIsU0FBUyxLQUFLLENBQUMsQ0FBQyxDQUFDLENBQUMsSUFBSSxhQUFhLEVBQUUsQ0FBQyxDQUFDLENBQUMsSUFBSSxhQUFhLEVBQUUsQ0FDNUQsQ0FBQztJQUNKLENBQUM7Q0FDRjtBQWxCRCxvQ0FrQkM7QUFFRCxNQUFhLGFBQWE7SUFDeEIsSUFBVyxRQUFRO1FBQ2pCLE9BQU8sNEJBQTRCLENBQUM7SUFDdEMsQ0FBQztJQUVELElBQVcsZUFBZTtRQUN4QixPQUFPLDBCQUEwQixDQUFDO0lBQ3BDLENBQUM7SUFFRCxJQUFXLGVBQWU7UUFDeEIsT0FBTywwQkFBMEIsQ0FBQztJQUNwQyxDQUFDO0lBRUQsZUFBZSxDQUFDLFNBQWlCLEVBQUUsVUFBZ0M7UUFDakUsVUFBVSxDQUFDLFNBQVMsQ0FDbEIsSUFBSSxlQUFlLENBQUMsU0FBUyxLQUFLLENBQUMsQ0FBQyxDQUFDLENBQUMsTUFBTSxDQUFDLENBQUMsQ0FBQyxNQUFNLENBQUMsQ0FDdkQsQ0FBQztJQUNKLENBQUM7Q0FDRjtBQWxCRCxzQ0FrQkM7QUFFRCxNQUFhLGFBQWE7SUFDeEIsSUFBVyxRQUFRO1FBQ2pCLE9BQU8sNEJBQTRCLENBQUM7SUFDdEMsQ0FBQztJQUVELElBQVcsZUFBZTtRQUN4QixPQUFPLDBCQUEwQixDQUFDO0lBQ3BDLENBQUM7SUFFRCxJQUFXLGVBQWU7UUFDeEIsT0FBTywwQkFBMEIsQ0FBQztJQUNwQyxDQUFDO0lBRUQsZUFBZSxDQUFDLFNBQWlCLEVBQUUsVUFBZ0M7UUFDakUsVUFBVSxDQUFDLFNBQVMsQ0FDbEIsSUFBSSxlQUFlLENBQUMsU0FBUyxLQUFLLENBQUMsQ0FBQyxDQUFDLENBQUMsTUFBTSxDQUFDLENBQUMsQ0FBQyxNQUFNLENBQUMsQ0FDdkQsQ0FBQztJQUNKLENBQUM7Q0FDRjtBQWxCRCxzQ0FrQkM7QUFFRCxNQUFhLFlBQVk7SUFDdkIsSUFBVyxRQUFRO1FBQ2pCLE9BQU8sNEJBQTRCLENBQUM7SUFDdEMsQ0FBQztJQUVELElBQVcsZUFBZTtRQUN4QixPQUFPLDBCQUEwQixDQUFDO0lBQ3BDLENBQUM7SUFFRCxJQUFXLGVBQWU7UUFDeEIsT0FBTywwQkFBMEIsQ0FBQztJQUNwQyxDQUFDO0lBRUQsZUFBZSxDQUFDLFNBQWlCLEVBQUUsVUFBZ0M7UUFDakUsVUFBVSxDQUFDLFNBQVMsQ0FDbEIsU0FBUyxLQUFLLENBQUMsQ0FBQyxDQUFDLENBQUMsSUFBSSxhQUFhLEVBQUUsQ0FBQyxDQUFDLENBQUMsSUFBSSxhQUFhLEVBQUUsQ0FDNUQsQ0FBQztJQUNKLENBQUM7Q0FDRjtBQWxCRCxvQ0FrQkM7QUFFRCxNQUFhLGFBQWE7SUFDeEIsSUFBVyxRQUFRO1FBQ2pCLE9BQU8sNEJBQTRCLENBQUM7SUFDdEMsQ0FBQztJQUVELElBQVcsZUFBZTtRQUN4QixPQUFPLDBCQUEwQixDQUFDO0lBQ3BDLENBQUM7SUFFRCxJQUFXLGVBQWU7UUFDeEIsT0FBTywyQkFBMkIsQ0FBQztJQUNyQyxDQUFDO0lBRUQsZUFBZSxDQUFDLFNBQWlCLEVBQUUsVUFBZ0M7UUFDakUsVUFBVSxDQUFDLFNBQVMsQ0FDbEIsSUFBSSxlQUFlLENBQUMsU0FBUyxLQUFLLENBQUMsQ0FBQyxDQUFDLENBQUMsTUFBTSxDQUFDLENBQUMsQ0FBQyxNQUFNLENBQUMsQ0FDdkQsQ0FBQztJQUNKLENBQUM7Q0FDRjtBQWxCRCxzQ0FrQkM7QUFFRCxNQUFhLGFBQWE7SUFDeEIsSUFBVyxRQUFRO1FBQ2pCLE9BQU8sNEJBQTRCLENBQUM7SUFDdEMsQ0FBQztJQUVELElBQVcsZUFBZTtRQUN4QixPQUFPLDJCQUEyQixDQUFDO0lBQ3JDLENBQUM7SUFFRCxJQUFXLGVBQWU7UUFDeEIsT0FBTywyQkFBMkIsQ0FBQztJQUNyQyxDQUFDO0lBRUQsZUFBZSxDQUFDLFNBQWlCLEVBQUUsVUFBZ0M7UUFDakUsVUFBVSxDQUFDLFNBQVMsQ0FDbEIsSUFBSSxlQUFlLENBQUMsU0FBUyxLQUFLLENBQUMsQ0FBQyxDQUFDLENBQUMsTUFBTSxDQUFDLENBQUMsQ0FBQyxNQUFNLENBQUMsQ0FDdkQsQ0FBQztJQUNKLENBQUM7Q0FDRjtBQWxCRCxzQ0FrQkM7QUFFRCxNQUFhLGVBQWU7SUFDMUIsWUFBMkIsTUFBNEI7UUFBNUIsV0FBTSxHQUFOLE1BQU0sQ0FBc0I7SUFBRyxDQUFDO0lBRTNELElBQVcsUUFBUTtRQUNqQixPQUFPLDRCQUE0QixDQUFDO0lBQ3RDLENBQUM7SUFFRCxJQUFXLGVBQWU7UUFDeEIsT0FBTywyQkFBMkIsQ0FBQztJQUNyQyxDQUFDO0lBRUQsSUFBVyxlQUFlO1FBQ3hCLE9BQU8sMkJBQTJCLENBQUM7SUFDckMsQ0FBQztJQUVELGVBQWUsQ0FBQyxTQUFpQixFQUFFLFVBQWdDO1FBQ2pFLFVBQVUsQ0FBQyxTQUFTLENBQUMsSUFBSSxlQUFlLENBQUMsSUFBSSxDQUFDLE1BQU0sQ0FBQyxDQUFDLENBQUM7SUFDekQsQ0FBQztDQUNGO0FBbEJELDBDQWtCQztBQUVELE1BQWEsZUFBZTtJQUMxQixZQUEyQixNQUE0QjtRQUE1QixXQUFNLEdBQU4sTUFBTSxDQUFzQjtJQUFHLENBQUM7SUFFM0QsSUFBVyxRQUFRO1FBQ2pCLE9BQU8sNEJBQTRCLENBQUM7SUFDdEMsQ0FBQztJQUVELElBQVcsZUFBZTtRQUN4QixPQUFPLDJCQUEyQixDQUFDO0lBQ3JDLENBQUM7SUFFRCxJQUFXLGVBQWU7UUFDeEIsT0FBTywyQkFBMkIsQ0FBQztJQUNyQyxDQUFDO0lBRUQsZUFBZSxDQUFDLFNBQWlCLEVBQUUsVUFBZ0M7UUFDakUsVUFBVSxDQUFDLFNBQVMsQ0FBQyxJQUFJLENBQUMsTUFBTSxDQUFDLENBQUM7SUFDcEMsQ0FBQztDQUNGO0FBbEJELDBDQWtCQyJ9","assetPath":"Assets/UI/Style
+    Match/StyleMatchStateImpl.ts","manifest":{"properties":[],"name":"StyleMatch_Start","description":""},"isCompiled":true}'
+  typescriptHash: f68fd47a7932c80bed956c9fd7612021
+  onlyWriteTrigger: 0

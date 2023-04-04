@@ -1,0 +1,83 @@
+fileFormatVersion: 2
+guid: 0facb89477fd5472b8b26a6018604034
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst ZEPETO_World_1 = require(\"ZEPETO.World\");\r\nconst
+    EventTracker_1 = require(\"../../3D/Tracking/EventTracker\");\r\nconst i18nManager_1
+    = require(\"../../i18n/i18nManager\");\r\nconst PlayerManager_1 = require(\"../../Network/Sync/PlayerManager\");\r\nconst
+    SEManager_1 = require(\"../../Sfx/SEManager\");\r\nconst SfxProvider_1 = require(\"../../Sfx/SfxProvider\");\r\nconst
+    LoadingCover_1 = require(\"../Loading Cover/LoadingCover\");\r\nconst MenuGroup_1
+    = require(\"../Menu Group/MenuGroup\");\r\nconst MiddleMenuGroup_1 = require(\"../Middle
+    Menu Group/MiddleMenuGroup\");\r\nconst VirtualPadStateManager_1 = require(\"../Virtual
+    Pad/VirtualPadStateManager\");\r\nconst StyleMatchResultFeed_1 = require(\"./StyleMatchResultFeed\");\r\nconst
+    StyleMatchResultProvider_1 = require(\"./StyleMatchResultProvider\");\r\nconst
+    StyleMatchStateImpl_1 = require(\"./StyleMatchStateImpl\");\r\nconst StyleMatchUI_1
+    = require(\"./StyleMatchUI\");\r\nclass StyleMatch extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    static get Instance() {\r\n        return StyleMatch.instance;\r\n   
+    }\r\n    Awake() {\r\n        StyleMatch.instance = this;\r\n        this.ui
+    = this._ui.GetComponent($typeof(StyleMatchUI_1.default));\r\n        this.feed
+    = this._feed.GetComponent($typeof(StyleMatchResultFeed_1.default));\r\n       
+    this.ui.StartYesButton.onClick.AddListener(this.OnClickStartButton.bind(this,
+    true));\r\n        this.ui.StartNoButton.onClick.AddListener(this.OnClickStartButton.bind(this,
+    false));\r\n        this.ui.Selection1Button.onClick.AddListener(this.OnClickSelectionButton.bind(this,
+    0));\r\n        this.ui.Selection2Button.onClick.AddListener(this.OnClickSelectionButton.bind(this,
+    1));\r\n        this.ui.ResultOkButton.onClick.AddListener(this.OnClickResultOkButton.bind(this));\r\n       
+    this.ui.ResultShareButton.onClick.AddListener(this.OnClickResultShareButton.bind(this));\r\n       
+    this.feed.gameObject.SetActive(false);\r\n        this.gameObject.SetActive(false);\r\n   
+    }\r\n    OnEnable() {\r\n        this.state = undefined;\r\n        this.result
+    = undefined;\r\n        VirtualPadStateManager_1.default.Instance.StyleMatch
+    = true;\r\n        MenuGroup_1.default.Instance?.gameObject.SetActive(false);\r\n       
+    MiddleMenuGroup_1.default.Instance?.gameObject.SetActive(false);\r\n    }\r\n   
+    OnDisable() {\r\n        VirtualPadStateManager_1.default.Instance.StyleMatch
+    = false;\r\n        MenuGroup_1.default.Instance?.gameObject.SetActive(true);\r\n       
+    MiddleMenuGroup_1.default.Instance?.gameObject.SetActive(true);\r\n    }\r\n   
+    StartSession() {\r\n        this.gameObject.SetActive(true);\r\n        this.ui.ShowStart();\r\n       
+    SEManager_1.default.Instance.Play(SfxProvider_1.default.Instance.UIPopupShowing);\r\n   
+    }\r\n    Translate(next) {\r\n        this.state = next;\r\n        this.ui.ApplyState(this.state,
+    false);\r\n        SEManager_1.default.Instance.Play(this.sfxOnTransition);\r\n   
+    }\r\n    Terminate(result) {\r\n        this.state = undefined;\r\n        this.result
+    = StyleMatchResultProvider_1.default.Instance.GetResult(result);\r\n        this.ui.ApplyResult(this.result,
+    () => {\r\n            SEManager_1.default.Instance.Play(this.sfxOnResult);\r\n       
+    });\r\n        SEManager_1.default.Instance.Play(this.sfxOnTransition);\r\n       
+    this.ui.ResultShareButton.interactable = true;\r\n    }\r\n    OnClickStartButton(yes)
+    {\r\n        if (!yes) {\r\n            this.gameObject.SetActive(false);\r\n           
+    return;\r\n        }\r\n        this.state = new StyleMatchStateImpl_1.StyleMatch_Start();\r\n       
+    this.result = undefined;\r\n        this.ui.HideStart();\r\n        this.ui.ApplyState(this.state,
+    true);\r\n        EventTracker_1.default.Instance.CountOpenStyleMatch();\r\n   
+    }\r\n    OnClickSelectionButton(selection) {\r\n        if (!this.state)\r\n           
+    return;\r\n        this.state.HandleSelection(selection, this);\r\n    }\r\n   
+    OnClickResultOkButton() {\r\n        if (!this.result)\r\n            return;\r\n       
+    if (ZEPETO_World_1.WorldService.worldId === ''com.metaspace.shoppingmallsection'')\r\n           
+    LoadingCover_1.default.Instance.RunWithCover(() => {\r\n                this.gameObject.SetActive(false);\r\n               
+    const points = this.result.TeleportPoints;\r\n                const point = points[Math.floor(Math.random()
+    * points.length)];\r\n                PlayerManager_1.default.Instance.LocalSyncer.Teleport(point.position,
+    point.rotation);\r\n            });\r\n        else\r\n            ZEPETO_World_1.ZepetoWorldContent.MoveToWorld(this.result.WorldId[Math.floor(Math.random()
+    * this.result.WorldId.length)], () => { });\r\n    }\r\n    OnClickResultShareButton()
+    {\r\n        if (!this.result)\r\n            return;\r\n        this.ui.ResultShareButton.interactable
+    = false;\r\n        this.feed.SetResult(this.result);\r\n        this.feed.gameObject.SetActive(true);\r\n       
+    this.feed.TakeScreenShot((rt) => {\r\n            this.feed.gameObject.SetActive(false);\r\n           
+    ZEPETO_World_1.ZepetoWorldContent.CreateFeed(rt, i18nManager_1.default.Instance.Lang.get_Item(''ZM_StyleMatching_Hashtag''),
+    () => { });\r\n            // TODO: Give a feedback to the user that notifies
+    the feed has been uploaded.\r\n        });\r\n    }\r\n}\r\nexports.default =
+    StyleMatch;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiU3R5bGVNYXRjaC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIlN0eWxlTWF0Y2gudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw2Q0FBb0Q7QUFDcEQsaURBQXNEO0FBQ3RELCtDQUFnRTtBQUVoRSxpRUFBMEQ7QUFDMUQsd0RBQWlEO0FBQ2pELG9FQUE2RDtBQUM3RCxtREFBNEM7QUFDNUMsdURBQWdEO0FBQ2hELGdFQUF5RDtBQUN6RCx1REFBZ0Q7QUFDaEQsMEVBQW1FO0FBQ25FLGtGQUEyRTtBQUMzRSxpRUFBMEQ7QUFDMUQseUVBQWtFO0FBT2xFLCtEQUF5RDtBQUN6RCxpREFBMEM7QUFFMUMsTUFBcUIsVUFDbkIsU0FBUSxxQ0FBcUI7SUFLdEIsTUFBTSxLQUFLLFFBQVE7UUFDeEIsT0FBTyxVQUFVLENBQUMsUUFBUSxDQUFDO0lBQzdCLENBQUM7SUFrQk0sS0FBSztRQUNWLFVBQVUsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDO1FBRTNCLElBQUksQ0FBQyxFQUFFLEdBQUcsSUFBSSxDQUFDLEdBQUcsQ0FBQyxZQUFZLFNBQUMsc0JBQVksRUFBRyxDQUFDO1FBQ2hELElBQUksQ0FBQyxJQUFJLEdBQUcsSUFBSSxDQUFDLEtBQUssQ0FBQyxZQUFZLFNBQUMsOEJBQW9CLEVBQUcsQ0FBQztRQUU1RCxJQUFJLENBQUMsRUFBRSxDQUFDLGNBQWMsQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUN4QyxJQUFJLENBQUMsa0JBQWtCLENBQUMsSUFBSSxDQUFDLElBQUksRUFBRSxJQUFJLENBQUMsQ0FDekMsQ0FBQztRQUNGLElBQUksQ0FBQyxFQUFFLENBQUMsYUFBYSxDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQ3ZDLElBQUksQ0FBQyxrQkFBa0IsQ0FBQyxJQUFJLENBQUMsSUFBSSxFQUFFLEtBQUssQ0FBQyxDQUMxQyxDQUFDO1FBQ0YsSUFBSSxDQUFDLEVBQUUsQ0FBQyxnQkFBZ0IsQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUMxQyxJQUFJLENB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","assetPath":"Assets/UI/Style
+    Match/StyleMatch.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"_ui","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''UI''"]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"_feed","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.AudioModule","name":"sfxOnTransition","type":"UnityEngine.AudioClip","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''Sfx''"]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.AudioModule","name":"sfxOnResult","type":"UnityEngine.AudioClip","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"StyleMatch","description":""},"isCompiled":true}'
+  typescriptHash: efd6fa6cae4c4f8918f287d0d349ad99
+  onlyWriteTrigger: 0

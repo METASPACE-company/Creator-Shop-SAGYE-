@@ -1,0 +1,41 @@
+fileFormatVersion: 2
+guid: 3951bdac844a64da39576155a87213f0
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst UnityEngine_1 = require(\"UnityEngine\");\r\nconst
+    ZEPETO_Character_Controller_1 = require(\"ZEPETO.Character.Controller\");\r\nconst
+    ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst PlayerManager_1 = require(\"../../Network/Sync/PlayerManager\");\r\nclass
+    GesturePlayer extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    get ZepetoPlayer()
+    {\r\n        return this.zepetoPlayer;\r\n    }\r\n    get ZepetoCharacter()
+    {\r\n        return this.zepetoPlayer.character;\r\n    }\r\n    Activate(sessionId,
+    zepetoPlayer) {\r\n        this.sessionId = sessionId;\r\n        this.zepetoPlayer
+    = zepetoPlayer;\r\n    }\r\n    Deactivate() {\r\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.RemovePlayer(this.sessionId);\r\n   
+    }\r\n    static Spawn(userId) {\r\n        const spawnInfo = new ZEPETO_Character_Controller_1.SpawnInfo();\r\n       
+    spawnInfo.position = new UnityEngine_1.Vector3(0, 10000, 0);\r\n        spawnInfo.rotation
+    = UnityEngine_1.Quaternion.identity;\r\n        const id = `__GESTURE_MODEL__${Math.random()}`;\r\n       
+    return new Promise((resolve) => {\r\n            PlayerManager_1.default.Instance.AddAddedRemotePlayerHook((player,
+    sessionId) => {\r\n                if (sessionId !== id)\r\n                   
+    return;\r\n                const gesturePlayer = player.character.gameObject.AddComponent($typeof(GesturePlayer));\r\n               
+    gesturePlayer.Activate(sessionId, player);\r\n                resolve(gesturePlayer);\r\n           
+    });\r\n            $extension(\"ZEPETO.Character.Controller.ZepetoPlayersExtension\").CreatePlayerWithUserId(ZEPETO_Character_Controller_1.ZepetoPlayers.instance,
+    id, userId, spawnInfo, false);\r\n        });\r\n    }\r\n}\r\nexports.default
+    = GesturePlayer;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiR2VzdHVyZVBsYXllci5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIkdlc3R1cmVQbGF5ZXIudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7QUFBQSw2Q0FBa0Q7QUFDbEQsNkVBS3FDO0FBQ3JDLGlEQUFzRDtBQUV0RCxvRUFBNkQ7QUFFN0QsTUFBcUIsYUFBYyxTQUFRLHFDQUFxQjtJQUk5RCxJQUFXLFlBQVk7UUFDckIsT0FBTyxJQUFJLENBQUMsWUFBWSxDQUFDO0lBQzNCLENBQUM7SUFFRCxJQUFXLGVBQWU7UUFDeEIsT0FBTyxJQUFJLENBQUMsWUFBWSxDQUFDLFNBQVMsQ0FBQztJQUNyQyxDQUFDO0lBRU0sUUFBUSxDQUFDLFNBQWlCLEVBQUUsWUFBMEI7UUFDM0QsSUFBSSxDQUFDLFNBQVMsR0FBRyxTQUFTLENBQUM7UUFDM0IsSUFBSSxDQUFDLFlBQVksR0FBRyxZQUFZLENBQUM7SUFDbkMsQ0FBQztJQUVNLFVBQVU7UUFDZiwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxZQUFZLENBQUMsSUFBSSxDQUFDLFNBQVMsQ0FBQyxDQUFDO0lBQ3RELENBQUM7SUFFTSxNQUFNLENBQUMsS0FBSyxDQUFDLE1BQWM7UUFDaEMsTUFBTSxTQUFTLEdBQUcsSUFBSSx1Q0FBUyxFQUFFLENBQUM7UUFDbEMsU0FBUyxDQUFDLFFBQVEsR0FBRyxJQUFJLHFCQUFPLENBQUMsQ0FBQyxFQUFFLEtBQUssRUFBRSxDQUFDLENBQUMsQ0FBQztRQUM5QyxTQUFTLENBQUMsUUFBUSxHQUFHLHdCQUFVLENBQUMsUUFBUSxDQUFDO1FBRXpDLE1BQU0sRUFBRSxHQUFHLG9CQUFvQixJQUFJLENBQUMsTUFBTSxFQUFFLEVBQUUsQ0FBQztRQUUvQyxPQUFPLElBQUksT0FBTyxDQUFDLENBQUMsT0FBTyxFQUFFLEVBQUU7WUFDN0IsdUJBQWEsQ0FBQyxRQUFRLENBQUMsd0JBQXdCLENBQUMsQ0FBQyxNQUFNLEVBQUUsU0FBUyxFQUFFLEVBQUU7Z0JBQ3BFLElBQUksU0FBUyxLQUFLLEVBQUU7b0JBQUUsT0FBTztnQkFFN0IsTUFBTSxhQUFhLEdBQ2pCLE1BQU0sQ0FBQyxTQUFTLENBQUMsVUFBVSxDQUFDLFlBQVksU0FBQyxhQUFhLEVBQUcsQ0FBQztnQkFDNUQsYUFBYSxDQUFDLFFBQVEsQ0FBQyxTQUFTLEVBQUUsTUFBTSxDQUFDLENBQUM7Z0JBRTFDLE9BQU8sQ0FBQyxhQUFhLENBQUMsQ0FBQztZQUN6QixDQUFDLENBQUMsQ0FBQztZQUVILGlFQUF1QixzQkFBc0IsQ0FBN0MsMkNBQWEsQ0FBQyxRQUFRLEVBQ3BCLEVBQUUsRUFDRixNQUFNLEVBQ04sU0FBUyxFQUNULEtBQUssRUFDTDtRQUNKLENBQUMsQ0FBQyxDQUFDO0lBQ0wsQ0FBQztDQUNGO0FBL0NELGdDQStDQyJ9","assetPath":"Assets/UI/Gesture/GesturePlayer.ts","manifest":{"properties":[],"name":"GesturePlayer","description":""},"isCompiled":true}'
+  typescriptHash: f9abe7abc4011f80e856f3f6704f2b78
+  onlyWriteTrigger: 0

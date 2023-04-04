@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0f3f228c-59df-4e64-a081-dead7a51231f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.shopping-mall-base/.idea/runConfigurations/Zepeto_Multiplay_Script.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.shopping-mall-base/.idea/runConfigurations/Zepeto_Multiplay_Script.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.shopping-mall-base/.idea/runConfigurations/Zepeto_Script.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.shopping-mall-base/.idea/runConfigurations/Zepeto_Script.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.shopping-mall-base/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.shopping-mall-base/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/launch.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/launch.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Network/Sync/LocalPlayerManager.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Network/Sync/LocalPlayerManager.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Network/Sync/LocalPlayerManager.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Network/Sync/LocalPlayerManager.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scene/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scene/Main.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Font/Content Font.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Font/Content Font.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Font/NotoSans/Japanese/PretendardJP-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Font/NotoSans/Japanese/PretendardJP-Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Font/NotoSans/Japanese/PretendardJP-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Font/NotoSans/Japanese/PretendardJP-Regular SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Font/NotoSans/Latin/NotoSans-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Font/NotoSans/Latin/NotoSans-Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Font/NotoSans/Latin/NotoSans-BoldItalic SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Font/NotoSans/Latin/NotoSans-BoldItalic SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Font/NotoSans/Latin/NotoSans-Italic SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Font/NotoSans/Latin/NotoSans-Italic SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Font/NotoSans/Thai/NotoSans Thai.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Font/NotoSans/Thai/NotoSans Thai.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Font/NotoSans/Thai/NotoSansThai-Bold SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Font/NotoSans/Thai/NotoSansThai-Bold SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Font/SCore/SCDream4.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Font/SCore/SCDream4.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Font/SCore/SCDream7.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Font/SCore/SCDream7.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Gesture/Gesture.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Gesture/Gesture.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Gesture/Gesture.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Gesture/Gesture.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Gesture/GestureUI.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Gesture/GestureUI.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Gesture/GestureUI.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Gesture/GestureUI.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Gesture/GestureUISlot.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Gesture/GestureUISlot.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Gesture/GestureUISlot.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Gesture/GestureUISlot.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Loading Cover/LoadingCover.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Loading Cover/LoadingCover.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Loading Cover/LoadingCover.ts.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Loading Cover/LoadingCover.ts.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Magic Camera/Magic Camera Object.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Magic Camera/Magic Camera Object.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Magic Camera/Shot Taking Texture.renderTexture" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/UI/Magic Camera/Shot Taking Texture.renderTexture" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Style Match/dialogue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Style Match/dialogue.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Style Match/selection-blue.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Style Match/selection-blue.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Style Match/selection-red.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/UI/Style Match/selection-red.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/QualitySettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.inputsystem@1.0.2/InputSystem/Controls/InputControlLayout.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_FontAssetUtilities.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.textmeshpro@3.0.6/Scripts/Runtime/TMP_ShaderUtilities.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2KDC1tuGbBkNN00GV47MdhBfiO8" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Discover.Launch.Via.Unity": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.keymap",
+    "ts.external.directory.path": "X:\\Repository\\shopping-mall-base\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  },
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "/Users/ashrimp/Library/Application Support/JetBrains/Rider2022.3/resharper-host/DecompilerCache",
+      "/Users/ashrimp/Library/Application Support/JetBrains/Rider2022.3/resharper-host/SourcesCache",
+      "/Users/ashrimp/.local/share/Symbols/src"
+    ]
+  }
+}]]></component>
+  <component name="RunManager" selected="Attach to Node.js/Chrome.Zepeto Multiplay Script">
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2020.3.9f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath $PROJECT_DIR$ -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="UnitTests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="/Applications/Unity/Hub/Editor/2020.3.9f1/Unity.app/Contents/MacOS/Unity" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath X:\Repository\shopping-mall-base -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="X:\Repository\shopping-mall-base" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0f3f228c-59df-4e64-a081-dead7a51231f" name="Changes" comment="" />
+      <created>1673499557575</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1673499557575</updated>
+      <workItem from="1673499565306" duration="116000" />
+      <workItem from="1673499693474" duration="6406000" />
+      <workItem from="1674626720054" duration="4997000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

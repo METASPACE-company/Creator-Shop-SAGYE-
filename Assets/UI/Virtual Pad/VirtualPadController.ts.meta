@@ -1,0 +1,39 @@
+fileFormatVersion: 2
+guid: 982f8d90510564c06998c4c76a6c0c90
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    VirtualPadControllerProxy_1 = require(\"./VirtualPadControllerProxy\");\r\nconst
+    PROXY = new VirtualPadControllerProxy_1.VirtualPadControllerProxyImpl();\r\nclass
+    VirtualPadController extends ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    static
+    get Instance() {\r\n        return VirtualPadController.instance ?? PROXY;\r\n   
+    }\r\n    static get RawInstance() {\r\n        return VirtualPadController.instance;\r\n   
+    }\r\n    static Detach() {\r\n        VirtualPadController.instance = null;\r\n   
+    }\r\n    get TouchPad() {\r\n        return this.touchPad;\r\n    }\r\n    get
+    JumpButton() {\r\n        return this.jumpButton;\r\n    }\r\n    Awake() {\r\n       
+    VirtualPadController.instance = this;\r\n        this.SetActive(PROXY.isTouched
+    ? PROXY.isActive : this.initiallyEnabled);\r\n        for (const handler of PROXY.Handlers)\r\n           
+    handler(this);\r\n    }\r\n    OnceInitialized(handler) {\r\n        handler(this);\r\n   
+    }\r\n    SetActive(isActive) {\r\n        if (isActive === this.gameObject.activeSelf)\r\n           
+    return;\r\n        this.touchPad.OnPointerUpEvent.Invoke();\r\n        this.gameObject.SetActive(isActive);\r\n   
+    }\r\n}\r\nexports.default = VirtualPadController;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiVmlydHVhbFBhZENvbnRyb2xsZXIuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJWaXJ0dWFsUGFkQ29udHJvbGxlci50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUVBLGlEQUFzRDtBQUV0RCwyRUFHcUM7QUFFckMsTUFBTSxLQUFLLEdBQUcsSUFBSSx5REFBNkIsRUFBRSxDQUFDO0FBRWxELE1BQXFCLG9CQUNuQixTQUFRLHFDQUFxQjtJQUt0QixNQUFNLEtBQUssUUFBUTtRQUN4QixPQUFPLG9CQUFvQixDQUFDLFFBQVEsSUFBSSxLQUFLLENBQUM7SUFDaEQsQ0FBQztJQUVNLE1BQU0sS0FBSyxXQUFXO1FBQzNCLE9BQU8sb0JBQW9CLENBQUMsUUFBUSxDQUFDO0lBQ3ZDLENBQUM7SUFFTSxNQUFNLENBQUMsTUFBTTtRQUNsQixvQkFBb0IsQ0FBQyxRQUFRLEdBQUcsSUFBSSxDQUFDO0lBQ3ZDLENBQUM7SUFTRCxJQUFXLFFBQVE7UUFDakIsT0FBTyxJQUFJLENBQUMsUUFBUSxDQUFDO0lBQ3ZCLENBQUM7SUFFRCxJQUFXLFVBQVU7UUFDbkIsT0FBTyxJQUFJLENBQUMsVUFBVSxDQUFDO0lBQ3pCLENBQUM7SUFFTSxLQUFLO1FBQ1Ysb0JBQW9CLENBQUMsUUFBUSxHQUFHLElBQUksQ0FBQztRQUNyQyxJQUFJLENBQUMsU0FBUyxDQUFDLEtBQUssQ0FBQyxTQUFTLENBQUMsQ0FBQyxDQUFDLEtBQUssQ0FBQyxRQUFRLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxnQkFBZ0IsQ0FBQyxDQUFDO1FBRXpFLEtBQUssTUFBTSxPQUFPLElBQUksS0FBSyxDQUFDLFFBQVE7WUFBRSxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDdEQsQ0FBQztJQUVNLGVBQWUsQ0FBQyxPQUE0QztRQUNqRSxPQUFPLENBQUMsSUFBSSxDQUFDLENBQUM7SUFDaEIsQ0FBQztJQUVNLFNBQVMsQ0FBQyxRQUFpQjtRQUNoQyxJQUFJLFFBQVEsS0FBSyxJQUFJLENBQUMsVUFBVSxDQUFDLFVBQVU7WUFBRSxPQUFPO1FBQ3BELElBQUksQ0FBQyxRQUFRLENBQUMsZ0JBQWdCLENBQUMsTUFBTSxFQUFFLENBQUM7UUFDeEMsSUFBSSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsUUFBUSxDQUFDLENBQUM7SUFDdEMsQ0FBQztDQUNGO0FBakRELHVDQWlEQyJ9","assetPath":"Assets/UI/Virtual
+    Pad/VirtualPadController.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"initiallyEnabled","type":"System.Boolean","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"ZEPETO.Character.Controller","name":"touchPad","type":"ZEPETO.Character.Controller.ZepetoScreenTouchpad","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"jumpButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"VirtualPadController","description":""},"isCompiled":true}'
+  typescriptHash: cc08710241c8d4c6b1edde451e61e444
+  onlyWriteTrigger: 0

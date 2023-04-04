@@ -1,0 +1,28 @@
+fileFormatVersion: 2
+guid: 0052223a34c1f408cbf12c4c0944ec8e
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    EventTracker_1 = require(\"./EventTracker\");\r\nclass EventTrackingArea extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\r\n    OnTriggerEnter(other) {\r\n       
+    if (other.tag !== ''LocalPlayer'')\r\n            return;\r\n        EventTracker_1.default.Instance.CountEnterArea(this.areaName);\r\n   
+    }\r\n}\r\nexports.default = EventTrackingArea;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRXZlbnRUcmFja2luZ0FyZWEuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJFdmVudFRyYWNraW5nQXJlYS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUNBLGlEQUFzRDtBQUV0RCxpREFBMEM7QUFFMUMsTUFBcUIsaUJBQWtCLFNBQVEscUNBQXFCO0lBSTNELGNBQWMsQ0FBQyxLQUFlO1FBQ25DLElBQUksS0FBSyxDQUFDLEdBQUcsS0FBSyxhQUFhO1lBQUUsT0FBTztRQUN4QyxzQkFBWSxDQUFDLFFBQVEsQ0FBQyxjQUFjLENBQUMsSUFBSSxDQUFDLFFBQVEsQ0FBQyxDQUFDO0lBQ3RELENBQUM7Q0FDRjtBQVJELG9DQVFDIn0=","assetPath":"Assets/3D/Tracking/EventTrackingArea.ts","manifest":{"properties":[{"assembly":"mscorlib","name":"areaName","type":"System.String","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]}],"name":"EventTrackingArea","description":""},"isCompiled":true}'
+  typescriptHash: 3a27512f82c80c68108df31b19823a13
+  onlyWriteTrigger: 0

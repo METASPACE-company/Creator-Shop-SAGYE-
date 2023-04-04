@@ -1,0 +1,65 @@
+fileFormatVersion: 2
+guid: d6614b9cd27e948698f0d11a72d4cf78
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst TMPro_1 = require(\"TMPro\");\r\nconst UnityEngine_1
+    = require(\"UnityEngine\");\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    ZEPETO_World_1 = require(\"ZEPETO.World\");\r\nconst VirtualPadController_1 =
+    require(\"../Virtual Pad/VirtualPadController\");\r\nconst GlobalCoroutineManager_1
+    = require(\"../../Utility/GlobalCoroutineManager\");\r\nconst i18nManager_1 =
+    require(\"../../i18n/i18nManager\");\r\nclass MagicCameraShotTaking extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    Awake() {\r\n        this.closeButton.onClick.AddListener(this.OnClickCloseButton.bind(this));\r\n       
+    this.shareButton.onClick.AddListener(this.OnClickShareButton.bind(this));\r\n       
+    this.popupOkButton.onClick.AddListener(this.OnClickPopupOkButton.bind(this));\r\n   
+    }\r\n    Start() {\r\n        i18nManager_1.default.Instance.Event.OnChange((lang)
+    => {\r\n            this.popupContent.placeholder.GetComponent($typeof(TMPro_1.TMP_Text)).text
+    = lang.get_Item(''ZM_MagicCamera_Hashtag'');\r\n        });\r\n        this.gameObject.SetActive(false);\r\n   
+    }\r\n    Update() {\r\n        function ease(t) {\r\n            return 1 - Math.pow(1
+    - t, 3);\r\n        }\r\n        const length = 4;\r\n        const now = UnityEngine_1.Time.timeSinceLevelLoadAsDouble;\r\n       
+    const delta = (now - this.filmAnimationBeginAt) / length;\r\n        const intensity
+    = UnityEngine_1.Mathf.Lerp(1, 0, ease(delta));\r\n        this.previewMaterial.SetFloat(''_BurnIntensity'',
+    intensity);\r\n        this.previewMaterial.SetFloat(''_BlurIntensity'', intensity);\r\n       
+    if (length <= delta)\r\n            this.enabled = false;\r\n    }\r\n    Activate(tutorial,
+    pad, preview, cameraObject) {\r\n        this.tutorial = tutorial;\r\n       
+    this.pad = pad;\r\n        this.preview = preview;\r\n        this.cameraObject
+    = cameraObject;\r\n        GlobalCoroutineManager_1.default.RawInstance.StartCoroutine(function*
+    () {\r\n            yield GlobalCoroutineManager_1.default.RawInstance.StartCoroutine(cameraObject.TakeShotIntoRT(this.rtForShotTaking));\r\n           
+    this.enabled = true;\r\n            this.gameObject.SetActive(true);\r\n           
+    this.shareCompleteNoti.gameObject.SetActive(false);\r\n            this.popup.SetActive(false);\r\n           
+    this.filmAnimationBeginAt = UnityEngine_1.Time.timeSinceLevelLoadAsDouble;\r\n           
+    VirtualPadController_1.default.Instance.SetActive(false);\r\n        }.bind(this)());\r\n   
+    }\r\n    Deactivate() {\r\n        this.gameObject.SetActive(false);\r\n       
+    VirtualPadController_1.default.Instance.SetActive(true);\r\n        if (this.pad)\r\n           
+    this.pad.Activate(this.tutorial, this.preview, this, this.cameraObject, false);\r\n   
+    }\r\n    OnClickCloseButton() {\r\n        this.Deactivate();\r\n    }\r\n   
+    OnClickShareButton() {\r\n        this.popup.SetActive(true);\r\n        this.popupContent.text
+    = '''';\r\n    }\r\n    OnClickPopupOkButton() {\r\n        let feedContent =
+    this.popupContent.text.trim() ||\r\n            this.popupContent.placeholder.GetComponent($typeof(TMPro_1.TMP_Text)).text;\r\n       
+    if (!feedContent.toLowerCase().includes(''magiccamerachallenge'') ||\r\n           
+    !feedContent.toLowerCase().includes(''zgm'')) {\r\n            feedContent +=
+    ''\\n\\n#Magiccamerachallenge #ZGM'';\r\n        }\r\n        ZEPETO_World_1.ZepetoWorldContent.CreateFeed(this.rtForShotTaking,
+    feedContent, () => {\r\n            this.shareCompleteNoti.gameObject.SetActive(true);\r\n           
+    this.shareCompleteNoti.SetTrigger(''notify'');\r\n        });\r\n        this.popup.SetActive(false);\r\n       
+    this.shareCompleteNoti.gameObject.SetActive(true);\r\n        this.shareCompleteNoti.SetTrigger(''notify'');\r\n   
+    }\r\n}\r\nexports.default = MagicCameraShotTaking;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiTWFnaWNDYW1lcmFTaG90VGFraW5nLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiTWFnaWNDYW1lcmFTaG90VGFraW5nLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsaUNBQWlEO0FBQ2pELDZDQU9xQjtBQUVyQixpREFBc0Q7QUFDdEQsK0NBQWtEO0FBTWxELDhFQUF1RTtBQUN2RSxpRkFBMEU7QUFDMUUsd0RBQWlEO0FBRWpELE1BQXFCLHFCQUFzQixTQUFRLHFDQUFxQjtJQTZCL0QsS0FBSztRQUNWLElBQUksQ0FBQyxXQUFXLENBQUMsT0FBTyxDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsa0JBQWtCLENBQUMsSUFBSSxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUM7UUFDekUsSUFBSSxDQUFDLFdBQVcsQ0FBQyxPQUFPLENBQUMsV0FBVyxDQUFDLElBQUksQ0FBQyxrQkFBa0IsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQztRQUN6RSxJQUFJLENBQUMsYUFBYSxDQUFDLE9BQU8sQ0FBQyxXQUFXLENBQ3BDLElBQUksQ0FBQyxvQkFBb0IsQ0FBQyxJQUFJLENBQUMsSUFBSSxDQUFDLENBQ3JDLENBQUM7SUFDSixDQUFDO0lBRU0sS0FBSztRQUNWLHFCQUFXLENBQUMsUUFBUSxDQUFDLEtBQUssQ0FBQyxRQUFRLENBQUMsQ0FBQyxJQUFJLEVBQUUsRUFBRTtZQUMzQyxJQUFJLENBQUMsWUFBWSxDQUFDLFdBQVcsQ0FBQyxZQUFZLFNBQUMsZ0JBQVEsR0FBSSxJQUFJLEdBQ3pELElBQUksVUFBQyx3QkFBd0IsQ0FBQyxDQUFDO1FBQ25DLENBQUMsQ0FBQyxDQUFDO1FBRUgsSUFBSSxDQUFDLFVBQVUsQ0FBQyxTQUFTLENBQUMsS0FBSyxDQUFDLENBQUM7SUFDbkMsQ0FBQztJQUVNLE1BQU07UUFDWCxTQUFTLElBQUksQ0FBQyxDQUFTO1lBQ3JCLE9BQU8sQ0FBQyxHQUFHLElBQUksQ0FBQyxHQUFHLENBQUMsQ0FBQyxH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","assetPath":"Assets/UI/Magic
+    Camera/MagicCameraShotTaking.ts","manifest":{"properties":[{"assembly":"UnityEngine.CoreModule","name":"previewMaterial","type":"UnityEngine.Material","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''UI''"]},{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"closeButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"shareButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.AnimationModule","name":"shareCompleteNoti","type":"UnityEngine.Animator","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"popup","type":"UnityEngine.GameObject","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''Popup
+    UI''"]},{"name":"SerializeField","args":[]}]},{"assembly":"Unity.TextMeshPro","name":"popupContent","type":"TMPro.TMP_InputField","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.UI","name":"popupOkButton","type":"UnityEngine.UI.Button","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"SerializeField","args":[]}]},{"assembly":"UnityEngine.CoreModule","name":"rtForShotTaking","type":"UnityEngine.RenderTexture","isArray":false,"initValue":[],"enumKeys":[],"enumValues":[],"attributes":[{"name":"Header","args":["''RTs''"]},{"name":"SerializeField","args":[]}]}],"name":"MagicCameraShotTaking","description":""},"isCompiled":true}'
+  typescriptHash: bbbda828750f4d2ca446d3961774a72b
+  onlyWriteTrigger: 0

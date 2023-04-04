@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 5b4c71d6da7698d4e9ed5ef05a15efbf
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: '{"source":"\"use strict\";\r\nObject.defineProperty(exports, \"__esModule\",
+    { value: true });\r\nconst ZEPETO_Script_1 = require(\"ZEPETO.Script\");\r\nconst
+    UnityEngine_1 = require(\"UnityEngine\");\r\nclass Destroyer extends ZEPETO_Script_1.ZepetoScriptBehaviour
+    {\r\n    Awake() {\r\n        UnityEngine_1.GameObject.Destroy(this.gameObject);\r\n   
+    }\r\n}\r\nexports.default = Destroyer;\r\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRGVzdHJveWVyLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiRGVzdHJveWVyLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsaURBQXFEO0FBQ3JELDZDQUF1QztBQUV2QyxNQUFxQixTQUFVLFNBQVEscUNBQXFCO0lBRWhELEtBQUs7UUFDVCx3QkFBVSxDQUFDLE9BQU8sQ0FBQyxJQUFJLENBQUMsVUFBVSxDQUFDLENBQUM7SUFDeEMsQ0FBQztDQUNKO0FBTEQsNEJBS0MifQ==","assetPath":"Assets/Utility/Destroyer.ts","manifest":{"properties":[],"name":"Destroyer","description":""},"isCompiled":true}'
+  typescriptHash: 77cac781a805b0d2cae04ade2b5b440a
+  onlyWriteTrigger: 0

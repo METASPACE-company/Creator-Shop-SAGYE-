@@ -1,0 +1,38 @@
+fileFormatVersion: 2
+guid: 52f1fd68f5a76174f824825b22fc8742
+importerOverride: ZEPETO.Script.Compiler:ZEPETO.Script:TypescriptAssetImporter
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: -1123457745, guid: 54cf806323ffe4418a4ce4cc63fe6b9d, type: 3}
+  isAssemblyDeclarations: 0
+  assembly: 
+  generateAllTypes: 1
+  types: []
+  generateWrapper: 0
+  overrideWrapperTypes: 0
+  wrapperTypes: []
+  WrapperFilters: []
+  wrapperOutputDirectory: Generated
+  compiledResult: "{\"source\":\"\\\"use strict\\\";\\r\\nObject.defineProperty(exports,
+    \\\"__esModule\\\", { value: true });\\r\\nconst ZEPETO_Script_1 = require(\\\"ZEPETO.Script\\\");\\r\\nconst
+    ZEPETO_World_1 = require(\\\"ZEPETO.World\\\");\\r\\nconst ZEPETO_Character_Controller_1
+    = require(\\\"ZEPETO.Character.Controller\\\");\\r\\nclass MoveToWorld extends
+    ZEPETO_Script_1.ZepetoScriptBehaviour {\\r\\n    constructor() {\\r\\n       
+    super(...arguments);\\r\\n        this.WorldId = \\\"com.metaspace.idolsimulator\\\";
+    //ex: com.default.jumpworld\\r\\n    }\\r\\n    Start() {\\r\\n        ZEPETO_Character_Controller_1.ZepetoPlayers.instance.OnAddedLocalPlayer.AddListener(()
+    => {\\r\\n            this.zepetoCharacter = ZEPETO_Character_Controller_1.ZepetoPlayers.instance.LocalPlayer.zepetoPlayer.character;\\r\\n       
+    });\\r\\n    }\\r\\n    OnTriggerEnter(collider) {\\r\\n        if (this.zepetoCharacter
+    == null || collider.gameObject != this.zepetoCharacter.gameObject)\\r\\n           
+    return;\\r\\n        ZEPETO_World_1.ZepetoWorldContent.MoveToWorld(this.WorldId,
+    (errCode, errMsg) => {\\r\\n            //\uC5D0\uB7EC \uCF5C\uBC31 \uCC98\uB9AC
+    \uC608\uC2DC (\uC2E4\uC81C \uAD6C\uD604\uC2DC \uD31D\uC5C5 \uCC3D\uC744 \uB744\uC6B0\uB294
+    \uB4F1 \uB2E4\uC591\uD55C \uBC29\uC2DD\uC73C\uB85C \uAD6C\uD604\uD574 \uBCF4\uC138\uC694)\\r\\n           
+    console.log(`${errCode} - ${errMsg}`);\\r\\n        });\\r\\n    }\\r\\n}\\r\\nexports.default
+    = MoveToWorld;\\r\\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiUG9ydGFsLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiUG9ydGFsLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7O0FBQUEsaURBQXNEO0FBRXRELCtDQUFrRDtBQUlsRCw2RUFBMkY7QUFFM0YsTUFBcUIsV0FBWSxTQUFRLHFDQUFxQjtJQUE5RDs7UUFHWSxZQUFPLEdBQVcsNkJBQTZCLENBQUMsQ0FBQywyQkFBMkI7SUFleEYsQ0FBQztJQWJHLEtBQUs7UUFDRCwyQ0FBYSxDQUFDLFFBQVEsQ0FBQyxrQkFBa0IsQ0FBQyxXQUFXLENBQUMsR0FBRyxFQUFFO1lBQ3ZELElBQUksQ0FBQyxlQUFlLEdBQUcsMkNBQWEsQ0FBQyxRQUFRLENBQUMsV0FBVyxDQUFDLFlBQVksQ0FBQyxTQUFTLENBQUM7UUFDckYsQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0lBQ0QsY0FBYyxDQUFDLFFBQWtCO1FBQzdCLElBQUksSUFBSSxDQUFDLGVBQWUsSUFBSSxJQUFJLElBQUksUUFBUSxDQUFDLFVBQVUsSUFBSSxJQUFJLENBQUMsZUFBZSxDQUFDLFVBQVU7WUFDdEYsT0FBTztRQUNYLGlDQUFrQixDQUFDLFdBQVcsQ0FBQyxJQUFJLENBQUMsT0FBTyxFQUFFLENBQUMsT0FBTyxFQUFFLE1BQU0sRUFBRSxFQUFFO1lBQzdELG1EQUFtRDtZQUNuRCxPQUFPLENBQUMsR0FBRyxDQUFDLEdBQUcsT0FBTyxNQUFNLE1BQU0sRUFBRSxDQUFDLENBQUM7UUFDMUMsQ0FBQyxDQUFDLENBQUM7SUFDUCxDQUFDO0NBQ0o7QUFsQkQsOEJBa0JDIn0=\",\"assetPath\":\"Assets/Script/Portal.ts\",\"manifest\":{\"properties\":[],\"name\":\"MoveToWorld\",\"description\":\"\"},\"isCompiled\":true}"
+  typescriptHash: ab6fc30a0e0686b367f95f957a875084
+  onlyWriteTrigger: 0
